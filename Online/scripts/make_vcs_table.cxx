@@ -49,10 +49,10 @@ void make_vcs_table() {
     fmt::print(" {:^8} ", "start");
     fmt::print(" {:^17} ", "end time");
     fmt::print(" {:^14} ", "HMS e yield");
-    fmt::print(" {:^14} ", "SHMS e yield");
-    fmt::print(" {:>7} ", "VCS");
-    fmt::print(" {:>7} ", "pi0");
-    fmt::print(" {:>7} ", "other");
+    fmt::print(" {:^14} ", "SHMS h yield");
+    fmt::print(" {:>7} ", "peak1");
+    fmt::print(" {:>7} ", "peak2");
+    fmt::print(" {:>7} ", "peak3");
     fmt::print(" {:>7} ", "Q [mC]");
     fmt::print(" {:<} ", "comment");
     std::cout << "\n";
@@ -138,13 +138,13 @@ void make_vcs_table() {
     if (vcsdb.count(it.key()) != 0) {
       try {
 
-        double n_VCS = vcsdb[it.key()]["missing_mass"]["VCS"]["integral"].get<double>();
-        double n_pi0 = vcsdb[it.key()]["missing_mass"]["pi0"]["integral"].get<double>();
-        double n_other = vcsdb[it.key()]["missing_mass"]["zz_other"]["integral"].get<double>();
+        double n_peak1 = vcsdb[it.key()]["missing_mass"]["peak1"]["integral"].get<double>();
+        double n_peak2 = vcsdb[it.key()]["missing_mass"]["peak2"]["integral"].get<double>();
+        double n_peak3 = vcsdb[it.key()]["missing_mass"]["peak3"]["integral"].get<double>();
         if (charge > 0) {
-          fmt::print(" {:>7.1f} ", n_VCS  / charge);
-          fmt::print(" {:>7.1f} ", n_pi0  / charge);
-          fmt::print(" {:>7.1f} ", n_other  / charge);
+          fmt::print(" {:>7.1f} ", n_peak1  / charge);
+          fmt::print(" {:>7.1f} ", n_peak2  / charge);
+          fmt::print(" {:>7.1f} ", n_peak3  / charge);
           fmt::print(" {:>7.1f} ", charge);
         } else {
           fmt::print(" {:>9} ", "");

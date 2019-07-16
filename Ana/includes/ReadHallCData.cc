@@ -810,7 +810,6 @@ int ReadHallCData::DrawHist(string process, int run){
       db[run_str]["timing"][peak_names[i]]["background_avg"] = sum_bkg_av;
       db[run_str]["timing"][peak_names[i]]["background_low"] = sum_bkg_low;
       db[run_str]["timing"][peak_names[i]]["background_high"] = sum_bkg_up;
-      db[run_str]["timing"][peak_names[i]]["index"] = itag[i];
       db[run_str]["timing"][peak_names[i]]["max"] = max_mem[i];
     }
     // step 3. --> write database
@@ -1234,13 +1233,12 @@ int ReadHallCData::DrawHist(string process, int run){
     auto db = ReadJSON(db_fname);
     // step 2. --> Add info to database
     const std::string run_str = std::to_string(run);
-    std::vector<std::string> peak_names = {"VCS", "pi0", "zz_other"};
+    std::vector<std::string> peak_names = {"peak1", "peak2", "peak3"};
     for (int i = 0; i < 3; ++i) {
       db[run_str]["missing_mass"][peak_names[i]]["mass"] = pos_mem[i];
       db[run_str]["missing_mass"][peak_names[i]]["integral"] = mass_integral[i];
       db[run_str]["missing_mass"][peak_names[i]]["sigma"] = mass_sum1s[i];
       db[run_str]["missing_mass"][peak_names[i]]["sum_tot"] = int_mem[i];
-      db[run_str]["missing_mass"][peak_names[i]]["index"] = itag[i];
       db[run_str]["missing_mass"][peak_names[i]]["max"] = max_mem[i];
     }
     // step 3. --> write database
