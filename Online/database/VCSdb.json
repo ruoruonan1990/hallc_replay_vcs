@@ -1,61 +1,67 @@
 {
     "8585": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 0.0,
+                "active_time": 22.652000427246094,
+                "luminosity": 0.0
+            },
+            "SHMS": {
+                "B2_current_cut": 0.0,
+                "active_time": 22.652000427246094,
+                "luminosity": 0.0
+            }
+        },
         "missing_mass": {
             "peak1": {
-                "index": -1,
-                "integral": 0.0,
-                "mass": -1.0,
-                "max": 0.0,
-                "sigma": 6.9527371044242e-310,
-                "sum_tot": 0.0
+                "integral": 0.7762555298596054,
+                "mass": 0.5299999713897705,
+                "max": 1.8333333730697632,
+                "sigma": 2.696078489808475,
+                "sum_tot": 1.6666667461395264
             },
             "peak2": {
-                "index": 0,
-                "integral": 0.0,
-                "mass": -1.0,
-                "max": 0.0,
-                "sigma": 6.95273710443465e-310,
-                "sum_tot": 0.0
+                "integral": 0.6266569894647206,
+                "mass": -0.15000000596046448,
+                "max": 1.0,
+                "sigma": 1.4705882352941175,
+                "sum_tot": 1.0
             },
             "peak3": {
-                "index": 0,
-                "integral": 2.52517499179e-312,
-                "mass": -1.0,
-                "max": 0.0,
-                "sigma": 1.93101617002e-312,
-                "sum_tot": 0.0
+                "integral": 0.6266569894647206,
+                "mass": 0.12999999523162842,
+                "max": 1.0,
+                "sigma": 1.4705882352941175,
+                "sum_tot": 0.8333333134651184
             }
         },
         "timing": {
             "peak1": {
-                "background_avg": 0.0,
-                "background_high": 0.0,
-                "background_low": 0.0,
-                "delay": -1.0,
-                "events": 0.0,
-                "index": -1,
-                "max": 0.0,
-                "raw_events": 0.0
+                "background_avg": 4.75,
+                "background_high": 7.0,
+                "background_low": 2.5,
+                "delay": -1.25,
+                "events": 10.25,
+                "max": 2.0,
+                "raw_events": 15.0
             },
             "peak2": {
-                "background_avg": 0.0,
-                "background_high": 0.0,
-                "background_low": 0.0,
-                "delay": 0.0,
-                "events": 0.0,
-                "index": 0,
-                "max": 0.0,
-                "raw_events": 0.0
+                "background_avg": 4.75,
+                "background_high": 7.0,
+                "background_low": 2.5,
+                "delay": -1.9500000476837158,
+                "events": 7.25,
+                "max": 1.0,
+                "raw_events": 12.0
             },
             "peak3": {
-                "background_avg": 0.0,
-                "background_high": 0.0,
-                "background_low": 0.0,
-                "delay": 0.0,
-                "events": 0.0,
-                "index": 0,
-                "max": 0.0,
-                "raw_events": 0.0
+                "background_avg": 4.75,
+                "background_high": 7.0,
+                "background_low": 2.5,
+                "delay": -0.25,
+                "events": 6.25,
+                "max": 2.0,
+                "raw_events": 11.0
             }
         }
     }
