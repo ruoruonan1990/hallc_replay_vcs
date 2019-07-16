@@ -18,7 +18,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		iChain->Add(Form("%s",vector_name[i].c_str())); 
 	}
 	test=Init();
-	if (test=0 || iChain == 0){
+	if (test==0 || iChain == 0){
 		cout<<"problem init files, tree not found"<<endl;
 		return;
 	}
@@ -369,8 +369,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 			V_Normal_Final = (LV_virtual.Vect().Cross(LV_proton_out_data.Vect())).Unit();
 			Phi_data = TMath::ACos(V_Normal_Mu * V_Normal_Final);
 			Phi_data = 360.-Phi_data*180./PI;
-			if ( (V_Normal_Mu *LV_gamma_out_data.Vect()) > 0.) Phi_data = Phi_data;
-			else Phi_data = 360.-Phi_data;
+			if ( (V_Normal_Mu *LV_gamma_out_data.Vect()) < 0.)  Phi_data = 360.-Phi_data;
 			PinCM = M_Proton*LV_virtual.P()/W_data;
 			if (process.compare("vcs")==0 || process.compare("vcsLT")==0 || process.compare("pi0")==0 || process.compare("pi0LT")==0){
 				if (process.compare("pi0")==0 || process.compare("pi0LT")==0) {
@@ -2809,6 +2808,7 @@ int ReadHallCData::InitBranch(){
    iChain->SetBranchAddress("fEvtHdr.fTargetPol", &fEvtHdr_fTargetPol, &b_Event_Branch_fEvtHdr_fTargetPol);
    iChain->SetBranchAddress("fEvtHdr.fRun", &fEvtHdr_fRun, &b_Event_Branch_fEvtHdr_fRun);
    Notify();
+  return 1;
 }
 
 
