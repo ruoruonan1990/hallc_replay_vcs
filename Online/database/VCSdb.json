@@ -1,7 +1,7 @@
 {
     "8585": {
         "missing_mass": {
-            "VCS": {
+            "peak1": {
                 "index": -1,
                 "integral": 0.0,
                 "mass": -1.0,
@@ -9,7 +9,7 @@
                 "sigma": 6.9527371044242e-310,
                 "sum_tot": 0.0
             },
-            "pi0": {
+            "peak2": {
                 "index": 0,
                 "integral": 0.0,
                 "mass": -1.0,
@@ -17,7 +17,7 @@
                 "sigma": 6.95273710443465e-310,
                 "sum_tot": 0.0
             },
-            "zz_other": {
+            "peak3": {
                 "index": 0,
                 "integral": 2.52517499179e-312,
                 "mass": -1.0,
