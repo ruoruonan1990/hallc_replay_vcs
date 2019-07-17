@@ -183,6 +183,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		h_CTime_epCoinTime_TRIG2[0]->Fill(CTime_epCoinTime_TRIG4-time_shift);
 	
 		h_encal_hms->Fill(H_cal_etotnorm);
+		h_encal_hms->Fill(P_cal_etotnorm);
 		h_cer_npe_hms->Fill(H_cer_npeSum);
 		h_aero_npe_shms->Fill(P_aero_npeSum);
 		h_hgcer_npe_shms->Fill(P_hgcer_npeSum);
@@ -604,17 +605,18 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 int ReadHallCData::InitHist(){
 
 	h_encal_hms = new TH1F("h_encal_hms","energy cal HMS;E (GeV);events", hms_en_bins, hms_en_min,hms_en_max);
+	h_encal_shms = new TH1F("h_encal_shms","energy cal SHMS;E (GeV);events", shms_en_bins, shms_en_min, shms_en_max);
 	h_cer_npe_hms= new TH1F("h_cer_npe_hms","npe cer HMS;npe;events", (int)(hms_cer_npe_max-hms_cer_npe_min),hms_cer_npe_min,hms_cer_npe_max);
 	h_aero_npe_shms= new TH1F("h_aero_npe_shms","npe aerogel HMS;npe;events", (int)(shms_aero_npe_max-shms_aero_npe_min), shms_aero_npe_min, shms_aero_npe_max);
 	h_hgcer_npe_shms= new TH1F("h_hgcer_npe_shms",";npe hgcer;events", (int)(shms_hg_npe_max-shms_hg_npe_min), shms_hg_npe_min, shms_hg_npe_max);
-	h_delta_hms= new TH1F("h_delta_hms","#Delta p HMS;#Delta p HMS;events",120,-30,30);
-	h_delta_shms= new TH1F("h_delta_shms","#Delta p SHMS;# p SHMS;events",120,-30,50);
-	h_phi_hms= new TH1F("h_phi_hms","#phi HMS;#phi;events",120,-0.12,0.12);
-	h_theta_hms= new TH1F("h_theta_hms","#theta HMS;#theta;events",120,-0.12,0.12);
-	h_phi_shms= new TH1F("h_phi_shms","#phi SHMS;E (GeV);events",120,-0.12,0.12);
-	h_theta_shms= new TH1F("h_theta_shms","#theta SHMS;E (GeV);events",120,-0.12,0.12);
-	h2_encal_cer= new TH2F("h_encal_cer","HMS npe cer vs energy cal;E (GeV);npe",100,0,1.15,30,0,30 );
-	h2_aero_hgcer_npe= new TH2F("h_aero_hgcer_npe","SHMS npe hgcer vs aero;npe;npe",25,0,25,10,0,10);
+	h_delta_hms= new TH1F("h_delta_hms","#Delta p HMS;#Delta p HMS;events",hms_delta_bins, hms_delta_min, hms_delta_max);
+	h_delta_shms= new TH1F("h_delta_shms","#Delta p SHMS;# p SHMS;events", shms_delta_bins, shms_delta_min, shms_delta_max);
+	h_phi_hms= new TH1F("h_phi_hms","#phi HMS;#phi;events", hms_phi_bins, hms_phi_min, hms_phi_max);
+	h_theta_hms= new TH1F("h_theta_hms","#theta HMS;#theta;events", hms_th_bins, hms_th_min, hms_th_max);
+	h_phi_shms= new TH1F("h_phi_shms","#phi SHMS;E (GeV);events", shms_phi_bins, shms_phi_min, shms_phi_max);
+	h_theta_shms= new TH1F("h_theta_shms","#theta SHMS;E (GeV);events", shms_th_bins, shms_th_min, shms_th_max);
+	h2_encal_cer= new TH2F("h_encal_cer","HMS npe cer vs energy cal;E (GeV);npe", hms_en_bins/2, hms_en_min,hms_en_max, (int)(hms_cer_npe_max-hms_cer_npe_min),hms_cer_npe_min,hms_cer_npe_max  );
+	h2_aero_hgcer_npe= new TH2F("h_aero_hgcer_npe","SHMS npe hgcer vs aero;npe;npe", (int)(shms_hg_npe_max-shms_hg_npe_min), shms_hg_npe_min, shms_hg_npe_max,(int)(shms_aero_npe_max-shms_aero_npe_min), shms_aero_npe_min, shms_aero_npe_max);
 
 	for (int i=0; i<5; i++){
 	
@@ -670,7 +672,7 @@ int ReadHallCData::InitHist(){
 
 int ReadHallCData::DeleteHist(){
 
-	h_encal_hms->Delete(); 
+	h_encal_shms->Delete(); h_encal_hms->Delete(); 
 	h_cer_npe_hms->Delete();
 	h_aero_npe_shms->Delete();
 	h_hgcer_npe_shms->Delete();
@@ -864,9 +866,10 @@ int ReadHallCData::DrawHist(string process, int run){
 	c1->cd(3); h2_encal_cer->Draw("colz");
 	c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/positions_%d.pdf(",run));
 	c1->Clear(); c1->Divide(2,2);
-	c1->cd(1); h_aero_npe_shms->Draw();
-	c1->cd(2); h_hgcer_npe_shms->Draw();
-	c1->cd(3); h2_aero_hgcer_npe->Draw("colz");
+	c1->cd(1); h_encal_shms->Draw();
+	c1->cd(2); h_aero_npe_shms->Draw();
+	c1->cd(3); h_hgcer_npe_shms->Draw();
+	c1->cd(4); h2_aero_hgcer_npe->Draw("colz");
 	c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/positions_%d.pdf",run));
 	c1->Clear(); c1->Divide(2,2);
 	c1->cd(1); h_delta_hms->Draw();
