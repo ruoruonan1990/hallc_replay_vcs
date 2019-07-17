@@ -1,13 +1,13 @@
 #!/bin/tcsh
 
-set rep="/home/cdaq/vcs2019/hallc_replay_vcs/Ana/datainfo"
+set rep=`pwd`
 set runlist="${rep}/runlist/runlist.txt"
 
 set run=`more $runlist | awk '{printf $1 " "}'`
 
-set tri="mergedruninfo/trigger_mergedruninfo.txt"
-set rui="mergedruninfo/run_mergedruninfo.txt"
-set efi="mergedruninfo/eff_mergedruninfo.txt"
+set tri="${rep}/mergedruninfo/trigger_mergedruninfo.txt"
+set rui="${rep}/mergedruninfo/run_mergedruninfo.txt"
+set efi="${rep}/mergedruninfo/eff_mergedruninfo.txt"
 rm $tri $rui $efi
 touch $tri $rui $efi
 

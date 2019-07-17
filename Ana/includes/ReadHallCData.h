@@ -48,6 +48,7 @@
 #include "Utils.h"
 #include "ReadTextFiles.h"
 #include "Constants.h"
+#include "Parameters.h"
 using namespace std;
 
 class ReadHallCData {

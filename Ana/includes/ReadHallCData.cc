@@ -23,7 +23,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		return;
 	}
 	cout<<"number of entries in Chain: "<<iChain->GetEntries()<<endl;	
-	
+  
 	cout<<"Read cuts"<<endl;
 	test=ReadHeader(inc);
 	if (!test){ cout<<"don't find option / cut file FATAL ERROR"<<endl; return; }
@@ -48,6 +48,8 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 	cout<<"SHMS beta min, max = "<<shms_beta_min<<" "<<shms_beta_max<<endl;
 	cout<<"Start producing the new Tree"<<endl;
 	
+  InitBins(process);
+
 	runindex=runID;
 	test = FillSingleRunRunInfos(process, runID, Eb, targetmass, HMS_p_central, SHMS_p_central, HMS_th_central, SHMS_th_central, HMS_run_l, SHMS_run_l, 
 				     HMS_B2_cur, SHMS_B2_cur, HMS_B4_cut, SHMS_B4_cut, HMS_act_time, SHMS_act_time, HMS_B2_cur_cut, SHMS_B2_cur_cut, HMS_live, SHMS_live);
@@ -566,8 +568,8 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		}
 
 	}
-	gDirectory->ls("-m");
-	HallCTree->Print();
+	//gDirectory->ls("-m");
+	//HallCTree->Print();
 	file->Write();
 	file->Close();
 	
@@ -601,10 +603,10 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 
 int ReadHallCData::InitHist(){
 
-	h_encal_hms = new TH1F("h_encal_hms","energy cal HMS;E (GeV);events",100,0,1.25);
-	h_cer_npe_hms= new TH1F("h_cer_npe_hms","npe cer HMS;npe;events",30,0,30);
-	h_aero_npe_shms= new TH1F("h_aero_npe_shms","npe aerogel HMS;npe;events",25,0,25);
-	h_hgcer_npe_shms= new TH1F("h_hgcer_npe_shms",";npe hgcer;events",10,0,10);
+	h_encal_hms = new TH1F("h_encal_hms","energy cal HMS;E (GeV);events", hms_en_bins, hms_en_min,hms_en_max);
+	h_cer_npe_hms= new TH1F("h_cer_npe_hms","npe cer HMS;npe;events", (int)(hms_cer_npe_max-hms_cer_npe_min),hms_cer_npe_min,hms_cer_npe_max);
+	h_aero_npe_shms= new TH1F("h_aero_npe_shms","npe aerogel HMS;npe;events", (int)(shms_aero_npe_max-shms_aero_npe_min), shms_aero_npe_min, shms_aero_npe_max);
+	h_hgcer_npe_shms= new TH1F("h_hgcer_npe_shms",";npe hgcer;events", (int)(shms_hg_npe_max-shms_hg_npe_min), shms_hg_npe_min, shms_hg_npe_max);
 	h_delta_hms= new TH1F("h_delta_hms","#Delta p HMS;#Delta p HMS;events",120,-30,30);
 	h_delta_shms= new TH1F("h_delta_shms","#Delta p SHMS;# p SHMS;events",120,-30,50);
 	h_phi_hms= new TH1F("h_phi_hms","#phi HMS;#phi;events",120,-0.12,0.12);
@@ -616,47 +618,47 @@ int ReadHallCData::InitHist(){
 
 	for (int i=0; i<5; i++){
 	
-		h_CTime_epCoinTime_ROC1[i] = new TH1F(Form("h_CTime_epCoinTime_ROC1[%d]",i),"coin time roc 1 - delay;time (ns);events", 600, -30, 30);
-		h_CTime_epCoinTime_ROC2[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2[%d]",i),"coin time roc 2 - delay;time (ns);events", 600, -30, 30);
-		h_CTime_epCoinTime_ROC2_large[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2_large[%d]",i),"coin time roc 2 absolute;time (ns);events", 600, 0, 200);
-		h_CTime_epCoinTime_TRIG1[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG1[%d]",i),"trigger 1 time - delay;time (ns);events", 500, -500, 500);
-		h_CTime_epCoinTime_TRIG2[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG2[%d]",i),"trigger 4 time - delay;time (ns);events", 500, -500, 500);
-		h_Pmom[i] = new TH1F(Form("h_Pmom[%d]",i),"HMS mom.;p_{P} (GeV);events",100,0,4.5);	
-		h_elmom[i] = new TH1F(Form("h_elmom[%d]",i),"SHMS mom.;p_{e} (GeV);events",100,0,4.5);	
-		h_gmom[i] = new TH1F(Form("h_gmom[%d]",i),"missing mom. (g);p_{miss} (GeV);events",100,0,3);	
-		h_Emiss[i] = new TH1F(Form("h_Emiss[%d]",i),"missing energy;E_{miss} (GeV);events",100,-0.5,1.5);	
-		h_Mmiss[i] = new TH1F(Form("h_Mmiss[%d]",i),"missing mass;M_{miss} (GeV);events",100,-0.5,1.5); // CHANGE!!!	
-		h_M2miss[i] = new TH1F(Form("h_M2miss[%d]",i),"missing mass sq;M^{2}_{miss} (GeV^{2});events",100,-0.5,1.5);	
-		h_PTmiss[i] = new TH1F(Form("h_PTmiss[%d]",i),"missing PT;P_{T,miss} (GeV);events",100,0,0.5);	
-		h_PT2miss[i] = new TH1F(Form("h_PT2miss[%d]",i),"missing PT2;P_{T,miss}^{2} (GeV^{2});events",100,0,3);	
-		h_Q2[i] = new TH1F(Form("h_Q2[%d]",i),"Q^{2};Q^{2} (GeV^{2});events", 50, 0, 1);
-		h_epsilon[i] = new TH1F(Form("h_epsilon[%d]",i),"#epsilon;#epsilon;events", 50, 0, 1);
-		h_Xbj[i] = new TH1F(Form("h_Xbj[%d]",i),"x_{bj};x_{bj};events", 50, 0, 1);
-		h_CosThCM[i] = new TH1F(Form("h_CosThCM[%d]",i),"cos(#Theta_{CM});cos(#Theta_{CM});events", 50, -1, 1);
-		h_ThCM[i] = new TH1F(Form("h_ThCM[%d]",i),"#Theta_{CM};#Theta_{CM} (deg.);events", 50, 0, 180);
-		h_mt[i] = new TH1F(Form("h_mt[%d]",i),"-t;-t (GeV^{2});events", 50, 0.2, 3);
-		h_W[i] = new TH1F(Form("h_W[%d]",i),"W;W (GeV);events", 50, 0.7, 3);
-		h_nu[i] = new TH1F(Form("h_nu[%d]",i),"#nu;#nu (GeV);events", 50, 0, 4.55);
-		h_Phi[i] = new TH1F(Form("h_Phi[%d]",i),"#Phi;#Phi (deg.);events", 50, 0, 360);
+		h_CTime_epCoinTime_ROC1[i] = new TH1F(Form("h_CTime_epCoinTime_ROC1[%d]",i),"coin time roc 1 - delay;time (ns);events", rel_time_bins, rel_time_min,rel_time_max);
+		h_CTime_epCoinTime_ROC2[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2[%d]",i),"coin time roc 2 - delay;time (ns);events", rel_time_bins, rel_time_min,rel_time_max);
+		h_CTime_epCoinTime_ROC2_large[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2_large[%d]",i),"coin time roc 2 absolute;time (ns);events", abs_time_bins, abs_time_min,abs_time_max);
+		h_CTime_epCoinTime_TRIG1[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG1[%d]",i),"trigger 1 time - delay;time (ns);events",trig_time_bins, trig_time_min,trig_time_max);
+		h_CTime_epCoinTime_TRIG2[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG2[%d]",i),"trigger 4 time - delay;time (ns);events", trig_time_bins, trig_time_min,trig_time_max);
+		h_Pmom[i] = new TH1F(Form("h_Pmom[%d]",i),"HMS mom.;p_{P} (GeV);events",hms_mom_bins,hms_mom_min, hms_mom_max);	
+		h_elmom[i] = new TH1F(Form("h_elmom[%d]",i),"SHMS mom.;p_{e} (GeV);events", shms_mom_bins, shms_mom_min, shms_mom_max);	
+		h_gmom[i] = new TH1F(Form("h_gmom[%d]",i),"missing mom. (g);p_{miss} (GeV);events",miss_mom_bins, miss_mom_min, miss_mom_max);	
+		h_Emiss[i] = new TH1F(Form("h_Emiss[%d]",i),"missing energy;E_{miss} (GeV);events",Emiss_bins, Emiss_min, Emiss_max);	
+		h_Mmiss[i] = new TH1F(Form("h_Mmiss[%d]",i),"missing mass;M_{miss} (GeV);events",Mmiss_bins,Mmiss_min,Mmiss_max);	
+		h_M2miss[i] = new TH1F(Form("h_M2miss[%d]",i),"missing mass sq;M^{2}_{miss} (GeV^{2});events",M2miss_bins,M2miss_min,M2miss_max);	
+		h_PTmiss[i] = new TH1F(Form("h_PTmiss[%d]",i),"missing PT;P_{T,miss} (GeV);events",PTmiss_bins, PTmiss_min, PTmiss_max);	
+		h_PT2miss[i] = new TH1F(Form("h_PT2miss[%d]",i),"missing PT2;P_{T,miss}^{2} (GeV^{2});events",PT2miss_bins, PT2miss_min, PT2miss_max);	
+		h_Q2[i] = new TH1F(Form("h_Q2[%d]",i),"Q^{2};Q^{2} (GeV^{2});events", Q2_bins, Q2_min, Q2_max);
+		h_epsilon[i] = new TH1F(Form("h_epsilon[%d]",i),"#epsilon;#epsilon;events", eps_bins, eps_min, eps_max);
+		h_Xbj[i] = new TH1F(Form("h_Xbj[%d]",i),"x_{bj};x_{bj};events", xbj_bins, xbj_min, xbj_max);
+		h_CosThCM[i] = new TH1F(Form("h_CosThCM[%d]",i),"cos(#Theta_{CM});cos(#Theta_{CM});events", costh_bins, costh_min, costh_max);
+		h_ThCM[i] = new TH1F(Form("h_ThCM[%d]",i),"#Theta_{CM};#Theta_{CM} (deg.);events", th_bins, th_min, th_max);
+		h_mt[i] = new TH1F(Form("h_mt[%d]",i),"-t;-t (GeV^{2});events", mt_bins, mt_min, mt_max);
+		h_W[i] = new TH1F(Form("h_W[%d]",i),"W;W (GeV);events", W_bins, W_min, W_max);
+		h_nu[i] = new TH1F(Form("h_nu[%d]",i),"#nu;#nu (GeV);events", nu_bins, nu_min, nu_max);
+		h_Phi[i] = new TH1F(Form("h_Phi[%d]",i),"#Phi;#Phi (deg.);events", phi_bins, phi_min, phi_max);
 
-		h2_Q2W[i] = new TH2F(Form("h2_Q2W[%d]",i),"W vs Q^{2};Q^{2} (GeV^{2}); W (GeV)",50,0.2,1.5, 50,0.7, 3);
-		h2_XQ2[i] = new TH2F(Form("h2_XQ2[%d]",i),"Q^{2} vs x_{bj};x_{bj}; Q^{2} (GeV^{2})",50,0.,0.5, 50,0.2, 1.5);
-		h2_Q2mt[i] = new TH2F(Form("h2_Q2mt[%d]",i),"-t vs Q^{2};Q^{2} (GeV^{2}); -t (GeV^{2})",50,0.2,1.5, 50,0.2, 3);
-		h2_ThCMPhi[i] = new TH2F(Form("h2_ThCMPhi[%d]",i),"#Theta_{CM} vs #Phi;#Phi (deg.);#Theta_{CM} (deg.)",50,0,360, 50,0, 180);
-		h2_nuep[i] = new TH2F(Form("h2_nuep[%d]",i),"#epsilon vs #nu;#nu (GeV);#epsilon",50,0,4.5, 50,0.5, 1);
-		h2_Q2Th[i] = new TH2F(Form("h2_Q2Th[%d]",i),"#Theta_{CM} vs Q^{2};Q^{2} (GeV^{2});#Theta_{CM} (deg.)",50,0.2, 1.5, 50,0, 180);
-		h2_WTh[i] = new TH2F(Form("h2_WTh[%d]",i),"#Theta_{CM} vs W;W (GeV);#Theta_{CM} (deg.)",50,0.7,3, 50, 0, 180);
-		h2_mtTh[i] = new TH2F(Form("h2_mtTh[%d]",i),"#Theta_{CM} vs -t;-t (GeV2);#Theta_{CM} (deg.)",50,0.2,3, 50,0, 180);
+		h2_Q2W[i] = new TH2F(Form("h2_Q2W[%d]",i),"W vs Q^{2};Q^{2} (GeV^{2}); W (GeV)",Q2_bins/2, Q2_min, Q2_max, W_bins/2, W_min, W_max);
+		h2_XQ2[i] = new TH2F(Form("h2_XQ2[%d]",i),"Q^{2} vs x_{bj};x_{bj}; Q^{2} (GeV^{2})", xbj_bins/2, xbj_min, xbj_max, Q2_bins/2, Q2_min, Q2_max);
+		h2_Q2mt[i] = new TH2F(Form("h2_Q2mt[%d]",i),"-t vs Q^{2};Q^{2} (GeV^{2}); -t (GeV^{2})",  Q2_bins/2, Q2_min, Q2_max, mt_bins/2, mt_min, mt_max);
+		h2_ThCMPhi[i] = new TH2F(Form("h2_ThCMPhi[%d]",i),"#Theta_{CM} vs #Phi;#Phi (deg.);#Theta_{CM} (deg.)", phi_bins/2, phi_min, phi_max, th_bins/2, th_min, th_max);
+		h2_nuep[i] = new TH2F(Form("h2_nuep[%d]",i),"#epsilon vs #nu;#nu (GeV);#epsilon",nu_bins/2, nu_min, nu_max, eps_bins/2, eps_min, eps_max);
+		h2_Q2Th[i] = new TH2F(Form("h2_Q2Th[%d]",i),"#Theta_{CM} vs Q^{2};Q^{2} (GeV^{2});#Theta_{CM} (deg.)",Q2_bins/2, Q2_min, Q2_max,th_bins/2, th_min, th_max);
+		h2_WTh[i] = new TH2F(Form("h2_WTh[%d]",i),"#Theta_{CM} vs W;W (GeV);#Theta_{CM} (deg.)", W_bins/2, W_min, W_max, th_bins/2, th_min, th_max);
+		h2_mtTh[i] = new TH2F(Form("h2_mtTh[%d]",i),"#Theta_{CM} vs -t;-t (GeV2);#Theta_{CM} (deg.)",mt_bins/2, mt_min, mt_max, th_bins/2, th_min, th_max);
 
-		h2_Pebeta[i] = new TH2F(Form("h2_Pebeta[%d]",i),"HMS #beta vs mom.;E (GeV); #beta",50,0,4.5, 50,0.7, 1.2);
-		h2_elebeta[i] = new TH2F(Form("h2_elebeta[%d]",i),"SHMS #beta vs mom.;E (GeV); #beta",50,0,4.5, 50,0.7, 1.2);
-		h2_COIN_P_beta[i] = new TH2F(Form("h2_COIN_P_beta[%d]",i),"SHMS: #beta vs ROC1 coin time - delay;time (ns); #beta", 600, -30, 30, 50,0.7, 1.2);
-		h2_COIN_H_beta[i] = new TH2F(Form("h2_COIN_H_beta[%d]",i),"HMS: #beta vs ROC1 coin time - delay;time (ns); #beta", 600, -30, 30, 50,0.7, 1.2);
-		h2_Pemom[i] = new TH2F(Form("h2_Pemom[%d]",i),"HMS p vs E;E (GeV); p (GeV)",50,0,4.5, 50,0, 4.5);
-		h2_elemom[i] = new TH2F(Form("h2_elemom[%d]",i),"SHMS p vs E;E (GeV); p (GeV)", 50,0,4.5, 50,0, 4.5);
-		h2_gemom[i] = new TH2F(Form("h2_gemom[%d]",i),"missing p vs E;E_{miss} (GeV); p_{miss} (GeV)",50,0,4.5, 50,0, 4.5);
-		h2_M2miss_CT1[i] = new TH2F(Form("h2_M2miss_CT1[%d]",i),"missing mass sq vs ROC1 time - delay;time (ns);M^{2}_{miss} (GeV^{2})", 600,-30,30,80,-2,2);
-		h2_M2miss_CT2[i] = new TH2F(Form("h2_M2miss_CT2[%d]",i),"missing mass sq vs ROC2 time - delay;time (ns);M^{2}_{miss} (GeV^{2})", 600,-30,30,80, -2, 2);
+		h2_Pebeta[i] = new TH2F(Form("h2_Pebeta[%d]",i),"HMS #beta vs mom.;E (GeV); #beta", hms_mom_bins/2,hms_mom_min, hms_mom_max , hms_beta_bins/2, hms_beta_min, hms_beta_max);
+		h2_elebeta[i] = new TH2F(Form("h2_elebeta[%d]",i),"SHMS #beta vs mom.;E (GeV); #beta", shms_mom_bins/2, shms_mom_min, shms_mom_max , shms_beta_bins/2, shms_beta_min, shms_beta_max);
+		h2_COIN_P_beta[i] = new TH2F(Form("h2_COIN_P_beta[%d]",i),"SHMS: #beta vs ROC1 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min,rel_time_max, hms_beta_bins/2, hms_beta_min, hms_beta_max);
+		h2_COIN_H_beta[i] = new TH2F(Form("h2_COIN_H_beta[%d]",i),"HMS: #beta vs ROC1 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min,rel_time_max, shms_beta_bins/2, shms_beta_min, shms_beta_max);
+		h2_Pemom[i] = new TH2F(Form("h2_Pemom[%d]",i),"HMS p vs E;E (GeV); p (GeV)", hms_mom_bins/2,hms_mom_min, hms_mom_max ,hms_mom_bins/2,hms_mom_min, hms_mom_max );
+		h2_elemom[i] = new TH2F(Form("h2_elemom[%d]",i),"SHMS p vs E;E (GeV); p (GeV)", shms_mom_bins/2, shms_mom_min, shms_mom_max ,shms_mom_bins/2, shms_mom_min, shms_mom_max);
+		h2_gemom[i] = new TH2F(Form("h2_gemom[%d]",i),"missing p vs E;E_{miss} (GeV); p_{miss} (GeV)",miss_mom_bins/2, miss_mom_min, miss_mom_max,miss_mom_bins/2, miss_mom_min, miss_mom_max);
+		h2_M2miss_CT1[i] = new TH2F(Form("h2_M2miss_CT1[%d]",i),"missing mass sq vs ROC1 time - delay;time (ns);M^{2}_{miss} (GeV^{2})", rel_time_bins, rel_time_min,rel_time_max, M2miss_bins,M2miss_min,M2miss_max);
+		h2_M2miss_CT2[i] = new TH2F(Form("h2_M2miss_CT2[%d]",i),"missing mass sq vs ROC2 time - delay;time (ns);M^{2}_{miss} (GeV^{2})",rel_time_bins, rel_time_min,rel_time_max, M2miss_bins,M2miss_min,M2miss_max);
 
 	}
 
@@ -1209,9 +1211,9 @@ int ReadHallCData::DrawHist(string process, int run){
 		gf_par[8] = (float) fgaus2->GetParameter(2);
 		bmin = hM->GetXaxis()->FindBin((gf_par[7]-gf_par[8]));
 		bmax = hM->GetXaxis()->FindBin((gf_par[7]+gf_par[8]));
-		mass_integral[2] = gf_par[6]*sqrt(PI*(2.*pow(gf_par[8],2))) / 0.02;
+		mass_integral[2] = gf_par[6]*sqrt(PI*(2.*pow(gf_par[8],2))) *(M2miss_max-M2miss_min)/((float) M2miss_bins);  
 		if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[2] = hM->Integral(bmin,bmax)/0.68;
-		cout<<" gaus mmass fit par "<<gf_par[6]<<" "<<gf_par[7]<<" "<<gf_par[8]<< " 3sig integral "<<mass_integral[2]<<" sum 1 sigm "<<mass_sum1s[2]<<endl;
+		cout<<" gaus mmass fit par "<<gf_par[6]<<" "<<gf_par[7]<<" "<<gf_par[8]<< " integral "<<mass_integral[2]<<" sum with bkg "<<mass_sum1s[2]<<endl;
 	}
 	
 	out3.open(Form(VCS_REPLAY_PATH "/Ana/files/missmass2_%d.dat", run));
@@ -1236,8 +1238,8 @@ int ReadHallCData::DrawHist(string process, int run){
     for (int i = 0; i < 3; ++i) {
       db[run_str]["missing_mass"][peak_names[i]]["mass"] = pos_mem[i];
       db[run_str]["missing_mass"][peak_names[i]]["integral"] = mass_integral[i];
-      db[run_str]["missing_mass"][peak_names[i]]["sigma"] = mass_sum1s[i];
-      db[run_str]["missing_mass"][peak_names[i]]["sum_tot"] = int_mem[i];
+      db[run_str]["missing_mass"][peak_names[i]]["sum_withbkg"] = mass_sum1s[i];
+      db[run_str]["missing_mass"][peak_names[i]]["sum_firstsel"] = int_mem[i];
       db[run_str]["missing_mass"][peak_names[i]]["max"] = max_mem[i];
     }
     // step 3. --> write database
