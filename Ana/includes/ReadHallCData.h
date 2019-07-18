@@ -86,7 +86,7 @@ class ReadHallCData {
    float HMS_run_l, SHMS_run_l, All_T, lumiexp_HMS, lumiexp_SHMS;
 
    // for tree out
-   int runindex;
+   int runindex, misstimeref[22];
    float ALV_el_out_data[4]; 
    float ALV_gamma_out_data[4]; 
    float ALV_pi_out_data[4]; 

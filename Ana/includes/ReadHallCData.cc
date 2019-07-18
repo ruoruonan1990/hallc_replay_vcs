@@ -56,7 +56,7 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
 	runindex=runID;
 	test = FillSingleRunRunInfos(process, runID, Eb, targetmass, HMS_p_central, SHMS_p_central, HMS_th_central, SHMS_th_central, HMS_run_l, SHMS_run_l, 
 				     HMS_B2_cur, SHMS_B2_cur, HMS_B4_cut, SHMS_B4_cut, HMS_act_time, SHMS_act_time, HMS_B2_cur_cut, SHMS_B2_cur_cut, HMS_live, SHMS_live);
-	if (!test){ cout<<"cannot read run information from replay"<<endl; return ; }
+	if (!test){ cout<<"ERROR: cannot read run information from replay"<<endl; return ; }
 	
 	cout<<"\n*** database run information:"<<endl;
 	cout<<"run ID: "<<runID<<endl;
@@ -69,7 +69,7 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
 	cout<<"HMS live time = "<<HMS_live <<" SHMS live time = "<<SHMS_live<<endl;
 	
 	test = FillSingleRunTriggerInfos(process, runID, HMS34rates, SHMS34rates, HMS_ST, SHMS_ST, C_T, All_T);
-	if (!test){ cout<<"cannot read trigger information from replay"<<endl; return ; }
+	if (!test){ cout<<"ERROR: cannot read trigger information from replay"<<endl; return ; }
 	
 	cout<<"\n*** database trigger info:"<<endl;
 	cout<<"HMS / SHMS 3/4 trigger rates = "<<HMS34rates<<" "<< SHMS34rates<<endl;
@@ -77,7 +77,7 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
         cout<<"coincidence trigger rates = "<<C_T<<" All triggers "<<All_T<<endl;
 	
 	test = FillSingleRunEffInfos(process, runID, HMS_E_eff, HMS_H_eff, SHMS_E_eff, SHMS_H_eff);
-	if (!test){ cout<<"cannot read efficiency information from replay"<<endl; return ; }
+	if (!test){ cout<<"ERROR: cannot read efficiency information from replay"<<endl; return ; }
 	
 	cout<<"\n*** database efficiency information from replay"<<endl;
 	cout<<"HMS / SHMS electron efficiency= "<<HMS_E_eff<<" "<<SHMS_E_eff<<endl;
@@ -91,6 +91,9 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
 		lumiexp_SHMS = SHMS_B2_cur_cut * 1e-6 / Ce * 0.1816 * NA/26.9815 * 1e-36 * SHMS_act_time * 1000;
 	}
 	cout<<"\n*** Measured luminosity HMS / SHMS = "<<lumiexp_HMS<< " "<<lumiexp_SHMS<< " nb"<<endl;  
+
+  test = FillSingleRunMissRefInfos(process, misstimeref);
+  if (!test){ cout<<"WARNING: cannot read missing time information"<<endl;  }
 
 	TFile *file = new TFile(Form(VCS_REPLAY_PATH "/Ana/files/HallCData_%d.root",runID),"RECREATE"); 
         if ( file->IsOpen() ) printf("File opened successfully\n");
@@ -171,6 +174,7 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
 	HallCTree->Branch("time_roc2", &time_roc2, "time_roc2/F");
 	HallCTree->Branch("time_trig1", &time_trig1, "time_trig1/F");
 	HallCTree->Branch("time_trig2", &time_trig2, "time_trig2/F");
+  HallCTree->Branch("misstimeref", &misstimeref, "misstimeref[22]/I");
 
 	cout<<"out tree init "<<HallCTree->GetEntries()<<endl;
         for (Int_t i=0; i<iChain -> GetEntries(); i++) {
@@ -280,14 +284,12 @@ cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<
 		// allocations to new tree
 		beta_HMS = H_gtr_beta; 
 		beta_SHMS = P_gtr_beta;
-
-   		Q2_kinmod = H_kin_primary_Q2;
-      		W_kinmod = H_kin_primary_W;
-	    	epsilon_kinmod = H_kin_primary_epsilon;
-	        nu_kinmod = H_kin_primary_nu;
+   	Q2_kinmod = H_kin_primary_Q2;
+    W_kinmod = H_kin_primary_W;
+	  epsilon_kinmod = H_kin_primary_epsilon;
+	  nu_kinmod = H_kin_primary_nu;
 		Xbj_kinmod = H_kin_primary_x_bj;
 		mt_kinmod = -P_kin_secondary_MandelT; 
-
 		time_trig1 = CTime_epCoinTime_TRIG1; 
 		time_trig2 = CTime_epCoinTime_TRIG4; 
 		time_roc1 = CTime_epCoinTime_ROC1; 

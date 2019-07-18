@@ -59,7 +59,6 @@ void InitBins(string process){
   hms_phi_min_hist=-12; hms_phi_max_hist=12; hms_phi_bins=120;
   shms_phi_min_hist=-12; shms_phi_max_hist=12; shms_phi_bins=120;
 
-
   return;
 
 }
