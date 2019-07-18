@@ -52,6 +52,7 @@ int main (int argc, char **argv){
 	string listoffiles;
 	string content="";
 	string files_princ;
+  float hc[96];
 	// Read arguments
 	
 	 if (test=="-l" || test=="-list"){
@@ -116,6 +117,25 @@ int main (int argc, char **argv){
 			
 			cout<<">> start loop"<<endl;
 			InitBins(process);
+      ResetBins(hc);
+      M2miss_min_hist=hc[0]; M2miss_max_hist = hc[1]; M2miss_bins=(int)hc[2]; Mmiss_min_hist=hc[3]; Mmiss_max_hist=hc[4]; Mmiss_bins=(int)hc[5];
+      miss_mom_min_hist=hc[6]; miss_mom_max_hist=hc[7]; miss_mom_bins= (int) hc[8]; Emiss_min_hist=hc[9]; Emiss_max_hist=hc[10];Emiss_bins= (int) hc[11];
+      PTmiss_min_hist=hc[12]; PTmiss_max_hist=hc[13]; PTmiss_bins= (int) hc[14]; PT2miss_min_hist=hc[15];; PT2miss_max_hist=hc[16]; PT2miss_bins= (int) hc[17];
+      rel_time_min_hist=  hc[18]; rel_time_max_hist = hc[19]; rel_time_bins = (int) hc[20]; abs_time_min_hist = hc[21]; abs_time_max_hist = hc[22]; abs_time_bins =  (int) hc[23];
+      trig_time_min_hist = hc[24]; trig_time_max_hist= hc[25]; trig_time_bins =  (int) hc[26]; hms_mom_min_hist = hc[27]; hms_mom_max_hist=hc[28]; hms_mom_bins = (int) hc[29];
+      shms_mom_min_hist = hc[30]; shms_mom_max_hist=hc[31]; shms_mom_bins = (int) hc[32]; Q2_min_hist=hc[33]; Q2_max_hist=hc[34]; Q2_bins =  (int) hc[35];
+      eps_min_hist=hc[36]; eps_max_hist=hc[37]; eps_bins= (int) hc[38]; xbj_min_hist=hc[39]; xbj_max_hist=hc[40]; xbj_bins= (int) hc[41];
+      costh_min_hist=hc[42]; costh_max_hist=hc[43]; costh_bins= (int) hc[44]; th_min_hist=hc[45]; th_max_hist=hc[46]; th_bins= (int) hc[47];
+      mt_min_hist=hc[48]; mt_max_hist=hc[49]; mt_bins= (int) hc[50]; W_min_hist=hc[51]; W_max_hist=hc[52]; W_bins= (int) hc[53];
+      nu_min_hist=hc[54]; nu_max_hist=hc[55]; nu_bins= (int) hc[56]; phi_min_hist=hc[57]; phi_max_hist=hc[58]; phi_bins= (int) hc[59];
+      hms_beta_min_hist=hc[60]; hms_beta_max_hist=hc[61]; hms_beta_bins= (int) hc[62]; shms_beta_min_hist=hc[63]; shms_beta_max_hist=hc[64]; shms_beta_bins= (int) hc[65];
+      hms_en_min_hist=hc[66]; hms_en_max_hist=hc[67]; hms_en_bins= (int) hc[68]; shms_en_min_hist=hc[69]; shms_en_max_hist=hc[70]; shms_en_bins= (int) hc[71];
+      hms_cer_npe_min_hist=hc[72]; hms_cer_npe_max_hist = hc[73]; shms_hg_npe_min_hist=hc[74]; shms_hg_npe_max_hist=  hc[75]; 
+      shms_aero_npe_min_hist=hc[76]; shms_aero_npe_max_hist=  hc[77];hms_delta_min_hist=hc[78]; hms_delta_max_hist=hc[79]; hms_delta_bins= (int) hc[80];
+      shms_delta_min_hist=hc[81]; shms_delta_max_hist=hc[82]; shms_delta_bins= (int) hc[83]; hms_th_min_hist=hc[84]; hms_th_max_hist=hc[85]; hms_th_bins= (int) hc[86];
+      shms_th_min_hist=hc[87]; shms_th_max_hist=hc[88]; shms_th_bins= (int) hc[89]; hms_phi_min_hist=hc[90]; hms_phi_max_hist=hc[91]; hms_phi_bins= (int) hc[92];
+      shms_phi_min_hist=hc[93]; shms_phi_max_hist=hc[94]; shms_phi_bins= (int) hc[95];
+
       RDD.InitHist();
 			RDD.Loop(filesarg, runID, process, what, target) ;
 			if (what.compare("ana")==0) RDD.DrawHist(process, runID);

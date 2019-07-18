@@ -17,7 +17,6 @@ bool IsBadRun(  int runint, int * badruntable
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int ReadHeader(float (&inc)[25]){
 
-	float rr[25];
 	printf("\nread header file ... ");
 	ifstream infile;
 	string ff, line;
@@ -163,12 +162,12 @@ int FillSingleRunEffInfos(string datatype,int runID, float &HMS_E_eff, float &HM
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int FillSingleRunMissRefInfos(string datatype, int (&tr) [22]){
+int FillSingleRunMissRefInfos(string datatype, int (&tr) [22], int run){
 
 	ifstream infile; 
   string ff;
-  int jj=0, run=runID;
-  ff = Form(VCS_REPLAY_PATH "/Ana/datainfo/singleruninfo/missref_info_%d.txt",runID); 	
+  int jj=0, runb;
+  ff = Form(VCS_REPLAY_PATH "/Ana/datainfo/singleruninfo/missref_info_%d.txt",run); 	
 	infile.open(ff.c_str());
 	
 	if (!infile) {
@@ -177,7 +176,7 @@ int FillSingleRunMissRefInfos(string datatype, int (&tr) [22]){
 	}
 
   // if (!(infile >> run)) return 0;
-	infile >> run >> tr[0] >> tr[1] >>tr[2] >>tr[3] >>tr[4] >>tr[5] >>tr[6] >>tr[7] >>tr[8] >>tr[9] >>tr[10] >>tr[11] >>tr[12] >>tr[13] >>tr[14] >>tr[15] >>tr[15] >>tr[16] >>tr[17] >>tr[18] >>tr[19] >>tr[20] >>tr[21]; 
+	infile >> runb >> tr[0] >> tr[1] >>tr[2] >>tr[3] >>tr[4] >>tr[5] >>tr[6] >>tr[7] >>tr[8] >>tr[9] >>tr[10] >>tr[11] >>tr[12] >>tr[13] >>tr[14] >>tr[15] >>tr[15] >>tr[16] >>tr[17] >>tr[18] >>tr[19] >>tr[20] >>tr[21]; 
 	
 	infile.close();
 	return 1;

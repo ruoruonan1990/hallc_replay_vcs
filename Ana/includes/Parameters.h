@@ -10,7 +10,7 @@
 using namespace std;
 
 void InitBins(string);
-
+void ResetBins(float (&inc)[96]);
 extern int M2miss_bins, Mmiss_bins, miss_mom_bins, Emiss_bins, PT2miss_bins, PTmiss_bins, rel_time_bins, rel_time_bins, trig_time_bins;
 extern int hms_mom_bins, shms_mom_bins, Q2_bins, eps_bins, xbj_bins, costh_bins, th_bins, mt_bins, W_bins, nu_bins, phi_bins, hms_beta_bins, shms_beta_bins;
 extern int hms_en_bins, shms_en_bins, hms_delta_bins, shms_delta_bins, abs_time_bins, hms_th_bins, shms_th_bins, hms_phi_bins, shms_phi_bins;

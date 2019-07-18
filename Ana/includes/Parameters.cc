@@ -12,6 +12,31 @@ float hms_mom_max_hist, shms_mom_max_hist, Q2_max_hist, eps_max_hist, xbj_max_hi
 float hms_en_min_hist, hms_en_max_hist, shms_en_min_hist, shms_en_max_hist, hms_cer_npe_min_hist, shms_hg_npe_min_hist, shms_aero_npe_min_hist, hms_cer_npe_max_hist, shms_hg_npe_max_hist, shms_aero_npe_max_hist;
 float hms_delta_min_hist, shms_delta_min_hist, hms_th_min_hist, shms_th_min_hist, hms_phi_min_hist, shms_phi_min_hist, hms_delta_max_hist, shms_delta_max_hist, hms_th_max_hist, shms_th_max_hist, hms_phi_max_hist, shms_phi_max_hist;
 
+void ResetBins(float (&inc)[96]){
+  printf("\nread header file histograms... ");
+  ifstream infile;
+  string ff, line;
+  int test;
+  ff = Form(VCS_REPLAY_PATH "/Ana/ANA_HIST.input");
+  infile.open(ff.c_str());
+  if (!infile) {
+    cout<<"Warning: cannot reset histogram limits"<<endl;
+    return;
+  }
+  test=0;
+  while (infile.good()){
+    getline(infile,line);
+    if ((!( line[0]=='*' || line[1]=='*' || line[2]=='*')) && !line.empty()){
+      inc[test]=(float) atof(line.c_str());
+      test++;
+    }
+  }
+  infile.close();
+
+
+  return;
+}
+
 void InitBins(string process){
 
   // here change histogram limits and binning for your process
