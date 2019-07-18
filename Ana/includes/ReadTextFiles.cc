@@ -62,12 +62,10 @@ int FillSingleRunRunInfos(string datatype,int runID, float &Eb, float &targetmas
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file run info run info"<<endl;
 		return 0;
 	}
-	//infile>>run>>Eb>> targetmass>> HMS_p_central >> SHMS_p_central >> HMS_th_central >> SHMS_th_central >> HMS_B2_cur>> SHMS_B2_cur>> HMS_B4_cut>> SHMS_B4_cut >> HMS_B2_cur_cut>> SHMS_B2_cur_cut>>HMS_live>> SHMS_live;
 	
-        //if (!(infile >> run)) return 0;
 	infile >> run >> ra >> rt >> rb >> rc >> rd >> re >> rn >> ro >> rf >> rg >> rh >> ri >> rp >> rq  >> rj >> rk >> rl >> rm;
 	//infile >> run >> ra >> rt >> rb >> rc >> rd >> re >> rn >> ro >> rf >> rg >> rh >> ri >> sa >> sb  >> rj >> rk >> rl >> rm;
 	Eb = ra; 
@@ -84,8 +82,8 @@ int FillSingleRunRunInfos(string datatype,int runID, float &Eb, float &targetmas
 	SHMS_B4_cut = ri; 
 	HMS_B2_cur_cut = rj; 
 	SHMS_B2_cur_cut = rk;
-        SHMS_live = rl;	
-        HMS_live = rm;	
+  SHMS_live = rl;	
+  HMS_live = rm;	
 	
 	//ssa = sa.substr(0, sa.length()-2);        
 	//ssb = sb.substr(0, sb.length()-2);        
@@ -94,6 +92,8 @@ int FillSingleRunRunInfos(string datatype,int runID, float &Eb, float &targetmas
 
 	HMS_act_tim = rp;
 	SHMS_act_tim = rq;
+
+  //cout<<Eb<<" "<<targetmass<<" "<<HMS_p_central<<" "<<SHMS_p_central<<" "<<HMS_th_central<<" "<<SHMS_th_central<<" "<<SHMS_run_l<<" "<<HMS_run_l<<" "<<HMS_B2_cur<<" "<<SHMS_B2_cur<<" "<<HMS_B4_cut<<" "<<SHMS_B4_cut<<" "<<HMS_B2_cur_cut<<" "<<SHMS_B2_cur_cut<<" "<<SHMS_live<<" "<<HMS_live<<endl;
 
 	infile.close();
 	return 1;
@@ -113,7 +113,7 @@ int FillSingleRunTriggerInfos(string datatype,int runID, float &HMS34rates, floa
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file trigger info trigger info"<<endl;
 		return 0;
 	}
 
@@ -144,7 +144,7 @@ int FillSingleRunEffInfos(string datatype,int runID, float &HMS_E_eff, float &HM
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file efficiency info"<<endl;
 		return 0;
 	}
 
@@ -154,6 +154,30 @@ int FillSingleRunEffInfos(string datatype,int runID, float &HMS_E_eff, float &HM
 	HMS_H_eff = rd; 
 	SHMS_E_eff = ra; 
 	SHMS_H_eff = rc; 
+	
+	infile.close();
+	return 1;
+	
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int FillSingleRunMissRefInfos(string datatype, int (&tr) [22]){
+
+	ifstream infile; 
+  string ff;
+  int jj=0, run=runID;
+  ff = Form(VCS_REPLAY_PATH "/Ana/datainfo/singleruninfo/missref_info_%d.txt",runID); 	
+	infile.open(ff.c_str());
+	
+	if (!infile) {
+		cout<<"ERROR unable to read file efficiency info"<<endl;
+		return 0;
+	}
+
+  // if (!(infile >> run)) return 0;
+	infile >> run >> tr[0] >> tr[1] >>tr[2] >>tr[3] >>tr[4] >>tr[5] >>tr[6] >>tr[7] >>tr[8] >>tr[9] >>tr[10] >>tr[11] >>tr[12] >>tr[13] >>tr[14] >>tr[15] >>tr[15] >>tr[16] >>tr[17] >>tr[18] >>tr[19] >>tr[20] >>tr[21]; 
 	
 	infile.close();
 	return 1;
@@ -177,7 +201,7 @@ int FillEffInfos(string datatype,int *runtable,
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file efficiency info"<<endl;
 		return 0;
 	}
 
@@ -216,7 +240,7 @@ int FillTriggerInfos(string datatype,int *runtable,
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file trigger info merged"<<endl;
 		return 0;
 	}
 
@@ -268,7 +292,7 @@ int FillRunInfos( string datatype,
 	infile.open(ff.c_str());
 	
 	if (!infile) {
-		cout<<"ERROR unable to read file"<<endl;
+		cout<<"ERROR unable to read file merged run info"<<endl;
 		return 0;
 	}
 

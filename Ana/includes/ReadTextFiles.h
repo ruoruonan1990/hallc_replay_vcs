@@ -21,6 +21,8 @@ int ReadHeader(float (&inc)[25]);
 
 bool IsBadRun(  int runint, int *badruntable); 
 
+int FillSingleRunMissRefInfos(string datatype, int (&tr) [22]);
+
 int FillEffInfos(string datatype,int *runtable, float (&HMS_E_eff)[tot_runlist], float (&HMS_H_eff)[tot_runlist],
 		float (&SHMS_E_eff)[tot_runlist], float (&SHMS_H_eff)[tot_runlist]);
 

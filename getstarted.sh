@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# after you create your own analysis directory "/home/cdaq/ruonan/hallc_replay_vcs" (to modify below), run once this executable to change all the hardcoded path in source files. 
+# in principle this is automatic, but you can change path with this executable if its not
+
+# Do: 
+
+# after you create your own analysis directory "/home/cdaq/YOURNAME/hallc_replay_vcs", run once this executable to change all the hardcoded path in source files. 
 # don't forget to go to "Ana", then do: make clean && make
 
 savepwd=$(pwd)

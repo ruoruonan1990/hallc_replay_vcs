@@ -1,0 +1,24 @@
+* use this file to set limits and binning of histograms created during analysis
+* use * to start a comment line
+* keep variables in the order and lines there are set 
+* if cuts are not set, default will be used
+
+* "missing" distributions
+* M2miss: min, max, N bins
+-0.5
+1.5
+100
+
+* Mmiss: min, max, N bins
+-0.5
+1.5
+100
+
+* missing momentum: min, max, N bins
+0
+2
+100
+
+* 
+
+

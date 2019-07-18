@@ -35,7 +35,7 @@ block H.cal.etracknorm
 block H.react.x
 block H.react.y
 block H.react.z
-#block H.hod.goodscinhit
+block H.hod.goodscinhit
 
 
 block P.aero.npeSum
@@ -69,7 +69,6 @@ block P.hod.start*
 block P.cal.eprtrack
 block P.cal.eprtracknorm
 block P.cal.etot
-block P.aero.npeSum
 
 begin epics
 IBC3H00CRCUR4

@@ -1,6 +1,7 @@
 * Input file 
 * put cuts for analysis and tree reduction
 * don't change order of the cuts, just the values where it is indicated
+* use a star to start a line for comments
 
 **********************
 * General parameters *
@@ -46,10 +47,10 @@
 -20
 * ROC (1 & 2) time upper cut (+/- delay, positive) [don't put less than -13]
 20
-* time delay (cut at ROC2)
-* 44.55 < proton peak LT data
-*44.02
- 39.15
+
+* time delay (cut at ROC2) ! the most important cut to be set for analysis !!!
+ 44.55
+
 * Trigger time lower cut (+/- delay, negative)
 -10000
 * Trigger time upper cut (+/- delay, positive)

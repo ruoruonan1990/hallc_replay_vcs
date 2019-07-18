@@ -16,11 +16,7 @@ else
   #OPTM=-O2
 endif
 
-FIT_C = $(filter-out TCSana.cc $(FIT_CT))
-FIT_O = $(FIT_C:.cc=.o)
-FIT_H = $(FIT_C:.cc=.h)
-
-ANA_C = includes/ReadHallCData.cc includes/Utils.cc includes/Constants.cc includes/ReadTextFiles.cc includes/Database.cc
+ANA_C = includes/ReadHallCData.cc includes/Utils.cc includes/Constants.cc includes/ReadTextFiles.cc includes/Database.cc includes/Parameters.cc
 ANA_O =  $(ANA_C:.cc=.o)
 ANA_H =  $(ANA_C:.cc=.h)
 
