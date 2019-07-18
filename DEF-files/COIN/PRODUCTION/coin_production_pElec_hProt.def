@@ -1,8 +1,8 @@
-#formula H.gtr.xptar H.gtr.th
-#formula H.gtr.yptar H.gtr.ph
-#formula P.gtr.xptar P.gtr.th
-#formula P.gtr.yptar P.gtr.ph
-#block T.coin.*
+formula H.gtr.xptar H.gtr.th
+formula H.gtr.yptar H.gtr.ph
+formula P.gtr.xptar P.gtr.th
+formula P.gtr.yptar P.gtr.ph
+block T.coin.*
 block CTime*ep*
 #block D.*
 block g.evtyp*
@@ -30,7 +30,6 @@ block H.dc.ntrack
 #block P.dc.Inside*
 block H.cer.npeSum
 block P.hgcer.npeSum
-block H.cer.npeSum
 block H.cal.etotnorm
 block H.cal.etracknorm
 block H.react.x
