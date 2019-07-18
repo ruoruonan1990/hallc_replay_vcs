@@ -17,7 +17,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		cout<<"including file: "<<vector_name[i].c_str()<<endl;
 		iChain->Add(Form("%s",vector_name[i].c_str())); 
 	}
-	test=Init();
+	test=Init(process);
 	if (test==0 || iChain == 0){
 		cout<<"problem init files, tree not found"<<endl;
 		return;
@@ -48,7 +48,10 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 	cout<<"SHMS beta min, max = "<<shms_beta_min<<" "<<shms_beta_max<<endl;
 	cout<<"Start producing the new Tree"<<endl;
 	
-  InitBins(process);
+  //InitBins(process);
+  //printf("min=%f %f %f %f %f %f %f %f %f %f %f ",M2miss_min, Mmiss_min, Emiss_min, miss_mom_min, PTmiss_min, PT2miss_min, M2miss_max, Mmiss_max, miss_mom_max, Emiss_max, PTmiss_max, PT2miss_max);
+  //printf("%d %d %d %d %d %d %d %d %d",M2miss_bins, Mmiss_bins, miss_mom_bins, Emiss_bins, PT2miss_bins, PTmiss_bins, abs_time_bins, rel_time_bins, trig_time_bins);
+cout<< hms_beta_min<<" "<< hms_beta_max<<" "<<hms_beta_bins<<" "<<shms_beta_min<<" "<< shms_beta_max<<" "<<shms_beta_bins<<" "<<endl;
 
 	runindex=runID;
 	test = FillSingleRunRunInfos(process, runID, Eb, targetmass, HMS_p_central, SHMS_p_central, HMS_th_central, SHMS_th_central, HMS_run_l, SHMS_run_l, 
@@ -183,7 +186,7 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 		h_CTime_epCoinTime_TRIG2[0]->Fill(CTime_epCoinTime_TRIG4-time_shift);
 	
 		h_encal_hms->Fill(H_cal_etotnorm);
-		h_encal_hms->Fill(P_cal_etotnorm);
+		h_encal_shms->Fill(P_cal_etotnorm);
 		h_cer_npe_hms->Fill(H_cer_npeSum);
 		h_aero_npe_shms->Fill(P_aero_npeSum);
 		h_hgcer_npe_shms->Fill(P_hgcer_npeSum);
@@ -604,63 +607,63 @@ void ReadHallCData::Loop (vector <string> vector_name, int runID, string  proces
 
 int ReadHallCData::InitHist(){
 
-	h_encal_hms = new TH1F("h_encal_hms","energy cal HMS;E (GeV);events", hms_en_bins, hms_en_min,hms_en_max);
-	h_encal_shms = new TH1F("h_encal_shms","energy cal SHMS;E (GeV);events", shms_en_bins, shms_en_min, shms_en_max);
-	h_cer_npe_hms= new TH1F("h_cer_npe_hms","npe cer HMS;npe;events", (int)(hms_cer_npe_max-hms_cer_npe_min),hms_cer_npe_min,hms_cer_npe_max);
-	h_aero_npe_shms= new TH1F("h_aero_npe_shms","npe aerogel HMS;npe;events", (int)(shms_aero_npe_max-shms_aero_npe_min), shms_aero_npe_min, shms_aero_npe_max);
-	h_hgcer_npe_shms= new TH1F("h_hgcer_npe_shms",";npe hgcer;events", (int)(shms_hg_npe_max-shms_hg_npe_min), shms_hg_npe_min, shms_hg_npe_max);
-	h_delta_hms= new TH1F("h_delta_hms","#Delta p HMS;#Delta p HMS;events",hms_delta_bins, hms_delta_min, hms_delta_max);
-	h_delta_shms= new TH1F("h_delta_shms","#Delta p SHMS;# p SHMS;events", shms_delta_bins, shms_delta_min, shms_delta_max);
-	h_phi_hms= new TH1F("h_phi_hms","#phi HMS;#phi;events", hms_phi_bins, hms_phi_min, hms_phi_max);
-	h_theta_hms= new TH1F("h_theta_hms","#theta HMS;#theta;events", hms_th_bins, hms_th_min, hms_th_max);
-	h_phi_shms= new TH1F("h_phi_shms","#phi SHMS;E (GeV);events", shms_phi_bins, shms_phi_min, shms_phi_max);
-	h_theta_shms= new TH1F("h_theta_shms","#theta SHMS;E (GeV);events", shms_th_bins, shms_th_min, shms_th_max);
-	h2_encal_cer= new TH2F("h_encal_cer","HMS npe cer vs energy cal;E (GeV);npe", hms_en_bins/2, hms_en_min,hms_en_max, (int)(hms_cer_npe_max-hms_cer_npe_min),hms_cer_npe_min,hms_cer_npe_max  );
-	h2_aero_hgcer_npe= new TH2F("h_aero_hgcer_npe","SHMS npe hgcer vs aero;npe;npe", (int)(shms_hg_npe_max-shms_hg_npe_min), shms_hg_npe_min, shms_hg_npe_max,(int)(shms_aero_npe_max-shms_aero_npe_min), shms_aero_npe_min, shms_aero_npe_max);
+	h_encal_hms = new TH1F("h_encal_hms","energy cal HMS;E (GeV);events", hms_en_bins, hms_en_min_hist,hms_en_max_hist);
+	h_encal_shms = new TH1F("h_encal_shms","energy cal SHMS;E (GeV);events", shms_en_bins, shms_en_min_hist, shms_en_max_hist);
+	h_cer_npe_hms= new TH1F("h_cer_npe_hms","npe cer HMS;npe;events", (int)(hms_cer_npe_max_hist-hms_cer_npe_min_hist),hms_cer_npe_min_hist,hms_cer_npe_max_hist);
+	h_aero_npe_shms= new TH1F("h_aero_npe_shms","npe aerogel HMS;npe;events", (int)(shms_aero_npe_max_hist-shms_aero_npe_min_hist), shms_aero_npe_min_hist, shms_aero_npe_max_hist);
+	h_hgcer_npe_shms= new TH1F("h_hgcer_npe_shms",";npe hgcer;events", (int)(shms_hg_npe_max_hist-shms_hg_npe_min_hist), shms_hg_npe_min_hist, shms_hg_npe_max_hist);
+	h_delta_hms= new TH1F("h_delta_hms","#Delta p HMS;#Delta p HMS;events",hms_delta_bins, hms_delta_min_hist, hms_delta_max_hist);
+	h_delta_shms= new TH1F("h_delta_shms","#Delta p SHMS;# p SHMS;events", shms_delta_bins, shms_delta_min_hist, shms_delta_max_hist);
+	h_phi_hms= new TH1F("h_phi_hms","#phi HMS;#phi;events", hms_phi_bins, hms_phi_min_hist, hms_phi_max_hist);
+	h_theta_hms= new TH1F("h_theta_hms","#theta HMS;#theta;events", hms_th_bins, hms_th_min_hist, hms_th_max_hist);
+	h_phi_shms= new TH1F("h_phi_shms","#phi SHMS;E (GeV);events", shms_phi_bins, shms_phi_min_hist, shms_phi_max_hist);
+	h_theta_shms= new TH1F("h_theta_shms","#theta SHMS;E (GeV);events", shms_th_bins, shms_th_min_hist, shms_th_max_hist);
+	h2_encal_cer= new TH2F("h_encal_cer","HMS npe cer vs energy cal;E (GeV);npe", hms_en_bins/2, hms_en_min_hist,hms_en_max_hist, (int)(hms_cer_npe_max_hist-hms_cer_npe_min_hist),hms_cer_npe_min_hist,hms_cer_npe_max_hist  );
+	h2_aero_hgcer_npe= new TH2F("h_aero_hgcer_npe","SHMS npe hgcer vs aero;npe;npe", (int)(shms_hg_npe_max_hist-shms_hg_npe_min_hist), shms_hg_npe_min_hist, shms_hg_npe_max_hist,(int)(shms_aero_npe_max_hist-shms_aero_npe_min_hist), shms_aero_npe_min_hist, shms_aero_npe_max_hist);
 
 	for (int i=0; i<5; i++){
 	
-		h_CTime_epCoinTime_ROC1[i] = new TH1F(Form("h_CTime_epCoinTime_ROC1[%d]",i),"coin time roc 1 - delay;time (ns);events", rel_time_bins, rel_time_min,rel_time_max);
-		h_CTime_epCoinTime_ROC2[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2[%d]",i),"coin time roc 2 - delay;time (ns);events", rel_time_bins, rel_time_min,rel_time_max);
-		h_CTime_epCoinTime_ROC2_large[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2_large[%d]",i),"coin time roc 2 absolute;time (ns);events", abs_time_bins, abs_time_min,abs_time_max);
-		h_CTime_epCoinTime_TRIG1[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG1[%d]",i),"trigger 1 time - delay;time (ns);events",trig_time_bins, trig_time_min,trig_time_max);
-		h_CTime_epCoinTime_TRIG2[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG2[%d]",i),"trigger 4 time - delay;time (ns);events", trig_time_bins, trig_time_min,trig_time_max);
-		h_Pmom[i] = new TH1F(Form("h_Pmom[%d]",i),"HMS mom.;p_{P} (GeV);events",hms_mom_bins,hms_mom_min, hms_mom_max);	
-		h_elmom[i] = new TH1F(Form("h_elmom[%d]",i),"SHMS mom.;p_{e} (GeV);events", shms_mom_bins, shms_mom_min, shms_mom_max);	
-		h_gmom[i] = new TH1F(Form("h_gmom[%d]",i),"missing mom. (g);p_{miss} (GeV);events",miss_mom_bins, miss_mom_min, miss_mom_max);	
-		h_Emiss[i] = new TH1F(Form("h_Emiss[%d]",i),"missing energy;E_{miss} (GeV);events",Emiss_bins, Emiss_min, Emiss_max);	
-		h_Mmiss[i] = new TH1F(Form("h_Mmiss[%d]",i),"missing mass;M_{miss} (GeV);events",Mmiss_bins,Mmiss_min,Mmiss_max);	
-		h_M2miss[i] = new TH1F(Form("h_M2miss[%d]",i),"missing mass sq;M^{2}_{miss} (GeV^{2});events",M2miss_bins,M2miss_min,M2miss_max);	
-		h_PTmiss[i] = new TH1F(Form("h_PTmiss[%d]",i),"missing PT;P_{T,miss} (GeV);events",PTmiss_bins, PTmiss_min, PTmiss_max);	
-		h_PT2miss[i] = new TH1F(Form("h_PT2miss[%d]",i),"missing PT2;P_{T,miss}^{2} (GeV^{2});events",PT2miss_bins, PT2miss_min, PT2miss_max);	
-		h_Q2[i] = new TH1F(Form("h_Q2[%d]",i),"Q^{2};Q^{2} (GeV^{2});events", Q2_bins, Q2_min, Q2_max);
-		h_epsilon[i] = new TH1F(Form("h_epsilon[%d]",i),"#epsilon;#epsilon;events", eps_bins, eps_min, eps_max);
-		h_Xbj[i] = new TH1F(Form("h_Xbj[%d]",i),"x_{bj};x_{bj};events", xbj_bins, xbj_min, xbj_max);
-		h_CosThCM[i] = new TH1F(Form("h_CosThCM[%d]",i),"cos(#Theta_{CM});cos(#Theta_{CM});events", costh_bins, costh_min, costh_max);
-		h_ThCM[i] = new TH1F(Form("h_ThCM[%d]",i),"#Theta_{CM};#Theta_{CM} (deg.);events", th_bins, th_min, th_max);
-		h_mt[i] = new TH1F(Form("h_mt[%d]",i),"-t;-t (GeV^{2});events", mt_bins, mt_min, mt_max);
-		h_W[i] = new TH1F(Form("h_W[%d]",i),"W;W (GeV);events", W_bins, W_min, W_max);
-		h_nu[i] = new TH1F(Form("h_nu[%d]",i),"#nu;#nu (GeV);events", nu_bins, nu_min, nu_max);
-		h_Phi[i] = new TH1F(Form("h_Phi[%d]",i),"#Phi;#Phi (deg.);events", phi_bins, phi_min, phi_max);
+		h_CTime_epCoinTime_ROC1[i] = new TH1F(Form("h_CTime_epCoinTime_ROC1[%d]",i),"coin time roc 1 - delay;time (ns);events", rel_time_bins, rel_time_min_hist,rel_time_max_hist);
+		h_CTime_epCoinTime_ROC2[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2[%d]",i),"coin time roc 2 - delay;time (ns);events", rel_time_bins, rel_time_min_hist,rel_time_max_hist);
+		h_CTime_epCoinTime_ROC2_large[i] = new TH1F(Form("h_CTime_epCoinTime_ROC2_large[%d]",i),"coin time roc 2 absolute;time (ns);events", abs_time_bins, abs_time_min_hist,abs_time_max_hist);
+		h_CTime_epCoinTime_TRIG1[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG1[%d]",i),"trigger 1 time - delay;time (ns);events",trig_time_bins, trig_time_min_hist,trig_time_max_hist);
+		h_CTime_epCoinTime_TRIG2[i] = new TH1F(Form("h_CTime_epCoinTime_TRIG2[%d]",i),"trigger 4 time - delay;time (ns);events", trig_time_bins, trig_time_min_hist,trig_time_max_hist);
+		h_Pmom[i] = new TH1F(Form("h_Pmom[%d]",i),"HMS mom.;p_{P} (GeV);events",hms_mom_bins,hms_mom_min_hist, hms_mom_max_hist);	
+		h_elmom[i] = new TH1F(Form("h_elmom[%d]",i),"SHMS mom.;p_{e} (GeV);events", shms_mom_bins, shms_mom_min_hist, shms_mom_max_hist);	
+		h_gmom[i] = new TH1F(Form("h_gmom[%d]",i),"missing mom. (g);p_{miss} (GeV);events",miss_mom_bins, miss_mom_min_hist, miss_mom_max_hist);	
+		h_Emiss[i] = new TH1F(Form("h_Emiss[%d]",i),"missing energy;E_{miss} (GeV);events",Emiss_bins, Emiss_min_hist, Emiss_max_hist);	
+		h_Mmiss[i] = new TH1F(Form("h_Mmiss[%d]",i),"missing mass;M_{miss} (GeV);events",Mmiss_bins,Mmiss_min_hist,Mmiss_max_hist);	
+		h_M2miss[i] = new TH1F(Form("h_M2miss[%d]",i),"missing mass sq;M^{2}_{miss} (GeV^{2});events",M2miss_bins,M2miss_min_hist,M2miss_max_hist);	
+		h_PTmiss[i] = new TH1F(Form("h_PTmiss[%d]",i),"missing PT;P_{T,miss} (GeV);events",PTmiss_bins, PTmiss_min_hist, PTmiss_max_hist);	
+		h_PT2miss[i] = new TH1F(Form("h_PT2miss[%d]",i),"missing PT2;P_{T,miss}^{2} (GeV^{2});events",PT2miss_bins, PT2miss_min_hist, PT2miss_max_hist);	
+		h_Q2[i] = new TH1F(Form("h_Q2[%d]",i),"Q^{2};Q^{2} (GeV^{2});events", Q2_bins, Q2_min_hist, Q2_max_hist);
+		h_epsilon[i] = new TH1F(Form("h_epsilon[%d]",i),"#epsilon;#epsilon;events", eps_bins, eps_min_hist, eps_max_hist);
+		h_Xbj[i] = new TH1F(Form("h_Xbj[%d]",i),"x_{bj};x_{bj};events", xbj_bins, xbj_min_hist, xbj_max_hist);
+		h_CosThCM[i] = new TH1F(Form("h_CosThCM[%d]",i),"cos(#Theta_{CM});cos(#Theta_{CM});events", costh_bins, costh_min_hist, costh_max_hist);
+		h_ThCM[i] = new TH1F(Form("h_ThCM[%d]",i),"#Theta_{CM};#Theta_{CM} (deg.);events", th_bins, th_min_hist, th_max_hist);
+		h_mt[i] = new TH1F(Form("h_mt[%d]",i),"-t;-t (GeV^{2});events", mt_bins, mt_min_hist, mt_max_hist);
+		h_W[i] = new TH1F(Form("h_W[%d]",i),"W;W (GeV);events", W_bins, W_min_hist, W_max_hist);
+		h_nu[i] = new TH1F(Form("h_nu[%d]",i),"#nu;#nu (GeV);events", nu_bins, nu_min_hist, nu_max_hist);
+		h_Phi[i] = new TH1F(Form("h_Phi[%d]",i),"#Phi;#Phi (deg.);events", phi_bins, phi_min_hist, phi_max_hist);
 
-		h2_Q2W[i] = new TH2F(Form("h2_Q2W[%d]",i),"W vs Q^{2};Q^{2} (GeV^{2}); W (GeV)",Q2_bins/2, Q2_min, Q2_max, W_bins/2, W_min, W_max);
-		h2_XQ2[i] = new TH2F(Form("h2_XQ2[%d]",i),"Q^{2} vs x_{bj};x_{bj}; Q^{2} (GeV^{2})", xbj_bins/2, xbj_min, xbj_max, Q2_bins/2, Q2_min, Q2_max);
-		h2_Q2mt[i] = new TH2F(Form("h2_Q2mt[%d]",i),"-t vs Q^{2};Q^{2} (GeV^{2}); -t (GeV^{2})",  Q2_bins/2, Q2_min, Q2_max, mt_bins/2, mt_min, mt_max);
-		h2_ThCMPhi[i] = new TH2F(Form("h2_ThCMPhi[%d]",i),"#Theta_{CM} vs #Phi;#Phi (deg.);#Theta_{CM} (deg.)", phi_bins/2, phi_min, phi_max, th_bins/2, th_min, th_max);
-		h2_nuep[i] = new TH2F(Form("h2_nuep[%d]",i),"#epsilon vs #nu;#nu (GeV);#epsilon",nu_bins/2, nu_min, nu_max, eps_bins/2, eps_min, eps_max);
-		h2_Q2Th[i] = new TH2F(Form("h2_Q2Th[%d]",i),"#Theta_{CM} vs Q^{2};Q^{2} (GeV^{2});#Theta_{CM} (deg.)",Q2_bins/2, Q2_min, Q2_max,th_bins/2, th_min, th_max);
-		h2_WTh[i] = new TH2F(Form("h2_WTh[%d]",i),"#Theta_{CM} vs W;W (GeV);#Theta_{CM} (deg.)", W_bins/2, W_min, W_max, th_bins/2, th_min, th_max);
-		h2_mtTh[i] = new TH2F(Form("h2_mtTh[%d]",i),"#Theta_{CM} vs -t;-t (GeV2);#Theta_{CM} (deg.)",mt_bins/2, mt_min, mt_max, th_bins/2, th_min, th_max);
+		h2_Q2W[i] = new TH2F(Form("h2_Q2W[%d]",i),"W vs Q^{2};Q^{2} (GeV^{2}); W (GeV)",Q2_bins/2, Q2_min_hist, Q2_max_hist, W_bins/2, W_min_hist, W_max_hist);
+		h2_XQ2[i] = new TH2F(Form("h2_XQ2[%d]",i),"Q^{2} vs x_{bj};x_{bj}; Q^{2} (GeV^{2})", xbj_bins/2, xbj_min_hist, xbj_max_hist, Q2_bins/2, Q2_min_hist, Q2_max_hist);
+		h2_Q2mt[i] = new TH2F(Form("h2_Q2mt[%d]",i),"-t vs Q^{2};Q^{2} (GeV^{2}); -t (GeV^{2})",  Q2_bins/2, Q2_min_hist, Q2_max_hist, mt_bins/2, mt_min_hist, mt_max_hist);
+		h2_ThCMPhi[i] = new TH2F(Form("h2_ThCMPhi[%d]",i),"#Theta_{CM} vs #Phi;#Phi (deg.);#Theta_{CM} (deg.)", phi_bins/2, phi_min_hist, phi_max_hist, th_bins/2, th_min_hist, th_max_hist);
+		h2_nuep[i] = new TH2F(Form("h2_nuep[%d]",i),"#epsilon vs #nu;#nu (GeV);#epsilon",nu_bins/2, nu_min_hist, nu_max_hist, eps_bins/2, eps_min_hist, eps_max_hist);
+		h2_Q2Th[i] = new TH2F(Form("h2_Q2Th[%d]",i),"#Theta_{CM} vs Q^{2};Q^{2} (GeV^{2});#Theta_{CM} (deg.)",Q2_bins/2, Q2_min_hist, Q2_max_hist,th_bins/2, th_min_hist, th_max_hist);
+		h2_WTh[i] = new TH2F(Form("h2_WTh[%d]",i),"#Theta_{CM} vs W;W (GeV);#Theta_{CM} (deg.)", W_bins/2, W_min_hist, W_max_hist, th_bins/2, th_min_hist, th_max_hist);
+		h2_mtTh[i] = new TH2F(Form("h2_mtTh[%d]",i),"#Theta_{CM} vs -t;-t (GeV2);#Theta_{CM} (deg.)",mt_bins/2, mt_min_hist, mt_max_hist, th_bins/2, th_min_hist, th_max_hist);
 
-		h2_Pebeta[i] = new TH2F(Form("h2_Pebeta[%d]",i),"HMS #beta vs mom.;E (GeV); #beta", hms_mom_bins/2,hms_mom_min, hms_mom_max , hms_beta_bins/2, hms_beta_min, hms_beta_max);
-		h2_elebeta[i] = new TH2F(Form("h2_elebeta[%d]",i),"SHMS #beta vs mom.;E (GeV); #beta", shms_mom_bins/2, shms_mom_min, shms_mom_max , shms_beta_bins/2, shms_beta_min, shms_beta_max);
-		h2_COIN_P_beta[i] = new TH2F(Form("h2_COIN_P_beta[%d]",i),"SHMS: #beta vs ROC1 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min,rel_time_max, hms_beta_bins/2, hms_beta_min, hms_beta_max);
-		h2_COIN_H_beta[i] = new TH2F(Form("h2_COIN_H_beta[%d]",i),"HMS: #beta vs ROC1 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min,rel_time_max, shms_beta_bins/2, shms_beta_min, shms_beta_max);
-		h2_Pemom[i] = new TH2F(Form("h2_Pemom[%d]",i),"HMS p vs E;E (GeV); p (GeV)", hms_mom_bins/2,hms_mom_min, hms_mom_max ,hms_mom_bins/2,hms_mom_min, hms_mom_max );
-		h2_elemom[i] = new TH2F(Form("h2_elemom[%d]",i),"SHMS p vs E;E (GeV); p (GeV)", shms_mom_bins/2, shms_mom_min, shms_mom_max ,shms_mom_bins/2, shms_mom_min, shms_mom_max);
-		h2_gemom[i] = new TH2F(Form("h2_gemom[%d]",i),"missing p vs E;E_{miss} (GeV); p_{miss} (GeV)",miss_mom_bins/2, miss_mom_min, miss_mom_max,miss_mom_bins/2, miss_mom_min, miss_mom_max);
-		h2_M2miss_CT1[i] = new TH2F(Form("h2_M2miss_CT1[%d]",i),"missing mass sq vs ROC1 time - delay;time (ns);M^{2}_{miss} (GeV^{2})", rel_time_bins, rel_time_min,rel_time_max, M2miss_bins,M2miss_min,M2miss_max);
-		h2_M2miss_CT2[i] = new TH2F(Form("h2_M2miss_CT2[%d]",i),"missing mass sq vs ROC2 time - delay;time (ns);M^{2}_{miss} (GeV^{2})",rel_time_bins, rel_time_min,rel_time_max, M2miss_bins,M2miss_min,M2miss_max);
+		h2_Pebeta[i] = new TH2F(Form("h2_Pebeta[%d]",i),"HMS #beta vs mom.;E (GeV); #beta", hms_mom_bins/2,hms_mom_min_hist, hms_mom_max_hist , hms_beta_bins/2, hms_beta_min_hist, hms_beta_max_hist);
+		h2_elebeta[i] = new TH2F(Form("h2_elebeta[%d]",i),"SHMS #beta vs mom.;E (GeV); #beta", shms_mom_bins/2, shms_mom_min_hist, shms_mom_max_hist , shms_beta_bins/2, shms_beta_min_hist, shms_beta_max_hist);
+		h2_COIN_P_beta[i] = new TH2F(Form("h2_COIN_P_beta[%d]",i),"SHMS: #beta vs ROC2 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min_hist,rel_time_max_hist, hms_beta_bins/2, hms_beta_min_hist, hms_beta_max_hist);
+		h2_COIN_H_beta[i] = new TH2F(Form("h2_COIN_H_beta[%d]",i),"HMS: #beta vs ROC2 coin time - delay;time (ns); #beta", rel_time_bins, rel_time_min_hist,rel_time_max_hist, shms_beta_bins/2, shms_beta_min_hist, shms_beta_max_hist);
+		h2_Pemom[i] = new TH2F(Form("h2_Pemom[%d]",i),"HMS p vs E;E (GeV); p (GeV)", hms_mom_bins/2,hms_mom_min_hist, hms_mom_max_hist ,hms_mom_bins/2,hms_mom_min_hist, hms_mom_max_hist );
+		h2_elemom[i] = new TH2F(Form("h2_elemom[%d]",i),"SHMS p vs E;E (GeV); p (GeV)", shms_mom_bins/2, shms_mom_min_hist, shms_mom_max_hist ,shms_mom_bins/2, shms_mom_min_hist, shms_mom_max_hist);
+		h2_gemom[i] = new TH2F(Form("h2_gemom[%d]",i),"missing p vs E;E_{miss} (GeV); p_{miss} (GeV)",miss_mom_bins/2, miss_mom_min_hist, miss_mom_max_hist,miss_mom_bins/2, miss_mom_min_hist, miss_mom_max_hist);
+		h2_M2miss_CT1[i] = new TH2F(Form("h2_M2miss_CT1[%d]",i),"missing mass sq vs ROC1 time - delay;time (ns);M^{2}_{miss} (GeV^{2})", rel_time_bins, rel_time_min_hist,rel_time_max_hist, M2miss_bins,M2miss_min_hist,M2miss_max_hist);
+		h2_M2miss_CT2[i] = new TH2F(Form("h2_M2miss_CT2[%d]",i),"missing mass sq vs ROC2 time - delay;time (ns);M^{2}_{miss} (GeV^{2})",rel_time_bins, rel_time_min_hist,rel_time_max_hist, M2miss_bins,M2miss_min_hist,M2miss_max_hist);
 
 	}
 
@@ -1214,7 +1217,7 @@ int ReadHallCData::DrawHist(string process, int run){
 		gf_par[8] = (float) fgaus2->GetParameter(2);
 		bmin = hM->GetXaxis()->FindBin((gf_par[7]-gf_par[8]));
 		bmax = hM->GetXaxis()->FindBin((gf_par[7]+gf_par[8]));
-		mass_integral[2] = gf_par[6]*sqrt(PI*(2.*pow(gf_par[8],2))) *(M2miss_max-M2miss_min)/((float) M2miss_bins);  
+		mass_integral[2] = gf_par[6]*sqrt(PI*(2.*pow(gf_par[8],2))) *(M2miss_max_hist-M2miss_min_hist)/((float) M2miss_bins);  
 		if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[2] = hM->Integral(bmin,bmax)/0.68;
 		cout<<" gaus mmass fit par "<<gf_par[6]<<" "<<gf_par[7]<<" "<<gf_par[8]<< " integral "<<mass_integral[2]<<" sum with bkg "<<mass_sum1s[2]<<endl;
 	}
@@ -1378,9 +1381,7 @@ ReadHallCData::ReadHallCData ( vector <string> files ) : iChain(0)
                 iChain->Add(Form("%s",files[i].c_str()));
 
         }
-                cerr<<"before init"<<endl;
-        int test=Init();
-                cerr<<"after init"<<endl;
+        //int test=Init();
 
         if (test==0) {
                 cout<<"Initialization issues, check it!"<<endl;
@@ -1422,10 +1423,10 @@ long long ReadHallCData::LoadTree(long long entry)
 
 ////////////////////////////////////////
 
-int ReadHallCData::Init(){
+int ReadHallCData::Init(string process){
 
 	InitValues();
-	InitBranch();
+	InitBranch(process);
 	return 1;
 }
 
@@ -2121,16 +2122,63 @@ Int_t ReadHallCData::InitValues(){
     T_coin_pTRIG6_ROC2_tdcTime=0;
     T_coin_pTRIG6_ROC2_tdcTimeRaw=0;
 
+    H_kin_secondary_Erecoil=0;
+    H_kin_secondary_MandelS=0;
+    H_kin_secondary_MandelT=0;
+    H_kin_secondary_MandelU=0;
+    H_kin_secondary_Mrecoil=0;
+    H_kin_secondary_Prec_x=0;
+    H_kin_secondary_Prec_y=0;
+    H_kin_secondary_Prec_z=0;
+    H_kin_secondary_emiss=0;
+    H_kin_secondary_emiss_nuc=0;
+    H_kin_secondary_ph_bq=0;
+    H_kin_secondary_ph_xq=0;
+    H_kin_secondary_phb_cm=0;
+    H_kin_secondary_phx_cm=0;
+    H_kin_secondary_pmiss=0;
+    H_kin_secondary_pmiss_x=0;
+    H_kin_secondary_pmiss_y=0;
+    H_kin_secondary_pmiss_z=0;
+    H_kin_secondary_px_cm=0;
+    H_kin_secondary_t_tot_cm=0;
+    H_kin_secondary_tb=0;
+    H_kin_secondary_tb_cm=0;
+    H_kin_secondary_th_bq=0;
+    H_kin_secondary_th_xq=0;
+    H_kin_secondary_thb_cm=0;
+    H_kin_secondary_thx_cm=0;
+    H_kin_secondary_tx=0;
+    H_kin_secondary_tx_cm=0;
+    H_kin_secondary_xangle=0;
+
+    P_kin_primary_Q2=0;
+    P_kin_primary_W=0;
+    P_kin_primary_W2=0;
+    P_kin_primary_epsilon=0;
+    P_kin_primary_nu=0;
+    P_kin_primary_omega=0;  
+    P_kin_primary_ph_q=0;
+    P_kin_primary_q3m=0;
+    P_kin_primary_q_x=0;
+    P_kin_primary_q_y=0;
+    P_kin_primary_q_z=0;
+    P_kin_primary_scat_ang_deg=0;
+    P_kin_primary_scat_ang_rad=0;
+    P_kin_primary_th_q=0;
+    P_kin_primary_x_bj=0;
+    P_react_ok=0;
+    P_react_x=0;
+    P_react_y=0;
+
     return 1;
 
 }
 
 ////////////////////////////////////////////////////////////////////:
 
-int ReadHallCData::InitBranch(){
+int ReadHallCData::InitBranch(string process){
 	if (!iChain) return 0;
-
-//	fChain->SetBranchAddress("mmiss", &mmiss, &b_mmiss);
 
    iChain->SetBranchAddress("H.gtr.xptar", &H_gtr_xptar, &b_H_gtr_xptar);
    iChain->SetBranchAddress("H.gtr.yptar", &H_gtr_yptar, &b_H_gtr_yptar);
@@ -2173,26 +2221,6 @@ int ReadHallCData::InitBranch(){
    iChain->SetBranchAddress("H.hod.betanotrack", &H_hod_betanotrack, &b_H_hod_betanotrack);
    iChain->SetBranchAddress("H.hod.fpHitsTime", &H_hod_fpHitsTime, &b_H_hod_fpHitsTime);
    iChain->SetBranchAddress("H.hod.starttime", &H_hod_starttime, &b_H_hod_starttime);
-   iChain->SetBranchAddress("H.kin.primary.Q2", &H_kin_primary_Q2, &b_H_kin_primary_Q2);
-   iChain->SetBranchAddress("H.kin.primary.W", &H_kin_primary_W, &b_H_kin_primary_W);
-   iChain->SetBranchAddress("H.kin.primary.W2", &H_kin_primary_W2, &b_H_kin_primary_W2);
-   iChain->SetBranchAddress("H.kin.primary.epsilon", &H_kin_primary_epsilon, &b_H_kin_primary_epsilon);
-   iChain->SetBranchAddress("H.kin.primary.nu", &H_kin_primary_nu, &b_H_kin_primary_nu);
-   iChain->SetBranchAddress("H.kin.primary.omega", &H_kin_primary_omega, &b_H_kin_primary_omega);
-   iChain->SetBranchAddress("H.kin.primary.ph_q", &H_kin_primary_ph_q, &b_H_kin_primary_ph_q);
-   iChain->SetBranchAddress("H.kin.primary.q3m", &H_kin_primary_q3m, &b_H_kin_primary_q3m);
-   iChain->SetBranchAddress("H.kin.primary.q_x", &H_kin_primary_q_x, &b_H_kin_primary_q_x);
-   iChain->SetBranchAddress("H.kin.primary.q_y", &H_kin_primary_q_y, &b_H_kin_primary_q_y);
-   iChain->SetBranchAddress("H.kin.primary.q_z", &H_kin_primary_q_z, &b_H_kin_primary_q_z);
-   iChain->SetBranchAddress("H.kin.primary.scat_ang_deg", &H_kin_primary_scat_ang_deg, &b_H_kin_primary_scat_ang_deg);
-   iChain->SetBranchAddress("H.kin.primary.scat_ang_rad", &H_kin_primary_scat_ang_rad, &b_H_kin_primary_scat_ang_rad);
-   iChain->SetBranchAddress("H.kin.primary.th_q", &H_kin_primary_th_q, &b_H_kin_primary_th_q);
-   iChain->SetBranchAddress("H.kin.primary.x_bj", &H_kin_primary_x_bj, &b_H_kin_primary_x_bj);
-   iChain->SetBranchAddress("H.rb.raster.fr_xbpm_tar", &H_rb_raster_fr_xbpm_tar, &b_H_rb_raster_fr_xbpm_tar);
-   iChain->SetBranchAddress("H.rb.raster.fr_ybpm_tar", &H_rb_raster_fr_ybpm_tar, &b_H_rb_raster_fr_ybpm_tar);
-   iChain->SetBranchAddress("H.react.x", &H_react_x, &b_H_react_x);
-   iChain->SetBranchAddress("H.react.y", &H_react_y, &b_H_react_y);
-   iChain->SetBranchAddress("H.react.z", &H_react_z, &b_H_react_z);
    iChain->SetBranchAddress("P.aero.npeSum", &P_aero_npeSum, &b_P_aero_npeSum);
    iChain->SetBranchAddress("P.cal.eprtrack", &P_cal_eprtrack, &b_P_cal_eprtrack);
    iChain->SetBranchAddress("P.cal.eprtracknorm", &P_cal_eprtracknorm, &b_P_cal_eprtracknorm);
@@ -2227,35 +2255,6 @@ int ReadHallCData::InitBranch(){
    iChain->SetBranchAddress("P.hod.fpHitsTime", &P_hod_fpHitsTime, &b_P_hod_fpHitsTime);
    iChain->SetBranchAddress("P.hod.goodscinhit", &P_hod_goodscinhit, &b_P_hod_goodscinhit);
    iChain->SetBranchAddress("P.hod.starttime", &P_hod_starttime, &b_P_hod_starttime);
-   iChain->SetBranchAddress("P.kin.secondary.Erecoil", &P_kin_secondary_Erecoil, &b_P_kin_secondary_Erecoil);
-   iChain->SetBranchAddress("P.kin.secondary.MandelS", &P_kin_secondary_MandelS, &b_P_kin_secondary_MandelS);
-   iChain->SetBranchAddress("P.kin.secondary.MandelT", &P_kin_secondary_MandelT, &b_P_kin_secondary_MandelT);
-   iChain->SetBranchAddress("P.kin.secondary.MandelU", &P_kin_secondary_MandelU, &b_P_kin_secondary_MandelU);
-   iChain->SetBranchAddress("P.kin.secondary.Mrecoil", &P_kin_secondary_Mrecoil, &b_P_kin_secondary_Mrecoil);
-   iChain->SetBranchAddress("P.kin.secondary.Prec_x", &P_kin_secondary_Prec_x, &b_P_kin_secondary_Prec_x);
-   iChain->SetBranchAddress("P.kin.secondary.Prec_y", &P_kin_secondary_Prec_y, &b_P_kin_secondary_Prec_y);
-   iChain->SetBranchAddress("P.kin.secondary.Prec_z", &P_kin_secondary_Prec_z, &b_P_kin_secondary_Prec_z);
-   iChain->SetBranchAddress("P.kin.secondary.emiss", &P_kin_secondary_emiss, &b_P_kin_secondary_emiss);
-   iChain->SetBranchAddress("P.kin.secondary.emiss_nuc", &P_kin_secondary_emiss_nuc, &b_P_kin_secondary_emiss_nuc);
-   iChain->SetBranchAddress("P.kin.secondary.ph_bq", &P_kin_secondary_ph_bq, &b_P_kin_secondary_ph_bq);
-   iChain->SetBranchAddress("P.kin.secondary.ph_xq", &P_kin_secondary_ph_xq, &b_P_kin_secondary_ph_xq);
-   iChain->SetBranchAddress("P.kin.secondary.phb_cm", &P_kin_secondary_phb_cm, &b_P_kin_secondary_phb_cm);
-   iChain->SetBranchAddress("P.kin.secondary.phx_cm", &P_kin_secondary_phx_cm, &b_P_kin_secondary_phx_cm);
-   iChain->SetBranchAddress("P.kin.secondary.pmiss", &P_kin_secondary_pmiss, &b_P_kin_secondary_pmiss);
-   iChain->SetBranchAddress("P.kin.secondary.pmiss_x", &P_kin_secondary_pmiss_x, &b_P_kin_secondary_pmiss_x);
-   iChain->SetBranchAddress("P.kin.secondary.pmiss_y", &P_kin_secondary_pmiss_y, &b_P_kin_secondary_pmiss_y);
-   iChain->SetBranchAddress("P.kin.secondary.pmiss_z", &P_kin_secondary_pmiss_z, &b_P_kin_secondary_pmiss_z);
-   iChain->SetBranchAddress("P.kin.secondary.px_cm", &P_kin_secondary_px_cm, &b_P_kin_secondary_px_cm);
-   iChain->SetBranchAddress("P.kin.secondary.t_tot_cm", &P_kin_secondary_t_tot_cm, &b_P_kin_secondary_t_tot_cm);
-   iChain->SetBranchAddress("P.kin.secondary.tb", &P_kin_secondary_tb, &b_P_kin_secondary_tb);
-   iChain->SetBranchAddress("P.kin.secondary.tb_cm", &P_kin_secondary_tb_cm, &b_P_kin_secondary_tb_cm);
-   iChain->SetBranchAddress("P.kin.secondary.th_bq", &P_kin_secondary_th_bq, &b_P_kin_secondary_th_bq);
-   iChain->SetBranchAddress("P.kin.secondary.th_xq", &P_kin_secondary_th_xq, &b_P_kin_secondary_th_xq);
-   iChain->SetBranchAddress("P.kin.secondary.thb_cm", &P_kin_secondary_thb_cm, &b_P_kin_secondary_thb_cm);
-   iChain->SetBranchAddress("P.kin.secondary.thx_cm", &P_kin_secondary_thx_cm, &b_P_kin_secondary_thx_cm);
-   iChain->SetBranchAddress("P.kin.secondary.tx", &P_kin_secondary_tx, &b_P_kin_secondary_tx);
-   iChain->SetBranchAddress("P.kin.secondary.tx_cm", &P_kin_secondary_tx_cm, &b_P_kin_secondary_tx_cm);
-   iChain->SetBranchAddress("P.kin.secondary.xangle", &P_kin_secondary_xangle, &b_P_kin_secondary_xangle);
    iChain->SetBranchAddress("P.ngcer.npeSum", &P_ngcer_npeSum, &b_P_ngcer_npeSum);
    iChain->SetBranchAddress("P.react.z", &P_react_z, &b_P_react_z);
    iChain->SetBranchAddress("T.coin.h1T_tdcMultiplicity", &T_coin_h1T_tdcMultiplicity, &b_T_coin_h1T_tdcMultiplicity);
@@ -2810,6 +2809,109 @@ int ReadHallCData::InitBranch(){
    iChain->SetBranchAddress("fEvtHdr.fHelicity", &fEvtHdr_fHelicity, &b_Event_Branch_fEvtHdr_fHelicity);
    iChain->SetBranchAddress("fEvtHdr.fTargetPol", &fEvtHdr_fTargetPol, &b_Event_Branch_fEvtHdr_fTargetPol);
    iChain->SetBranchAddress("fEvtHdr.fRun", &fEvtHdr_fRun, &b_Event_Branch_fEvtHdr_fRun);
+  
+
+  if (process.compare("elasticLT")==0 || process.compare("pi0LT")==0 || process.compare("vcsLT")==0 
+      || process.compare("pi+LT")==0 || process.compare("K+LT")==0){
+   iChain->SetBranchAddress("P.kin.secondary.Erecoil", &P_kin_secondary_Erecoil, &b_P_kin_secondary_Erecoil);
+   iChain->SetBranchAddress("P.kin.secondary.MandelS", &P_kin_secondary_MandelS, &b_P_kin_secondary_MandelS);
+   iChain->SetBranchAddress("P.kin.secondary.MandelT", &P_kin_secondary_MandelT, &b_P_kin_secondary_MandelT);
+   iChain->SetBranchAddress("P.kin.secondary.MandelU", &P_kin_secondary_MandelU, &b_P_kin_secondary_MandelU);
+   iChain->SetBranchAddress("P.kin.secondary.Mrecoil", &P_kin_secondary_Mrecoil, &b_P_kin_secondary_Mrecoil);
+   iChain->SetBranchAddress("P.kin.secondary.Prec_x", &P_kin_secondary_Prec_x, &b_P_kin_secondary_Prec_x);
+   iChain->SetBranchAddress("P.kin.secondary.Prec_y", &P_kin_secondary_Prec_y, &b_P_kin_secondary_Prec_y);
+   iChain->SetBranchAddress("P.kin.secondary.Prec_z", &P_kin_secondary_Prec_z, &b_P_kin_secondary_Prec_z);
+   iChain->SetBranchAddress("P.kin.secondary.emiss", &P_kin_secondary_emiss, &b_P_kin_secondary_emiss);
+   iChain->SetBranchAddress("P.kin.secondary.emiss_nuc", &P_kin_secondary_emiss_nuc, &b_P_kin_secondary_emiss_nuc);
+   iChain->SetBranchAddress("P.kin.secondary.ph_bq", &P_kin_secondary_ph_bq, &b_P_kin_secondary_ph_bq);
+   iChain->SetBranchAddress("P.kin.secondary.ph_xq", &P_kin_secondary_ph_xq, &b_P_kin_secondary_ph_xq);
+   iChain->SetBranchAddress("P.kin.secondary.phb_cm", &P_kin_secondary_phb_cm, &b_P_kin_secondary_phb_cm);
+   iChain->SetBranchAddress("P.kin.secondary.phx_cm", &P_kin_secondary_phx_cm, &b_P_kin_secondary_phx_cm);
+   iChain->SetBranchAddress("P.kin.secondary.pmiss", &P_kin_secondary_pmiss, &b_P_kin_secondary_pmiss);
+   iChain->SetBranchAddress("P.kin.secondary.pmiss_x", &P_kin_secondary_pmiss_x, &b_P_kin_secondary_pmiss_x);
+   iChain->SetBranchAddress("P.kin.secondary.pmiss_y", &P_kin_secondary_pmiss_y, &b_P_kin_secondary_pmiss_y);
+   iChain->SetBranchAddress("P.kin.secondary.pmiss_z", &P_kin_secondary_pmiss_z, &b_P_kin_secondary_pmiss_z);
+   iChain->SetBranchAddress("P.kin.secondary.px_cm", &P_kin_secondary_px_cm, &b_P_kin_secondary_px_cm);
+   iChain->SetBranchAddress("P.kin.secondary.t_tot_cm", &P_kin_secondary_t_tot_cm, &b_P_kin_secondary_t_tot_cm);
+   iChain->SetBranchAddress("P.kin.secondary.tb", &P_kin_secondary_tb, &b_P_kin_secondary_tb);
+   iChain->SetBranchAddress("P.kin.secondary.tb_cm", &P_kin_secondary_tb_cm, &b_P_kin_secondary_tb_cm);
+   iChain->SetBranchAddress("P.kin.secondary.th_bq", &P_kin_secondary_th_bq, &b_P_kin_secondary_th_bq);
+   iChain->SetBranchAddress("P.kin.secondary.th_xq", &P_kin_secondary_th_xq, &b_P_kin_secondary_th_xq);
+   iChain->SetBranchAddress("P.kin.secondary.thb_cm", &P_kin_secondary_thb_cm, &b_P_kin_secondary_thb_cm);
+   iChain->SetBranchAddress("P.kin.secondary.thx_cm", &P_kin_secondary_thx_cm, &b_P_kin_secondary_thx_cm);
+   iChain->SetBranchAddress("P.kin.secondary.tx", &P_kin_secondary_tx, &b_P_kin_secondary_tx);
+   iChain->SetBranchAddress("P.kin.secondary.tx_cm", &P_kin_secondary_tx_cm, &b_P_kin_secondary_tx_cm);
+   iChain->SetBranchAddress("P.kin.secondary.xangle", &P_kin_secondary_xangle, &b_P_kin_secondary_xangle);
+   iChain->SetBranchAddress("H.kin.primary.Q2", &H_kin_primary_Q2, &b_H_kin_primary_Q2);
+   iChain->SetBranchAddress("H.kin.primary.W", &H_kin_primary_W, &b_H_kin_primary_W);
+   iChain->SetBranchAddress("H.kin.primary.W2", &H_kin_primary_W2, &b_H_kin_primary_W2);
+   iChain->SetBranchAddress("H.kin.primary.epsilon", &H_kin_primary_epsilon, &b_H_kin_primary_epsilon);
+   iChain->SetBranchAddress("H.kin.primary.nu", &H_kin_primary_nu, &b_H_kin_primary_nu);
+   iChain->SetBranchAddress("H.kin.primary.omega", &H_kin_primary_omega, &b_H_kin_primary_omega);
+   iChain->SetBranchAddress("H.kin.primary.ph_q", &H_kin_primary_ph_q, &b_H_kin_primary_ph_q);
+   iChain->SetBranchAddress("H.kin.primary.q3m", &H_kin_primary_q3m, &b_H_kin_primary_q3m);
+   iChain->SetBranchAddress("H.kin.primary.q_x", &H_kin_primary_q_x, &b_H_kin_primary_q_x);
+   iChain->SetBranchAddress("H.kin.primary.q_y", &H_kin_primary_q_y, &b_H_kin_primary_q_y);
+   iChain->SetBranchAddress("H.kin.primary.q_z", &H_kin_primary_q_z, &b_H_kin_primary_q_z);
+   iChain->SetBranchAddress("H.kin.primary.scat_ang_deg", &H_kin_primary_scat_ang_deg, &b_H_kin_primary_scat_ang_deg);
+   iChain->SetBranchAddress("H.kin.primary.scat_ang_rad", &H_kin_primary_scat_ang_rad, &b_H_kin_primary_scat_ang_rad);
+   iChain->SetBranchAddress("H.kin.primary.th_q", &H_kin_primary_th_q, &b_H_kin_primary_th_q);
+   iChain->SetBranchAddress("H.kin.primary.x_bj", &H_kin_primary_x_bj, &b_H_kin_primary_x_bj);
+   iChain->SetBranchAddress("H.rb.raster.fr_xbpm_tar", &H_rb_raster_fr_xbpm_tar, &b_H_rb_raster_fr_xbpm_tar);
+   iChain->SetBranchAddress("H.rb.raster.fr_ybpm_tar", &H_rb_raster_fr_ybpm_tar, &b_H_rb_raster_fr_ybpm_tar);
+   iChain->SetBranchAddress("H.react.x", &H_react_x, &b_H_react_x);
+   iChain->SetBranchAddress("H.react.y", &H_react_y, &b_H_react_y);
+   iChain->SetBranchAddress("H.react.z", &H_react_z, &b_H_react_z);
+  }
+   // if process !!!
+  if (process.compare("elastic")==0 || process.compare("pi0")==0 || process.compare("vcs")==0 
+      || process.compare("pi+")==0 || process.compare("K+")==0){
+   iChain->SetBranchAddress("H.kin.secondary.Erecoil", &H_kin_secondary_Erecoil, &b_H_kin_secondary_Erecoil);
+   iChain->SetBranchAddress("H.kin.secondary.MandelS", &H_kin_secondary_MandelS, &b_H_kin_secondary_MandelS);
+   iChain->SetBranchAddress("H.kin.secondary.MandelT", &H_kin_secondary_MandelT, &b_H_kin_secondary_MandelT);
+   iChain->SetBranchAddress("H.kin.secondary.MandelU", &H_kin_secondary_MandelU, &b_H_kin_secondary_MandelU);
+   iChain->SetBranchAddress("H.kin.secondary.Mrecoil", &H_kin_secondary_Mrecoil, &b_H_kin_secondary_Mrecoil);
+   iChain->SetBranchAddress("H.kin.secondary.Prec_x", &H_kin_secondary_Prec_x, &b_H_kin_secondary_Prec_x);
+   iChain->SetBranchAddress("H.kin.secondary.Prec_y", &H_kin_secondary_Prec_y, &b_H_kin_secondary_Prec_y);
+   iChain->SetBranchAddress("H.kin.secondary.Prec_z", &H_kin_secondary_Prec_z, &b_H_kin_secondary_Prec_z);
+   iChain->SetBranchAddress("H.kin.secondary.emiss", &H_kin_secondary_emiss, &b_H_kin_secondary_emiss);
+   iChain->SetBranchAddress("H.kin.secondary.emiss_nuc", &H_kin_secondary_emiss_nuc, &b_H_kin_secondary_emiss_nuc);
+   iChain->SetBranchAddress("H.kin.secondary.ph_bq", &H_kin_secondary_ph_bq, &b_H_kin_secondary_ph_bq);
+   iChain->SetBranchAddress("H.kin.secondary.ph_xq", &H_kin_secondary_ph_xq, &b_H_kin_secondary_ph_xq);
+   iChain->SetBranchAddress("H.kin.secondary.phb_cm", &H_kin_secondary_phb_cm, &b_H_kin_secondary_phb_cm);
+   iChain->SetBranchAddress("H.kin.secondary.phx_cm", &H_kin_secondary_phx_cm, &b_H_kin_secondary_phx_cm);
+   iChain->SetBranchAddress("H.kin.secondary.pmiss", &H_kin_secondary_pmiss, &b_H_kin_secondary_pmiss);
+   iChain->SetBranchAddress("H.kin.secondary.pmiss_x", &H_kin_secondary_pmiss_x, &b_H_kin_secondary_pmiss_x);
+   iChain->SetBranchAddress("H.kin.secondary.pmiss_y", &H_kin_secondary_pmiss_y, &b_H_kin_secondary_pmiss_y);
+   iChain->SetBranchAddress("H.kin.secondary.pmiss_z", &H_kin_secondary_pmiss_z, &b_H_kin_secondary_pmiss_z);
+   iChain->SetBranchAddress("H.kin.secondary.px_cm", &H_kin_secondary_px_cm, &b_H_kin_secondary_px_cm);
+   iChain->SetBranchAddress("H.kin.secondary.t_tot_cm", &H_kin_secondary_t_tot_cm, &b_H_kin_secondary_t_tot_cm);
+   iChain->SetBranchAddress("H.kin.secondary.tb", &H_kin_secondary_tb, &b_H_kin_secondary_tb);
+   iChain->SetBranchAddress("H.kin.secondary.tb_cm", &H_kin_secondary_tb_cm, &b_H_kin_secondary_tb_cm);
+   iChain->SetBranchAddress("H.kin.secondary.th_bq", &H_kin_secondary_th_bq, &b_H_kin_secondary_th_bq);
+   iChain->SetBranchAddress("H.kin.secondary.th_xq", &H_kin_secondary_th_xq, &b_H_kin_secondary_th_xq);
+   iChain->SetBranchAddress("H.kin.secondary.thb_cm", &H_kin_secondary_thb_cm, &b_H_kin_secondary_thb_cm);
+   iChain->SetBranchAddress("H.kin.secondary.thx_cm", &H_kin_secondary_thx_cm, &b_H_kin_secondary_thx_cm);
+   iChain->SetBranchAddress("H.kin.secondary.tx", &H_kin_secondary_tx, &b_H_kin_secondary_tx);
+   iChain->SetBranchAddress("H.kin.secondary.tx_cm", &H_kin_secondary_tx_cm, &b_H_kin_secondary_tx_cm);
+   iChain->SetBranchAddress("H.kin.secondary.xangle", &H_kin_secondary_xangle, &b_H_kin_secondary_xangle);
+   iChain->SetBranchAddress("P.kin.primary.Q2", &P_kin_primary_Q2, &b_P_kin_primary_Q2);
+   iChain->SetBranchAddress("P.kin.primary.W", &P_kin_primary_W, &b_P_kin_primary_W);
+   iChain->SetBranchAddress("P.kin.primary.W2", &P_kin_primary_W2, &b_P_kin_primary_W2);
+   iChain->SetBranchAddress("P.kin.primary.epsilon", &P_kin_primary_epsilon, &b_P_kin_primary_epsilon);
+   iChain->SetBranchAddress("P.kin.primary.nu", &P_kin_primary_nu, &b_P_kin_primary_nu);
+   iChain->SetBranchAddress("P.kin.primary.omega", &P_kin_primary_omega, &b_P_kin_primary_omega);
+   iChain->SetBranchAddress("P.kin.primary.ph_q", &P_kin_primary_ph_q, &b_P_kin_primary_ph_q);
+   iChain->SetBranchAddress("P.kin.primary.q3m", &P_kin_primary_q3m, &b_P_kin_primary_q3m);
+   iChain->SetBranchAddress("P.kin.primary.q_x", &P_kin_primary_q_x, &b_P_kin_primary_q_x);
+   iChain->SetBranchAddress("P.kin.primary.q_y", &P_kin_primary_q_y, &b_P_kin_primary_q_y);
+   iChain->SetBranchAddress("P.kin.primary.q_z", &P_kin_primary_q_z, &b_P_kin_primary_q_z);
+   iChain->SetBranchAddress("P.kin.primary.scat_ang_deg", &P_kin_primary_scat_ang_deg, &b_P_kin_primary_scat_ang_deg);
+   iChain->SetBranchAddress("P.kin.primary.scat_ang_rad", &P_kin_primary_scat_ang_rad, &b_P_kin_primary_scat_ang_rad);
+   iChain->SetBranchAddress("P.kin.primary.th_q", &P_kin_primary_th_q, &b_P_kin_primary_th_q);
+   iChain->SetBranchAddress("P.kin.primary.x_bj", &P_kin_primary_x_bj, &b_P_kin_primary_x_bj);
+  }
+   
    Notify();
   return 1;
 }

@@ -6,6 +6,8 @@ Created July 5th, 2019
 #include <iostream>
 #include <string.h>
 #include "includes/ReadHallCData.h"
+#include "includes/Parameters.h"
+
 using namespace std;
 
 int main (int argc, char **argv){
@@ -113,7 +115,8 @@ int main (int argc, char **argv){
 		if (what.compare("ana")==0 || what.compare("reduce")==0){
 			
 			cout<<">> start loop"<<endl;
-			RDD.InitHist();
+			InitBins(process);
+      RDD.InitHist();
 			RDD.Loop(filesarg, runID, process, what, target) ;
 			if (what.compare("ana")==0) RDD.DrawHist(process, runID);
 			RDD.DeleteHist();

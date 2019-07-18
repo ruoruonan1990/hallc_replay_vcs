@@ -60,14 +60,14 @@ class ReadHallCData {
    virtual Bool_t Notify();
    Int_t fCurrent; 
    int InitValues();
-   int InitBranch();     
+   int InitBranch(string);     
 
    public :
 
    ReadHallCData();
    ReadHallCData  ( vector <string> files );
    virtual ~ReadHallCData();
-   int Init(); 
+   int Init(string); 
    virtual void Loop (vector <string> vector_name, int runID, string  process, string what, string target); 
    int InitHist();
    int DeleteHist();
@@ -187,6 +187,37 @@ class ReadHallCData {
    double H_kin_primary_scat_ang_rad ;              
    double H_kin_primary_th_q         ;             
    double H_kin_primary_x_bj         ;            
+   
+   Double_t        H_kin_secondary_Erecoil;
+   Double_t        H_kin_secondary_MandelS;
+   Double_t        H_kin_secondary_MandelT;
+   Double_t        H_kin_secondary_MandelU;
+   Double_t        H_kin_secondary_Mrecoil;
+   Double_t        H_kin_secondary_Prec_x;
+   Double_t        H_kin_secondary_Prec_y;
+   Double_t        H_kin_secondary_Prec_z;
+   Double_t        H_kin_secondary_emiss;
+   Double_t        H_kin_secondary_emiss_nuc;
+   Double_t        H_kin_secondary_ph_bq;
+   Double_t        H_kin_secondary_ph_xq;
+   Double_t        H_kin_secondary_phb_cm;
+   Double_t        H_kin_secondary_phx_cm;
+   Double_t        H_kin_secondary_pmiss;
+   Double_t        H_kin_secondary_pmiss_x;
+   Double_t        H_kin_secondary_pmiss_y;
+   Double_t        H_kin_secondary_pmiss_z;
+   Double_t        H_kin_secondary_px_cm;
+   Double_t        H_kin_secondary_t_tot_cm;
+   Double_t        H_kin_secondary_tb;
+   Double_t        H_kin_secondary_tb_cm;
+   Double_t        H_kin_secondary_th_bq;
+   Double_t        H_kin_secondary_th_xq;
+   Double_t        H_kin_secondary_thb_cm;
+   Double_t        H_kin_secondary_thx_cm;
+   Double_t        H_kin_secondary_tx;
+   Double_t        H_kin_secondary_tx_cm;
+   Double_t        H_kin_secondary_xangle;
+  
    double H_rb_raster_fr_xbpm_tar    ;              
    double H_rb_raster_fr_ybpm_tar    ;              
    double H_react_x                  ;           
@@ -225,7 +256,27 @@ class ReadHallCData {
    double P_hod_betanotrack          ;        
    double P_hod_fpHitsTime           ;        
    double P_hod_goodscinhit          ;        
-   double P_hod_starttime            ;        
+   double P_hod_starttime            ;   
+
+   Double_t        P_kin_primary_Q2;
+   Double_t        P_kin_primary_W;
+   Double_t        P_kin_primary_W2;
+   Double_t        P_kin_primary_epsilon;
+   Double_t        P_kin_primary_nu;
+   Double_t        P_kin_primary_omega;
+   Double_t        P_kin_primary_ph_q;
+   Double_t        P_kin_primary_q3m;
+   Double_t        P_kin_primary_q_x;
+   Double_t        P_kin_primary_q_y;
+   Double_t        P_kin_primary_q_z;
+   Double_t        P_kin_primary_scat_ang_deg;
+   Double_t        P_kin_primary_scat_ang_rad;
+   Double_t        P_kin_primary_th_q;
+   Double_t        P_kin_primary_x_bj;
+   Double_t        P_react_ok;
+   Double_t        P_react_x;
+   Double_t        P_react_y;
+
    double P_kin_secondary_Erecoil    ;        
    double P_kin_secondary_MandelS    ;        
    double P_kin_secondary_MandelT    ;        
@@ -1499,6 +1550,52 @@ class ReadHallCData {
    TBranch *b_Event_Branch_fEvtHdr_fHelicity;
    TBranch *b_Event_Branch_fEvtHdr_fTargetPol;
    TBranch *b_Event_Branch_fEvtHdr_fRun;
+
+   TBranch        *b_H_kin_secondary_Erecoil;   //!
+   TBranch        *b_H_kin_secondary_MandelS;   //!
+   TBranch        *b_H_kin_secondary_MandelT;   //!
+   TBranch        *b_H_kin_secondary_MandelU;   //!
+   TBranch        *b_H_kin_secondary_Mrecoil;   //!
+   TBranch        *b_H_kin_secondary_Prec_x;   //!
+   TBranch        *b_H_kin_secondary_Prec_y;   //!
+   TBranch        *b_H_kin_secondary_Prec_z;   //!
+   TBranch        *b_H_kin_secondary_emiss;   //!
+   TBranch        *b_H_kin_secondary_emiss_nuc;   //!
+   TBranch        *b_H_kin_secondary_ph_bq;   //!
+   TBranch        *b_H_kin_secondary_ph_xq;   //!
+   TBranch        *b_H_kin_secondary_phb_cm;   //!
+   TBranch        *b_H_kin_secondary_phx_cm;   //!
+   TBranch        *b_H_kin_secondary_pmiss;   //!
+   TBranch        *b_H_kin_secondary_pmiss_x;   //!
+   TBranch        *b_H_kin_secondary_pmiss_y;   //!
+   TBranch        *b_H_kin_secondary_pmiss_z;   //!
+   TBranch        *b_H_kin_secondary_px_cm;   //!
+   TBranch        *b_H_kin_secondary_t_tot_cm;   //!
+   TBranch        *b_H_kin_secondary_tb;   //!
+   TBranch        *b_H_kin_secondary_tb_cm;   //!
+   TBranch        *b_H_kin_secondary_th_bq;   //!
+   TBranch        *b_H_kin_secondary_th_xq;   //!
+   TBranch        *b_H_kin_secondary_thb_cm;   //!
+   TBranch        *b_H_kin_secondary_thx_cm;   //!
+   TBranch        *b_H_kin_secondary_tx;   //!
+   TBranch        *b_H_kin_secondary_tx_cm;   //!
+   TBranch        *b_H_kin_secondary_xangle;   //!
+   TBranch        *b_P_kin_primary_Q2;   //!
+   TBranch        *b_P_kin_primary_W;   //!
+   TBranch        *b_P_kin_primary_W2;   //!
+   TBranch        *b_P_kin_primary_epsilon;   //!
+   TBranch        *b_P_kin_primary_nu;   //!
+   TBranch        *b_P_kin_primary_omega;   //!
+   TBranch        *b_P_kin_primary_ph_q;   //!
+   TBranch        *b_P_kin_primary_q3m;   //!
+   TBranch        *b_P_kin_primary_q_x;   //!
+   TBranch        *b_P_kin_primary_q_y;   //!
+   TBranch        *b_P_kin_primary_q_z;   //!
+   TBranch        *b_P_kin_primary_scat_ang_deg;   //!
+   TBranch        *b_P_kin_primary_scat_ang_rad;   //!
+   TBranch        *b_P_kin_primary_th_q;   //!
+   TBranch        *b_P_kin_primary_x_bj;   //!
+
 
 
 };
