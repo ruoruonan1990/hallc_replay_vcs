@@ -1195,7 +1195,7 @@ int ReadHallCData::DrawHist(string process, int run){
 	//integral =(float) fgaus->Integral((double) (gf_par[1]-3*gf_par[2]), (double) (gf_par[1]+3*gf_par[2]), 1e-6);
 	bmin = hM->GetXaxis()->FindBin((gf_par[1]-gf_par[2]));
 	bmax = hM->GetXaxis()->FindBin((gf_par[1]+gf_par[2]));
-	mass_integral[0] = gf_par[0]*sqrt(PI*(2.*pow(gf_par[2],2)))/0.02; // adjust bin width of hM
+	mass_integral[0] = gf_par[0]*sqrt(PI*(2.*pow(gf_par[2],2))) *(M2miss_max_hist-M2miss_min_hist)/((float) M2miss_bins); // adjust bin width of hM
 	if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[0] = hM->Integral(bmin,bmax)/0.68;
 	cout<<" gaus mmass fit par "<<gf_par[0]<<" "<<gf_par[1]<<" "<<gf_par[2]<< " 3sig integral "<<mass_integral[0]<<" sum 1 sigm "<<mass_sum1s[0]<<endl;
 	
@@ -1207,7 +1207,7 @@ int ReadHallCData::DrawHist(string process, int run){
 		gf_par[5] = (float) fgaus2->GetParameter(2);
 		bmin = hM->GetXaxis()->FindBin((gf_par[4]-gf_par[5]));
 		bmax = hM->GetXaxis()->FindBin((gf_par[4]+gf_par[5]));
-		mass_integral[1] = gf_par[3]*sqrt(PI*(2.*pow(gf_par[5],2))) / 0.02;
+		mass_integral[1] = gf_par[3]*sqrt(PI*(2.*pow(gf_par[5],2)))  *(M2miss_max_hist-M2miss_min_hist)/((float) M2miss_bins);
 		if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[1] = hM->Integral(bmin,bmax)/0.68;
 		cout<<" gaus mmass fit par "<<gf_par[3]<<" "<<gf_par[4]<<" "<<gf_par[5]<< " 3sig integral "<<mass_integral[1]<<" sum 1 sigm "<<mass_sum1s[1]<<endl;
 	}
@@ -1229,9 +1229,9 @@ int ReadHallCData::DrawHist(string process, int run){
 	cout<<"1) mass : "<<pos_mem[0]<<" "<<" peak sum (tot)= "<<int_mem[0]<<" "<<mass_integral[0]<<" "<<mass_sum1s[0]<<" peak index= "<<itag[0]<<" peak max= "<<max_mem[0]<<endl;
 	cout<<"2) mass : "<<pos_mem[1]<<" "<<" peak sum (tot)= "<<int_mem[1]<<" "<<mass_integral[1]<<" "<<mass_sum1s[1]<<" peak index= "<<itag[1]<<" peak max= "<<max_mem[1]<<endl;
 	cout<<"3) mass : "<<pos_mem[2]<<" "<<" peak sum (tot)= "<<int_mem[2]<<" "<<mass_integral[2]<<" "<<mass_sum1s[2]<<" peak index= "<<itag[2]<<" peak max= "<<max_mem[2]<<endl;
-	out3<<pos_mem[0]<<" "<<mass_integral[0]<<" "<<endl;
-	out3<<pos_mem[1]<<" "<<mass_integral[1]<<" "<<endl;
-	out3<<pos_mem[2]<<" "<<mass_integral[2]<<" "<<endl;
+	out3<<pos_mem[0]<<" "<<mass_integral[0]<<" "<<mass_sum1s[0]<<endl;
+	out3<<pos_mem[1]<<" "<<mass_integral[1]<<" "<<mass_sum1s[1]<<endl;
+	out3<<pos_mem[2]<<" "<<mass_integral[2]<<" "<<mass_sum1s[2]<<endl;
 	out3.close();
 
   // Also write out timing missing mass info to the VCS database
