@@ -739,29 +739,23 @@ int ReadHallCData::DrawHist(string process, int run){
 	c1->cd(1); h2->Draw(""); gPad->SetLogy(0);
 	cout<<"peaks positions (ns) and counts: "<<endl; 
 	for (int i=0; i<nfounds; i++){
-		
 		xp=xpeaks[i];
 		bin=h2->GetXaxis()->FindBin(xp);
 		yp=h2->GetBinContent(bin);
 		peak_max.push_back(yp);
-
 		peak_pos.push_back(xpeaks[i]);
-
-  		bmin = h2->GetXaxis()->FindBin(xpeaks[i]-1); 
-    		bmax = h2->GetXaxis()->FindBin(xpeaks[i]+1); 
-      		if (bmin>0 && bmax<h2->GetSize()-2) integral = h2->Integral(bmin,bmax);
+  	bmin = h2->GetXaxis()->FindBin(xpeaks[i]-1); 
+    bmax = h2->GetXaxis()->FindBin(xpeaks[i]+1); 
+    if (bmin>0 && bmax<h2->GetSize()-2) integral = h2->Integral(bmin,bmax);
 		else integral = 0;
-
 		peak_int.push_back(integral);
 		cout<<" "<<xpeaks[i]<<" "<<integral<<" "<<yp<<endl;
-		
 		if (peak_int[i] > int_mem[0]) {
 			max_mem[0] = peak_max[i];
 			int_mem[0] = peak_int[i];
 			pos_mem[0] = xpeaks[i];
 			itag[0]=i;
 		}
-
 	} 
 	for (int i=0; i<nfounds; i++){
 		if (i==itag[0]) continue;
@@ -781,11 +775,11 @@ int ReadHallCData::DrawHist(string process, int run){
 			itag[2]=i;
 		}
 	}
-  	bmin = h2->GetXaxis()->FindBin(xpeaks[itag[0]]+11); 
-    	bmax = h2->GetXaxis()->FindBin(xpeaks[itag[0]]+19); 
+  bmin = h2->GetXaxis()->FindBin(xpeaks[itag[0]]+11); 
+  bmax = h2->GetXaxis()->FindBin(xpeaks[itag[0]]+19); 
 	if (xpeaks[itag[0]]+19<28) sum_bkg_up = (float) h2->Integral(bmin, bmax) / 4.;
-  	bmin = h2->GetXaxis()->FindBin(xpeaks[itag[0]]-19); 
-    	bmax = h2->GetXaxis()->FindBin(xpeaks[itag[0]]-11); 
+  bmin = h2->GetXaxis()->FindBin(xpeaks[itag[0]]-19); 
+  bmax = h2->GetXaxis()->FindBin(xpeaks[itag[0]]-11); 
 	if (xpeaks[itag[0]]-19 > -28) sum_bkg_low = (float) h2->Integral(bmin, bmax) / 4.;
 	if (sum_bkg_up>0 && sum_bkg_low>0) sum_bkg_av=(sum_bkg_up+sum_bkg_low)*0.5;
 	else if (sum_bkg_up>0) sum_bkg_av=sum_bkg_up;
@@ -797,9 +791,10 @@ int ReadHallCData::DrawHist(string process, int run){
 	cout<<"3) delay: "<<pos_mem[2]<<" N events: "<<int_mem[2]<<" peak index "<< itag[2] << " peak max "<<max_mem[2] <<endl;
 	cout<<"background up: "<<sum_bkg_up<<" background low: "<<sum_bkg_low<<endl;
 	cout<<"N events in each peak: "<<int_mem[0]-sum_bkg_av<<" "<<int_mem[1]-sum_bkg_av<<" "<<int_mem[2]-sum_bkg_av<<endl;
-	outfile<< pos_mem[0]<<" "<<int_mem[0]-sum_bkg_av<<" "<<int_mem[0]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[0]<<endl;
-	outfile<< pos_mem[1]<<" "<<int_mem[1]-sum_bkg_av<<" "<<int_mem[1]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[1]<<endl;
-	outfile<< pos_mem[2]<<" "<<int_mem[2]-sum_bkg_av<<" "<<int_mem[2]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[2]<<endl;
+  cout<<"absolute time positions: "<<pos_mem[0]+time_shift<<" "<<pos_mem[1]+time_shift<<" "<<pos_mem[2]+time_shift<<endl;
+	outfile<< run<<" "<<pos_mem[0]<<" "<<int_mem[0]-sum_bkg_av<<" "<<int_mem[0]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[0]<<" "<<(int_mem[0]-sum_bkg_av)/lumiexp_HMS<<endl;
+	outfile<< run<<" "<<pos_mem[1]<<" "<<int_mem[1]-sum_bkg_av<<" "<<int_mem[1]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[1]<<" "<<(int_mem[1]-sum_bkg_av)/lumiexp_HMS<<endl;
+	outfile<< run<<" "<<pos_mem[2]<<" "<<int_mem[2]-sum_bkg_av<<" "<<int_mem[2]<<" "<<sum_bkg_up<<" "<<sum_bkg_low<<" "<<max_mem[2]<<" "<<(int_mem[2]-sum_bkg_av)/lumiexp_HMS<<endl;
 	outfile.close();
 
   // Also write out timing information to the VCS database
@@ -819,6 +814,7 @@ int ReadHallCData::DrawHist(string process, int run){
       db[run_str]["timing"][peak_names[i]]["background_low"] = sum_bkg_low;
       db[run_str]["timing"][peak_names[i]]["background_high"] = sum_bkg_up;
       db[run_str]["timing"][peak_names[i]]["max"] = max_mem[i];
+      db[run_str]["timing"][peak_names[i]]["N_over_L"] = (int_mem[i]-sum_bkg_av)/lumiexp_HMS;
     }
     // step 3. --> write database
     WriteJSON(db_fname, db);
@@ -833,9 +829,7 @@ int ReadHallCData::DrawHist(string process, int run){
 	c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/cointime_%d.pdf",run)); c1->Clear(); c1->cd(1);
 	h_CTime_epCoinTime_ROC2_large[0]->Draw(); gPad->SetLogy(0); 
 	h_CTime_epCoinTime_ROC2_large[0]->SetMinimum(0);
-	h_CTime_epCoinTime_ROC2_large[1]->SetLineColor(8); h_CTime_epCoinTime_ROC2[1]->Draw("same");
-	h_CTime_epCoinTime_ROC2_large[2]->SetLineColor(2); h_CTime_epCoinTime_ROC2[2]->Draw("same");
-	c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/cointime_%d.pdf",run)); 
+  c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/cointime_%d.pdf",run)); 
 	c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/ana_monitor_%d.pdf",run)); 
 	c1->Clear(); c1->cd(1);
 	h_CTime_epCoinTime_TRIG1[0]->Draw(); gPad->SetLogy(1); h_CTime_epCoinTime_TRIG1[0]->SetMinimum(1);
@@ -1195,7 +1189,7 @@ int ReadHallCData::DrawHist(string process, int run){
 	//integral =(float) fgaus->Integral((double) (gf_par[1]-3*gf_par[2]), (double) (gf_par[1]+3*gf_par[2]), 1e-6);
 	bmin = hM->GetXaxis()->FindBin((gf_par[1]-gf_par[2]));
 	bmax = hM->GetXaxis()->FindBin((gf_par[1]+gf_par[2]));
-	mass_integral[0] = gf_par[0]*sqrt(PI*(2.*pow(gf_par[2],2)))/0.02; // adjust bin width of hM
+	mass_integral[0] = gf_par[0]*sqrt(PI*(2.*pow(gf_par[2],2))) *(M2miss_max_hist-M2miss_min_hist)/((float) M2miss_bins); // adjust bin width of hM
 	if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[0] = hM->Integral(bmin,bmax)/0.68;
 	cout<<" gaus mmass fit par "<<gf_par[0]<<" "<<gf_par[1]<<" "<<gf_par[2]<< " 3sig integral "<<mass_integral[0]<<" sum 1 sigm "<<mass_sum1s[0]<<endl;
 	
@@ -1207,7 +1201,7 @@ int ReadHallCData::DrawHist(string process, int run){
 		gf_par[5] = (float) fgaus2->GetParameter(2);
 		bmin = hM->GetXaxis()->FindBin((gf_par[4]-gf_par[5]));
 		bmax = hM->GetXaxis()->FindBin((gf_par[4]+gf_par[5]));
-		mass_integral[1] = gf_par[3]*sqrt(PI*(2.*pow(gf_par[5],2))) / 0.02;
+		mass_integral[1] = gf_par[3]*sqrt(PI*(2.*pow(gf_par[5],2)))  *(M2miss_max_hist-M2miss_min_hist)/((float) M2miss_bins);
 		if (bmin>0 && bmax<hM->GetSize()-2) mass_sum1s[1] = hM->Integral(bmin,bmax)/0.68;
 		cout<<" gaus mmass fit par "<<gf_par[3]<<" "<<gf_par[4]<<" "<<gf_par[5]<< " 3sig integral "<<mass_integral[1]<<" sum 1 sigm "<<mass_sum1s[1]<<endl;
 	}
@@ -1229,9 +1223,9 @@ int ReadHallCData::DrawHist(string process, int run){
 	cout<<"1) mass : "<<pos_mem[0]<<" "<<" peak sum (tot)= "<<int_mem[0]<<" "<<mass_integral[0]<<" "<<mass_sum1s[0]<<" peak index= "<<itag[0]<<" peak max= "<<max_mem[0]<<endl;
 	cout<<"2) mass : "<<pos_mem[1]<<" "<<" peak sum (tot)= "<<int_mem[1]<<" "<<mass_integral[1]<<" "<<mass_sum1s[1]<<" peak index= "<<itag[1]<<" peak max= "<<max_mem[1]<<endl;
 	cout<<"3) mass : "<<pos_mem[2]<<" "<<" peak sum (tot)= "<<int_mem[2]<<" "<<mass_integral[2]<<" "<<mass_sum1s[2]<<" peak index= "<<itag[2]<<" peak max= "<<max_mem[2]<<endl;
-	out3<<pos_mem[0]<<" "<<mass_integral[0]<<" "<<endl;
-	out3<<pos_mem[1]<<" "<<mass_integral[1]<<" "<<endl;
-	out3<<pos_mem[2]<<" "<<mass_integral[2]<<" "<<endl;
+	out3<<run<<" "<<pos_mem[0]<<" "<<mass_integral[0]<<" "<<mass_sum1s[0]<<" "<< mass_integral[0]/lumiexp_HMS <<endl;
+	out3<<run<<" "<<pos_mem[1]<<" "<<mass_integral[1]<<" "<<mass_sum1s[1]<<" "<< mass_integral[1]/lumiexp_HMS <<endl;
+	out3<<run<<" "<<pos_mem[2]<<" "<<mass_integral[2]<<" "<<mass_sum1s[2]<<" "<< mass_integral[2]/lumiexp_HMS <<endl;
 	out3.close();
 
   // Also write out timing missing mass info to the VCS database
@@ -1247,7 +1241,7 @@ int ReadHallCData::DrawHist(string process, int run){
       db[run_str]["missing_mass"][peak_names[i]]["mass"] = pos_mem[i];
       db[run_str]["missing_mass"][peak_names[i]]["integral"] = mass_integral[i];
       db[run_str]["missing_mass"][peak_names[i]]["sum_withbkg"] = mass_sum1s[i];
-      db[run_str]["missing_mass"][peak_names[i]]["sum_firstsel"] = int_mem[i];
+      db[run_str]["missing_mass"][peak_names[i]]["sum_arbcut"] = int_mem[i];
       db[run_str]["missing_mass"][peak_names[i]]["max"] = max_mem[i];
     }
     // step 3. --> write database
