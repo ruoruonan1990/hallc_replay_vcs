@@ -47,8 +47,8 @@ void make_vcs_table() {
     fmt::print(" {:<7} ", "th_shms");
     fmt::print(" {:^8} ", "start");
     fmt::print(" {:^17} ", "end time");
-    fmt::print(" {:^14} ", "HMS p yield");
-    fmt::print(" {:^14} ", "SHMS e yield");
+    fmt::print(" {:^18} ", "HMS p yield");
+    fmt::print(" {:^18} ", "SHMS e yield");
     fmt::print(" {:>7} ", "peak1");
     fmt::print(" {:>7} ", "peak2");
     fmt::print(" {:>7} ", "peak3");
@@ -115,11 +115,11 @@ void make_vcs_table() {
       charge           = rl_hms["good_total_charge"].get<double>();
       double hms_yield = n_hms * ps_factor / charge;
       double hms_unc   = sqrt(n_hms) * ps_factor / charge;
-      fmt::print(" {:>5.1f}", hms_yield);
-      fmt::print(" ± {:<5.1f}", hms_unc);
+      fmt::print(" {:>1.2e}", hms_yield);
+      fmt::print(" ± {:<1.2e}", hms_unc);
     } else {
-      fmt::print(" {:>5.1f}", 0.);
-      fmt::print(" ± {:<5.1f}", 0.);
+      fmt::print(" {:>1.2e}", 0.);
+      fmt::print(" ± {:<1.2e}", 0.);
     }
     if (countdb_shms.count(it.key()) != 0) {
       auto   rl_shms    = countdb_shms[it.key()];
@@ -128,11 +128,11 @@ void make_vcs_table() {
       charge            = rl_shms["good_total_charge"].get<double>();
       double shms_yield = n_shms * ps_factor / charge;
       double shms_unc   = sqrt(n_shms) * ps_factor / charge;
-      fmt::print(" {:>5.0f}", shms_yield);
-      fmt::print(" ± {:<5.0f}", shms_unc);
+      fmt::print(" {:>1.2e}", shms_yield);
+      fmt::print(" ± {:<1.2e}", shms_unc);
     } else {
-      fmt::print(" {:>5.0f}", 0.);
-      fmt::print(" ± {:<5.0f}", 0.);
+      fmt::print(" {:>1.2e}", 0.);
+      fmt::print(" ± {:<1.2e}", 0.);
     }
     if (vcsdb.count(it.key()) != 0) {
       try {
