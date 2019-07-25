@@ -61,7 +61,11 @@
             8967,
             8968,
             8969,
-            8971
+            8970,
+            8971,
+            8972,
+            8973,
+            8974
         ],
         "hms_angle": 37.33,
         "hms_momentum": 0.893,
@@ -71,16 +75,16 @@
             "vcs_over_pi0": 0.11
         },
         "name": "Kin-Ia",
-        "pi0_count": 2518304.221860101,
+        "pi0_count": 2778733.412821153,
         "projections": {
-            "vcs_count": 277013.464404611,
-            "vcs_count_cut1": 966.4999773076878,
-            "vcs_count_cut2": 3039.668744911796
+            "vcs_count": 305660.67541032674,
+            "vcs_count_cut1": 1066.4500965066302,
+            "vcs_count_cut2": 3354.0145912775147
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 1427.8166888591065
+        "total_charge": 1539.6361281316078
     },
     "Kin-1a-dummy": {
         "good_run_list": [],
@@ -119,11 +123,11 @@
             "vcs_over_pi0": 0.02
         },
         "name": "Kin-Ib",
-        "pi0_count": 232634.5587786506,
+        "pi0_count": 342674.513760735,
         "projections": {
-            "vcs_count": 4652.6911755730125,
-            "vcs_count_cut1": 127.84664812239524,
-            "vcs_count_cut2": 450.6177930454218
+            "vcs_count": 6853.4902752147,
+            "vcs_count_cut1": 188.3202057823495,
+            "vcs_count_cut2": 663.767386644819
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
@@ -215,11 +219,11 @@
             "vcs_over_pi0": 0.34
         },
         "name": "Kin-IIa'",
-        "pi0_count": 205016.9169215595,
+        "pi0_count": 221557.11158443894,
         "projections": {
-            "vcs_count": 69705.75175333023,
-            "vcs_count_cut1": 205.42285041706415,
-            "vcs_count_cut2": 632.2311684027052
+            "vcs_count": 75329.41793870926,
+            "vcs_count_cut1": 221.99579466537617,
+            "vcs_count_cut2": 683.2378207040929
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
@@ -296,22 +300,25 @@
     },
     "Kin-2bp": {
         "good_run_list": [
-            8865,
-            8867,
-            8868,
-            8869,
-            8870,
-            8871,
-            8872,
-            8873,
-            8874,
-            8875,
-            8876,
-            8877,
-            8878,
-            8879
+            8880,
+            8881,
+            8882,
+            8883,
+            8884,
+            8885,
+            8886,
+            8887,
+            8888,
+            8889,
+            8890,
+            8891,
+            8892,
+            8893,
+            8894,
+            8897,
+            8898
         ],
-        "hms_angle": 55.52,
+        "hms_angle": 55.22,
         "hms_momentum": 0.863,
         "mc_estimates": {
             "eff_cut1": 0.031065,
@@ -320,23 +327,26 @@
             "vcs_over_pi0": 0.025
         },
         "name": "Kin-IIb'",
-        "pi0_count": 811531.124339384,
+        "pi0_count": 827989.4584880155,
         "projections": {
-            "vcs_count": 20288.278108484603,
-            "vcs_count_cut1": 630.2553594400741,
-            "vcs_count_cut2": 2289.3901665957283
+            "vcs_count": 20699.736462200388,
+            "vcs_count_cut1": 643.037313198255,
+            "vcs_count_cut2": 2335.8203616040782
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 491.1941315098545
+        "total_charge": 589.4383496868284
     },
     "Kin-2bp-dummy": {
-        "good_run_list": [],
-        "hms_angle": 55.52,
+        "good_run_list": [
+            8895,
+            8896
+        ],
+        "hms_angle": 55.22,
         "hms_momentum": 0.863,
         "name": "Kin-IIb'",
-        "pi0_count": 0,
+        "pi0_count": 339956.79500804225,
         "projections": {
             "vcs_count": 0,
             "vcs_count_cut1": 0,
@@ -345,7 +355,7 @@
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "DUMMY",
-        "total_charge": 0.0
+        "total_charge": 151.02680766217023
     },
     "Kin-3a": {
         "good_run_list": [
@@ -497,6 +507,115 @@
         },
         "shms_angle": 9.05,
         "shms_momentum": -3.97,
+        "target": "DUMMY",
+        "total_charge": 0.0
+    },
+    "xxelastic-1": {
+        "good_run_list": [
+            8819,
+            8820,
+            8824,
+            8825,
+            8826,
+            8827
+        ],
+        "hms_angle": 61.16,
+        "hms_momentum": 0.893,
+        "name": "Ela-I",
+        "pi0_count": 15000984.879566642,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 10.76,
+        "shms_momentum": -4.193,
+        "target": "LH2",
+        "total_charge": 64.18944275524343
+    },
+    "xxelastic-1-dummy": {
+        "good_run_list": [
+            8828
+        ],
+        "hms_angle": 61.16,
+        "hms_momentum": 0.893,
+        "name": "Ela-I",
+        "pi0_count": 138210.05356732535,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 10.76,
+        "shms_momentum": -4.193,
+        "target": "DUMMY",
+        "total_charge": 68.61141832111136
+    },
+    "xxelastic-2": {
+        "good_run_list": [
+            8900
+        ],
+        "hms_angle": 61.95,
+        "hms_momentum": 0.863,
+        "name": "Ela-II",
+        "pi0_count": 14153324.724264706,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 10.41,
+        "shms_momentum": -4.214,
+        "target": "LH2",
+        "total_charge": 56.71567553356717
+    },
+    "xxelastic-2-dummy": {
+        "good_run_list": [
+            8901
+        ],
+        "hms_angle": 61.95,
+        "hms_momentum": 0.863,
+        "name": "Ela-II",
+        "pi0_count": 136773.77857881432,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 10.41,
+        "shms_momentum": -4.214,
+        "target": "DUMMY",
+        "total_charge": 63.15793671912619
+    },
+    "xxelastic-3": {
+        "good_run_list": [],
+        "hms_angle": 63.76,
+        "hms_momentum": 0.795,
+        "name": "Ela-III",
+        "pi0_count": 0,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 9.64,
+        "shms_momentum": -4.259,
+        "target": "LH2",
+        "total_charge": 0.0
+    },
+    "xxelastic-3-dummy": {
+        "good_run_list": [],
+        "hms_angle": 63.76,
+        "hms_momentum": 0.795,
+        "name": "Ela-III",
+        "pi0_count": 0,
+        "projections": {
+            "vcs_count": 0,
+            "vcs_count_cut1": 0,
+            "vcs_count_cut2": 0
+        },
+        "shms_angle": 9.64,
+        "shms_momentum": -4.259,
         "target": "DUMMY",
         "total_charge": 0.0
     }

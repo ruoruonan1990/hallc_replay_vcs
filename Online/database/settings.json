@@ -108,7 +108,7 @@
   "Kin-2bp" : { 
     "name": "Kin-IIb'",
     "target": "LH2",
-    "hms_angle": 55.52,
+    "hms_angle": 55.22,
     "hms_momentum": 0.863,
     "shms_angle": 7.69,
     "shms_momentum": -4.034,
@@ -122,7 +122,7 @@
   "Kin-2bp-dummy" : { 
     "name": "Kin-IIb'",
     "target": "DUMMY",
-    "hms_angle": 55.52,
+    "hms_angle": 55.22,
     "hms_momentum": 0.863,
     "shms_angle": 7.69,
     "shms_momentum": -4.034
@@ -210,5 +210,53 @@
     "hms_momentum": 0.995,
     "shms_angle": 9.05,
     "shms_momentum": -3.97
+  },
+  "xxelastic-1" : { 
+    "name": "Ela-I",
+    "target": "LH2",
+    "hms_angle": 61.16,
+    "hms_momentum": 0.893,
+    "shms_angle": 10.76,
+    "shms_momentum": -4.193
+  },
+  "xxelastic-2" : { 
+    "name": "Ela-II",
+    "target": "LH2",
+    "hms_angle": 61.95,
+    "hms_momentum": 0.863,
+    "shms_angle": 10.41,
+    "shms_momentum": -4.214
+  },
+  "xxelastic-3" : { 
+    "name": "Ela-III",
+    "target": "LH2",
+    "hms_angle": 63.76,
+    "hms_momentum": 0.795,
+    "shms_angle": 9.64,
+    "shms_momentum": -4.259
+  },
+  "xxelastic-1-dummy" : { 
+    "name": "Ela-I",
+    "target": "DUMMY",
+    "hms_angle": 61.16,
+    "hms_momentum": 0.893,
+    "shms_angle": 10.76,
+    "shms_momentum": -4.193
+  },
+  "xxelastic-2-dummy" : { 
+    "name": "Ela-II",
+    "target": "DUMMY",
+    "hms_angle": 61.95,
+    "hms_momentum": 0.863,
+    "shms_angle": 10.41,
+    "shms_momentum": -4.214
+  },
+  "xxelastic-3-dummy" : { 
+    "name": "Ela-III",
+    "target": "DUMMY",
+    "hms_angle": 63.76,
+    "hms_momentum": 0.795,
+    "shms_angle": 9.64,
+    "shms_momentum": -4.259
   }
 }
