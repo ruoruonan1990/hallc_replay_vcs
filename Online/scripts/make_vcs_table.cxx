@@ -8,6 +8,23 @@
 // CHANGE THIS ONCE THE EXPERIMENT STARTS!
 constexpr const int FIRST_VCS_RUN = 8819;
 
+std::string setting_name(const nlohmann::json& spectro_info, const nlohmann::json& settings) {
+  // loop over all settings and check if we have a setting for this run
+  for (const auto& setting : settings) {
+    if (fabs(setting["hms_momentum"].get<double>() - spectro_info["hms_momentum"].get<double>()) <
+            0.015 &&
+        fabs(setting["hms_angle"].get<double>() - spectro_info["hms_angle"].get<double>()) < 0.1 &&
+        fabs(setting["shms_momentum"].get<double>() - spectro_info["shms_momentum"].get<double>()) <
+            0.015 &&
+        fabs(setting["shms_angle"].get<double>() - spectro_info["shms_angle"].get<double>()) <
+            0.1) {
+      return setting["name"];
+    }
+  }
+  // nothing found
+  return "other";
+}
+
 void make_vcs_table() {
   using nlohmann::json;
   json vcsdb;
@@ -35,11 +52,17 @@ void make_vcs_table() {
     std::ifstream json_input_file("database/commentdb.json");
     json_input_file >> commentdb;
   }
+  json settings;
+  {
+    std::ifstream json_input_file("database/settings.json");
+    json_input_file >> settings;
+  }
   std::ofstream good_runfile("database/good_runs.txt");
 
   auto print_header = []() {
     std::cout << "\n";
     fmt::print(" {:<5} ", "Run");
+    fmt::print(" {:^7} ", "Setting");
     fmt::print(" {:^5} ", "Target");
     fmt::print(" {:>7} ", "P_hms ");
     fmt::print(" {:<7} ", "th_hms");
@@ -79,16 +102,18 @@ void make_vcs_table() {
       print_header();
     }
 
-    p_hms   = runjs["spectrometers"]["hms_momentum"].get<double>();
-    th_hms  = runjs["spectrometers"]["hms_angle"].get<double>();
-    p_shms  = runjs["spectrometers"]["shms_momentum"].get<double>();
-    th_shms = runjs["spectrometers"]["shms_angle"].get<double>();
+    p_hms     = runjs["spectrometers"]["hms_momentum"].get<double>();
+    th_hms    = runjs["spectrometers"]["hms_angle"].get<double>();
+    p_shms    = runjs["spectrometers"]["shms_momentum"].get<double>();
+    th_shms   = runjs["spectrometers"]["shms_angle"].get<double>();
+    auto name = setting_name(runjs["spectrometers"], settings);
 
     old_target = target_lab;
 
     good_runfile << std::stoi(it.key()) << "\n";
 
     fmt::print(" {:<5} ", std::stoi(it.key()));
+    fmt::print(" {:^7} ", name);
     fmt::print(" {:^5} ", target_lab);
     fmt::print(" {:>7.3f} ", runjs["spectrometers"]["hms_momentum"].get<double>());
     fmt::print(" {:<7.2f} ", runjs["spectrometers"]["hms_angle"].get<double>());
@@ -138,8 +163,8 @@ void make_vcs_table() {
       try {
         double n_peak1 = vcsdb[it.key()]["missing_mass"]["peak1"]["integral"].get<double>();
         //        double n_peak2 =
-        //        vcsdb[it.key()]["missing_mass"]["peak2"]["integral"].get<double>(); double n_peak3
-        //        = vcsdb[it.key()]["missing_mass"]["peak3"]["integral"].get<double>();
+        //        vcsdb[it.key()]["missing_mass"]["peak2"]["integral"].get<double>(); double
+        //        n_peak3 = vcsdb[it.key()]["missing_mass"]["peak3"]["integral"].get<double>();
         if (charge > 0) {
           fmt::print("  {:>1.2e}  ", (n_peak1 > 1e-100) ? n_peak1 / charge : 0);
           fmt::print(" {:>1.2e} ", charge);
