@@ -8792,26 +8792,26 @@
             }
         }
     },
-    "8950": {
+    "8948": {
         "luminosity": {
             "HMS": {
-                "B2_current_cut": 15.21399974822998,
-                "active_time": 313.8389892578125,
-                "luminosity": 12755139.0
+                "B2_current_cut": 14.949000358581543,
+                "active_time": 3356.2490234375,
+                "luminosity": 134029752.0
             },
             "SHMS": {
-                "B2_current_cut": 15.21399974822998,
-                "active_time": 313.8389892578125,
-                "luminosity": 12755139.0
+                "B2_current_cut": 14.949000358581543,
+                "active_time": 3356.287109375,
+                "luminosity": 134031280.0
             }
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.010702743243385191,
+                "integral": 0.16735693888352834,
                 "mass": 0.020999999716877937,
-                "max": 643.1666870117188,
-                "sum_arbcut": 2821.666748046875,
-                "sum_withbkg": 3306.6176246194277
+                "max": 9957.0,
+                "sum_arbcut": 43940.828125,
+                "sum_withbkg": 51734.80009191176
             },
             "peak2": {
                 "integral": 0.0,
@@ -8821,43 +8821,1549 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.91113808781557e-310,
+                "integral": 6.9444712771808e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
-                "sum_withbkg": -0.5676640151353503
+                "sum_withbkg": -0.47514062728576434
             }
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.0003781515115406364,
-                "background_avg": 1375.625,
-                "background_high": 1299.5,
-                "background_low": 1451.75,
+                "N_over_L": 0.0005640137824229896,
+                "background_avg": 21693.375,
+                "background_high": 20279.0,
+                "background_low": 23107.75,
                 "delay": -0.05000000074505806,
-                "events": 4823.375,
-                "max": 571.0,
-                "raw_events": 6199.0
+                "events": 75594.625,
+                "max": 9244.0,
+                "raw_events": 97288.0
             },
             "peak2": {
-                "N_over_L": 1.4846957128611393e-05,
-                "background_avg": 1375.625,
-                "background_high": 1299.5,
-                "background_low": 1451.75,
+                "N_over_L": 2.581236549303867e-05,
+                "background_avg": 21693.375,
+                "background_high": 20279.0,
+                "background_low": 23107.75,
                 "delay": 2.049999952316284,
-                "events": 189.375,
-                "max": 131.0,
-                "raw_events": 1565.0
+                "events": 3459.625,
+                "max": 1994.0,
+                "raw_events": 25153.0
             },
             "peak3": {
-                "N_over_L": 1.2886962394986767e-05,
-                "background_avg": 1375.625,
-                "background_high": 1299.5,
-                "background_low": 1451.75,
-                "delay": -6.050000190734863,
-                "events": 164.375,
-                "max": 151.0,
-                "raw_events": 1540.0
+                "N_over_L": 1.8657237887964584e-05,
+                "background_avg": 21693.375,
+                "background_high": 20279.0,
+                "background_low": 23107.75,
+                "delay": -2.049999952316284,
+                "events": 2500.625,
+                "max": 1914.0,
+                "raw_events": 24194.0
+            }
+        }
+    },
+    "8949": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.213000297546387,
+                "active_time": 1755.843994140625,
+                "luminosity": 71356856.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.213000297546387,
+                "active_time": 1755.843994140625,
+                "luminosity": 71356856.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.08709841693526739,
+                "mass": 0.020999999716877937,
+                "max": 5214.33349609375,
+                "sum_arbcut": 22768.16796875,
+                "sum_withbkg": 26657.109339096965
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.94387080318283e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5610821192993323
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005521088023670018,
+                "background_avg": 11471.25,
+                "background_high": 10743.75,
+                "background_low": 12198.75,
+                "delay": -0.05000000074505806,
+                "events": 39396.75,
+                "max": 4885.0,
+                "raw_events": 50868.0
+            },
+            "peak2": {
+                "N_over_L": 2.6399004127597436e-05,
+                "background_avg": 11471.25,
+                "background_high": 10743.75,
+                "background_low": 12198.75,
+                "delay": 2.049999952316284,
+                "events": 1883.75,
+                "max": 1088.0,
+                "raw_events": 13355.0
+            },
+            "peak3": {
+                "N_over_L": 1.8439013729221188e-05,
+                "background_avg": 11471.25,
+                "background_high": 10743.75,
+                "background_low": 12198.75,
+                "delay": -1.9500000476837158,
+                "events": 1315.75,
+                "max": 1049.0,
+                "raw_events": 12787.0
+            }
+        }
+    },
+    "8950": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.173999786376953,
+                "active_time": 1990.4420166015625,
+                "luminosity": 80683456.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.173999786376953,
+                "active_time": 1990.4420166015625,
+                "luminosity": 80683456.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09792439892208271,
+                "mass": 0.020999999716877937,
+                "max": 5722.1669921875,
+                "sum_arbcut": 25658.50390625,
+                "sum_withbkg": 30079.4137393727
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9427359058919e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.4698228551412278
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005527233006432652,
+                "background_avg": 12915.375,
+                "background_high": 12090.75,
+                "background_low": 13740.0,
+                "delay": -0.05000000074505806,
+                "events": 44595.625,
+                "max": 5412.0,
+                "raw_events": 57511.0
+            },
+            "peak2": {
+                "N_over_L": 2.4473729354212992e-05,
+                "background_avg": 12915.375,
+                "background_high": 12090.75,
+                "background_low": 13740.0,
+                "delay": 2.049999952316284,
+                "events": 1974.625,
+                "max": 1253.0,
+                "raw_events": 14890.0
+            },
+            "peak3": {
+                "N_over_L": 1.6417554434156045e-05,
+                "background_avg": 12915.375,
+                "background_high": 12090.75,
+                "background_low": 13740.0,
+                "delay": -2.049999952316284,
+                "events": 1324.625,
+                "max": 1169.0,
+                "raw_events": 14240.0
+            }
+        }
+    },
+    "8951": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.140000343322754,
+                "active_time": 1881.1600341796875,
+                "luminosity": 76082808.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.140000343322754,
+                "active_time": 1881.1600341796875,
+                "luminosity": 76082808.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09310899908241885,
+                "mass": 0.020999999716877937,
+                "max": 5371.5,
+                "sum_arbcut": 24461.669921875,
+                "sum_withbkg": 28716.422944910384
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.927845458898e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.6273568933358794
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005546341417357326,
+                "background_avg": 12277.875,
+                "background_high": 11494.75,
+                "background_low": 13061.0,
+                "delay": -0.05000000074505806,
+                "events": 42198.125,
+                "max": 5218.0,
+                "raw_events": 54476.0
+            },
+            "peak2": {
+                "N_over_L": 2.8050029868609272e-05,
+                "background_avg": 12277.875,
+                "background_high": 11494.75,
+                "background_low": 13061.0,
+                "delay": 2.049999952316284,
+                "events": 2134.125,
+                "max": 1146.0,
+                "raw_events": 14412.0
+            },
+            "peak3": {
+                "N_over_L": 1.643110954319127e-05,
+                "background_avg": 12277.875,
+                "background_high": 11494.75,
+                "background_low": 13061.0,
+                "delay": -2.049999952316284,
+                "events": 1250.125,
+                "max": 1096.0,
+                "raw_events": 13528.0
+            }
+        }
+    },
+    "8952": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.03499984741211,
+                "active_time": 1570.240966796875,
+                "luminosity": 63067356.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.03499984741211,
+                "active_time": 1570.251953125,
+                "luminosity": 63067800.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.07836290929597613,
+                "mass": 0.020999999716877937,
+                "max": 4671.83349609375,
+                "sum_arbcut": 20466.833984375,
+                "sum_withbkg": 23834.559721105237
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9436342804342e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5652633342361268
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005638178554363549,
+                "background_avg": 10135.5,
+                "background_high": 9532.0,
+                "background_low": 10739.0,
+                "delay": -0.05000000074505806,
+                "events": 35558.5,
+                "max": 4368.0,
+                "raw_events": 45694.0
+            },
+            "peak2": {
+                "N_over_L": 2.445797872496769e-05,
+                "background_avg": 10135.5,
+                "background_high": 9532.0,
+                "background_low": 10739.0,
+                "delay": 2.049999952316284,
+                "events": 1542.5,
+                "max": 954.0,
+                "raw_events": 11678.0
+            },
+            "peak3": {
+                "N_over_L": 2.0240264348103665e-05,
+                "background_avg": 10135.5,
+                "background_high": 9532.0,
+                "background_low": 10739.0,
+                "delay": -2.049999952316284,
+                "events": 1276.5,
+                "max": 914.0,
+                "raw_events": 11412.0
+            }
+        }
+    },
+    "8953": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.041000366210938,
+                "active_time": 1787.217041015625,
+                "luminosity": 71810656.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.031000137329102,
+                "active_time": 1789.2509765625,
+                "luminosity": 71844584.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.088393700930629,
+                "mass": 0.020999999716877937,
+                "max": 5521.1669921875,
+                "sum_arbcut": 23177.501953125,
+                "sum_withbkg": 27447.30565688189
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9018307233422e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5236649984532101
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005621641175821424,
+                "background_avg": 11567.625,
+                "background_high": 10877.75,
+                "background_low": 12257.5,
+                "delay": -0.05000000074505806,
+                "events": 40369.375,
+                "max": 4981.0,
+                "raw_events": 51937.0
+            },
+            "peak2": {
+                "N_over_L": 2.607377609820105e-05,
+                "background_avg": 11567.625,
+                "background_high": 10877.75,
+                "background_low": 12257.5,
+                "delay": 2.049999952316284,
+                "events": 1872.375,
+                "max": 1070.0,
+                "raw_events": 13440.0
+            },
+            "peak3": {
+                "N_over_L": 2.3845694158808328e-05,
+                "background_avg": 11567.625,
+                "background_high": 10877.75,
+                "background_low": 12257.5,
+                "delay": -1.9500000476837158,
+                "events": 1712.375,
+                "max": 1043.0,
+                "raw_events": 13280.0
+            }
+        }
+    },
+    "8954": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.092000007629395,
+                "active_time": 1875.0560302734375,
+                "luminosity": 75595504.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.092000007629395,
+                "active_time": 1875.0560302734375,
+                "luminosity": 75595504.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09163788122375155,
+                "mass": 0.020999999716877937,
+                "max": 5746.00048828125,
+                "sum_arbcut": 23987.669921875,
+                "sum_withbkg": 28417.649931066175
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.94848691060305e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5862398815003487
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005528189358301461,
+                "background_avg": 12258.375,
+                "background_high": 11523.5,
+                "background_low": 12993.25,
+                "delay": -0.05000000074505806,
+                "events": 41790.625,
+                "max": 5188.0,
+                "raw_events": 54049.0
+            },
+            "peak2": {
+                "N_over_L": 2.5366918634972535e-05,
+                "background_avg": 12258.375,
+                "background_high": 11523.5,
+                "background_low": 12993.25,
+                "delay": 2.049999952316284,
+                "events": 1917.625,
+                "max": 1199.0,
+                "raw_events": 14176.0
+            },
+            "peak3": {
+                "N_over_L": 1.798552693799138e-05,
+                "background_avg": 12258.375,
+                "background_high": 11523.5,
+                "background_low": 12993.25,
+                "delay": -2.049999952316284,
+                "events": 1359.625,
+                "max": 1106.0,
+                "raw_events": 13618.0
+            }
+        }
+    },
+    "8955": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.015999794006348,
+                "active_time": 1613.39794921875,
+                "luminosity": 64718828.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.015999794006348,
+                "active_time": 1613.4090576171875,
+                "luminosity": 64719276.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.08032650927915314,
+                "mass": 0.020999999716877937,
+                "max": 4903.6669921875,
+                "sum_arbcut": 20861.16796875,
+                "sum_withbkg": 24754.6578799977
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.903325527937e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.6718997887973077
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005629756487905979,
+                "background_avg": 10397.875,
+                "background_high": 9768.25,
+                "background_low": 11027.5,
+                "delay": -0.05000000074505806,
+                "events": 36435.125,
+                "max": 4512.0,
+                "raw_events": 46833.0
+            },
+            "peak2": {
+                "N_over_L": 2.5852214093902148e-05,
+                "background_avg": 10397.875,
+                "background_high": 9768.25,
+                "background_low": 11027.5,
+                "delay": 2.049999952316284,
+                "events": 1673.125,
+                "max": 1054.0,
+                "raw_events": 12071.0
+            },
+            "peak3": {
+                "N_over_L": 1.7817457774071954e-05,
+                "background_avg": 10397.875,
+                "background_high": 9768.25,
+                "background_low": 11027.5,
+                "delay": -2.049999952316284,
+                "events": 1153.125,
+                "max": 993.0,
+                "raw_events": 11551.0
+            }
+        }
+    },
+    "8956": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.0600004196167,
+                "active_time": 1927.89404296875,
+                "luminosity": 77560936.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.0600004196167,
+                "active_time": 1927.89404296875,
+                "luminosity": 77560936.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09639389128059161,
+                "mass": 0.020999999716877937,
+                "max": 5903.50048828125,
+                "sum_arbcut": 25127.00390625,
+                "sum_withbkg": 29542.894789751837
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9254053776427e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5797302568015106
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005633248365484178,
+                "background_avg": 12570.0,
+                "background_high": 11814.0,
+                "background_low": 13326.0,
+                "delay": -0.05000000074505806,
+                "events": 43692.0,
+                "max": 5367.0,
+                "raw_events": 56262.0
+            },
+            "peak2": {
+                "N_over_L": 2.7307560230838135e-05,
+                "background_avg": 12570.0,
+                "background_high": 11814.0,
+                "background_low": 13326.0,
+                "delay": 2.049999952316284,
+                "events": 2118.0,
+                "max": 1237.0,
+                "raw_events": 14688.0
+            },
+            "peak3": {
+                "N_over_L": 1.8308184735360555e-05,
+                "background_avg": 12570.0,
+                "background_high": 11814.0,
+                "background_low": 13326.0,
+                "delay": -2.049999952316284,
+                "events": 1420.0,
+                "max": 1133.0,
+                "raw_events": 13990.0
+            }
+        }
+    },
+    "8957": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.986000061035156,
+                "active_time": 2538.158935546875,
+                "luminosity": 101610696.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.991999626159668,
+                "active_time": 2536.347900390625,
+                "luminosity": 101578848.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.1272369285027776,
+                "mass": 0.020999999716877937,
+                "max": 7874.6669921875,
+                "sum_arbcut": 33029.5078125,
+                "sum_withbkg": 39029.17121438419
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9053386112077e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.545105318148482
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005645874771289527,
+                "background_avg": 16387.875,
+                "background_high": 15341.75,
+                "background_low": 17434.0,
+                "delay": -0.05000000074505806,
+                "events": 57368.125,
+                "max": 7101.0,
+                "raw_events": 73756.0
+            },
+            "peak2": {
+                "N_over_L": 2.6091003746842034e-05,
+                "background_avg": 16387.875,
+                "background_high": 15341.75,
+                "background_low": 17434.0,
+                "delay": 2.049999952316284,
+                "events": 2651.125,
+                "max": 1527.0,
+                "raw_events": 19039.0
+            },
+            "peak3": {
+                "N_over_L": 1.7184460375574417e-05,
+                "background_avg": 16387.875,
+                "background_high": 15341.75,
+                "background_low": 17434.0,
+                "delay": -2.049999952316284,
+                "events": 1746.125,
+                "max": 1481.0,
+                "raw_events": 18134.0
+            }
+        }
+    },
+    "8958": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.03600025177002,
+                "active_time": 2369.7880859375,
+                "luminosity": 95186800.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.03600025177002,
+                "active_time": 2369.787109375,
+                "luminosity": 95186760.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.11826333700646094,
+                "mass": 0.020999999716877937,
+                "max": 7296.66748046875,
+                "sum_arbcut": 30853.505859375,
+                "sum_withbkg": 36512.749885110294
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9055491726074e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.6186025012446652
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005646738572977483,
+                "background_avg": 15313.5,
+                "background_high": 14391.25,
+                "background_low": 16235.75,
+                "delay": 0.05000000074505806,
+                "events": 53749.5,
+                "max": 6636.0,
+                "raw_events": 69063.0
+            },
+            "peak2": {
+                "N_over_L": 2.5218832888640463e-05,
+                "background_avg": 15313.5,
+                "background_high": 14391.25,
+                "background_low": 16235.75,
+                "delay": 2.049999952316284,
+                "events": 2400.5,
+                "max": 1547.0,
+                "raw_events": 17714.0
+            },
+            "peak3": {
+                "N_over_L": 1.9388193322811276e-05,
+                "background_avg": 15313.5,
+                "background_high": 14391.25,
+                "background_low": 16235.75,
+                "delay": -2.049999952316284,
+                "events": 1845.5,
+                "max": 1345.0,
+                "raw_events": 17159.0
+            }
+        }
+    },
+    "8959": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.017000198364258,
+                "active_time": 1929.5140380859375,
+                "luminosity": 77404464.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.017000198364258,
+                "active_time": 1929.52197265625,
+                "luminosity": 77404784.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09664646553023569,
+                "mass": 0.020999999716877937,
+                "max": 5804.00048828125,
+                "sum_arbcut": 25180.50390625,
+                "sum_withbkg": 29700.002154181984
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9299162609253e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.47554922519512244
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005568477208726108,
+                "background_avg": 12527.5,
+                "background_high": 11704.75,
+                "background_low": 13350.25,
+                "delay": -0.05000000074505806,
+                "events": 43102.5,
+                "max": 5364.0,
+                "raw_events": 55630.0
+            },
+            "peak2": {
+                "N_over_L": 2.621941894176416e-05,
+                "background_avg": 12527.5,
+                "background_high": 11704.75,
+                "background_low": 13350.25,
+                "delay": 2.049999952316284,
+                "events": 2029.5,
+                "max": 1211.0,
+                "raw_events": 14557.0
+            },
+            "peak3": {
+                "N_over_L": 1.9191400497220457e-05,
+                "background_avg": 12527.5,
+                "background_high": 11704.75,
+                "background_low": 13350.25,
+                "delay": -2.049999952316284,
+                "events": 1485.5,
+                "max": 1132.0,
+                "raw_events": 14013.0
+            }
+        }
+    },
+    "8960": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.003000259399414,
+                "active_time": 3740.81396484375,
+                "luminosity": 149926752.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.998000144958496,
+                "active_time": 3742.570068359375,
+                "luminosity": 149947136.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.18763937712303508,
+                "mass": 0.020999999716877937,
+                "max": 11433.6650390625,
+                "sum_arbcut": 48960.65234375,
+                "sum_withbkg": 57751.95025275735
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.95039030486247e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5983197453635416
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005632750689983368,
+                "background_avg": 24249.0,
+                "background_high": 22754.5,
+                "background_low": 25743.5,
+                "delay": -0.05000000074505806,
+                "events": 84450.0,
+                "max": 10589.0,
+                "raw_events": 108699.0
+            },
+            "peak2": {
+                "N_over_L": 2.6032712412416004e-05,
+                "background_avg": 24249.0,
+                "background_high": 22754.5,
+                "background_low": 25743.5,
+                "delay": 2.049999952316284,
+                "events": 3903.0,
+                "max": 2282.0,
+                "raw_events": 28152.0
+            },
+            "peak3": {
+                "N_over_L": 1.7715317881084047e-05,
+                "background_avg": 24249.0,
+                "background_high": 22754.5,
+                "background_low": 25743.5,
+                "delay": -2.049999952316284,
+                "events": 2656.0,
+                "max": 2102.0,
+                "raw_events": 26905.0
+            }
+        }
+    },
+    "8961": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 15.015999794006348,
+                "active_time": 2338.113037109375,
+                "luminosity": 93789592.0
+            },
+            "SHMS": {
+                "B2_current_cut": 15.015999794006348,
+                "active_time": 2338.125,
+                "luminosity": 93790072.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.11654007531077154,
+                "mass": 0.020999999716877937,
+                "max": 7316.66748046875,
+                "sum_arbcut": 30310.5078125,
+                "sum_withbkg": 35749.75980870864
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.92870745391804e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5461558026504171
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005618041031993926,
+                "background_avg": 15187.625,
+                "background_high": 14140.5,
+                "background_low": 16234.75,
+                "delay": -0.05000000074505806,
+                "events": 52691.375,
+                "max": 6458.0,
+                "raw_events": 67879.0
+            },
+            "peak2": {
+                "N_over_L": 2.5571867809048854e-05,
+                "background_avg": 15187.625,
+                "background_high": 14140.5,
+                "background_low": 16234.75,
+                "delay": 2.049999952316284,
+                "events": 2398.375,
+                "max": 1457.0,
+                "raw_events": 17586.0
+            },
+            "peak3": {
+                "N_over_L": 1.8844042642740533e-05,
+                "background_avg": 15187.625,
+                "background_high": 14140.5,
+                "background_low": 16234.75,
+                "delay": -2.049999952316284,
+                "events": 1767.375,
+                "max": 1324.0,
+                "raw_events": 16955.0
+            }
+        }
+    },
+    "8962": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.975000381469727,
+                "active_time": 1849.781005859375,
+                "luminosity": 73998352.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.975000381469727,
+                "active_time": 1849.77294921875,
+                "luminosity": 73998032.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09196403086306061,
+                "mass": 0.020999999716877937,
+                "max": 5699.50048828125,
+                "sum_arbcut": 24070.169921875,
+                "sum_withbkg": 28360.5416690602
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.91276238103044e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5528317223469823
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005617591086775064,
+                "background_avg": 11970.75,
+                "background_high": 11281.0,
+                "background_low": 12660.5,
+                "delay": -0.05000000074505806,
+                "events": 41569.25,
+                "max": 5088.0,
+                "raw_events": 53540.0
+            },
+            "peak2": {
+                "N_over_L": 2.588233292044606e-05,
+                "background_avg": 11970.75,
+                "background_high": 11281.0,
+                "background_low": 12660.5,
+                "delay": 2.049999952316284,
+                "events": 1915.25,
+                "max": 1142.0,
+                "raw_events": 13886.0
+            },
+            "peak3": {
+                "N_over_L": 1.8220000129076652e-05,
+                "background_avg": 11970.75,
+                "background_high": 11281.0,
+                "background_low": 12660.5,
+                "delay": -2.049999952316284,
+                "events": 1348.25,
+                "max": 1070.0,
+                "raw_events": 13319.0
+            }
+        }
+    },
+    "8963": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.996000289916992,
+                "active_time": 1470.1650390625,
+                "luminosity": 58894728.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.996000289916992,
+                "active_time": 1470.1600341796875,
+                "luminosity": 58894528.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.07341798218134493,
+                "mass": 0.020999999716877937,
+                "max": 4427.16650390625,
+                "sum_arbcut": 19097.5,
+                "sum_withbkg": 22504.411585190715
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.939803901525e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5936365837394746
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005627859500236809,
+                "background_avg": 9528.875,
+                "background_high": 8950.75,
+                "background_low": 10107.0,
+                "delay": 0.05000000074505806,
+                "events": 33145.125,
+                "max": 3944.0,
+                "raw_events": 42674.0
+            },
+            "peak2": {
+                "N_over_L": 2.467326157784555e-05,
+                "background_avg": 9528.875,
+                "background_high": 8950.75,
+                "background_low": 10107.0,
+                "delay": 2.049999952316284,
+                "events": 1453.125,
+                "max": 900.0,
+                "raw_events": 10982.0
+            },
+            "peak3": {
+                "N_over_L": 1.4961016859160736e-05,
+                "background_avg": 9528.875,
+                "background_high": 8950.75,
+                "background_low": 10107.0,
+                "delay": -2.049999952316284,
+                "events": 881.125,
+                "max": 830.0,
+                "raw_events": 10410.0
+            }
+        }
+    },
+    "8964": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.923999786376953,
+                "active_time": 1763.35302734375,
+                "luminosity": 70300656.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.913999557495117,
+                "active_time": 1765.362060546875,
+                "luminosity": 70333592.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.08814188703785578,
+                "mass": 0.020999999716877937,
+                "max": 5321.33349609375,
+                "sum_arbcut": 23064.001953125,
+                "sum_withbkg": 27107.59941549862
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9477257586279e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.4964777367945845
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005645839846692979,
+                "background_avg": 11398.375,
+                "background_high": 10715.0,
+                "background_low": 12081.75,
+                "delay": -0.05000000074505806,
+                "events": 39690.625,
+                "max": 5014.0,
+                "raw_events": 51089.0
+            },
+            "peak2": {
+                "N_over_L": 2.5584753529983573e-05,
+                "background_avg": 11398.375,
+                "background_high": 10715.0,
+                "background_low": 12081.75,
+                "delay": 2.049999952316284,
+                "events": 1798.625,
+                "max": 1048.0,
+                "raw_events": 13197.0
+            },
+            "peak3": {
+                "N_over_L": 1.6566345948376693e-05,
+                "background_avg": 11398.375,
+                "background_high": 10715.0,
+                "background_low": 12081.75,
+                "delay": -2.049999952316284,
+                "events": 1164.625,
+                "max": 1032.0,
+                "raw_events": 12563.0
+            }
+        }
+    },
+    "8965": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.904999732971191,
+                "active_time": 2583.699951171875,
+                "luminosity": 102874784.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.913000106811523,
+                "active_time": 2581.68798828125,
+                "luminosity": 102849856.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.12788848717045684,
+                "mass": 0.020999999716877937,
+                "max": 7878.83349609375,
+                "sum_arbcut": 33431.171875,
+                "sum_withbkg": 39397.30763154871
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.94873103778243e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.4541211235405057
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.000565241789445281,
+                "background_avg": 16724.875,
+                "background_high": 15764.0,
+                "background_low": 17685.75,
+                "delay": -0.05000000074505806,
+                "events": 58149.125,
+                "max": 7200.0,
+                "raw_events": 74874.0
+            },
+            "peak2": {
+                "N_over_L": 2.730625419644639e-05,
+                "background_avg": 16724.875,
+                "background_high": 15764.0,
+                "background_low": 17685.75,
+                "delay": 2.049999952316284,
+                "events": 2809.125,
+                "max": 1609.0,
+                "raw_events": 19534.0
+            },
+            "peak3": {
+                "N_over_L": 1.6846937796799466e-05,
+                "background_avg": 16724.875,
+                "background_high": 15764.0,
+                "background_low": 17685.75,
+                "delay": -2.049999952316284,
+                "events": 1733.125,
+                "max": 1460.0,
+                "raw_events": 18458.0
+            }
+        }
+    },
+    "8966": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.892000198364258,
+                "active_time": 1802.9439697265625,
+                "luminosity": 71724936.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.892000198364258,
+                "active_time": 1802.3050537109375,
+                "luminosity": 71699520.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.08842106249471415,
+                "mass": 0.020999999716877937,
+                "max": 5474.33349609375,
+                "sum_arbcut": 23101.66796875,
+                "sum_withbkg": 27320.099954044115
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9367204512679e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.4675754564495381
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005622382159344852,
+                "background_avg": 11547.5,
+                "background_high": 10744.0,
+                "background_low": 12351.0,
+                "delay": -0.05000000074505806,
+                "events": 40326.5,
+                "max": 4989.0,
+                "raw_events": 51874.0
+            },
+            "peak2": {
+                "N_over_L": 2.4977365683298558e-05,
+                "background_avg": 11547.5,
+                "background_high": 10744.0,
+                "background_low": 12351.0,
+                "delay": 2.049999952316284,
+                "events": 1791.5,
+                "max": 1134.0,
+                "raw_events": 13339.0
+            },
+            "peak3": {
+                "N_over_L": 2.1742787794210017e-05,
+                "background_avg": 11547.5,
+                "background_high": 10744.0,
+                "background_low": 12351.0,
+                "delay": -2.049999952316284,
+                "events": 1559.5,
+                "max": 997.0,
+                "raw_events": 13107.0
+            }
+        }
+    },
+    "8967": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.942999839782715,
+                "active_time": 214.69400024414063,
+                "luminosity": 8570232.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.942999839782715,
+                "active_time": 214.69400024414063,
+                "luminosity": 8570232.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.010523419620823815,
+                "mass": 0.020999999716877937,
+                "max": 639.0,
+                "sum_arbcut": 2751.166748046875,
+                "sum_withbkg": 3205.3921643425433
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9240256537841e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.47309550964646824
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005503351567313075,
+                "background_avg": 1378.5,
+                "background_high": 1297.0,
+                "background_low": 1460.0,
+                "delay": 0.05000000074505806,
+                "events": 4716.5,
+                "max": 576.0,
+                "raw_events": 6095.0
+            },
+            "peak2": {
+                "N_over_L": 2.5261859263991937e-05,
+                "background_avg": 1378.5,
+                "background_high": 1297.0,
+                "background_low": 1460.0,
+                "delay": -2.049999952316284,
+                "events": 216.5,
+                "max": 119.0,
+                "raw_events": 1595.0
+            },
+            "peak3": {
+                "N_over_L": 2.1878053303225897e-05,
+                "background_avg": 1378.5,
+                "background_high": 1297.0,
+                "background_low": 1460.0,
+                "delay": -3.950000047683716,
+                "events": 187.5,
+                "max": 133.0,
+                "raw_events": 1566.0
+            }
+        }
+    },
+    "8968": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.888999938964844,
+                "active_time": 1833.5269775390625,
+                "luminosity": 72926896.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.883999824523926,
+                "active_time": 1834.6829833984375,
+                "luminosity": 72948368.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09206503928481842,
+                "mass": 0.020999999716877937,
+                "max": 5524.83349609375,
+                "sum_arbcut": 24043.501953125,
+                "sum_withbkg": 28282.10951861213
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.91274634184773e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5099940243536604
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005702868802472949,
+                "background_avg": 11856.75,
+                "background_high": 11131.75,
+                "background_low": 12581.75,
+                "delay": -0.05000000074505806,
+                "events": 41589.25,
+                "max": 5013.0,
+                "raw_events": 53446.0
+            },
+            "peak2": {
+                "N_over_L": 2.723617944866419e-05,
+                "background_avg": 11856.75,
+                "background_high": 11131.75,
+                "background_low": 12581.75,
+                "delay": 2.049999952316284,
+                "events": 1986.25,
+                "max": 1175.0,
+                "raw_events": 13843.0
+            },
+            "peak3": {
+                "N_over_L": 1.630742735869717e-05,
+                "background_avg": 11856.75,
+                "background_high": 11131.75,
+                "background_low": 12581.75,
+                "delay": -2.049999952316284,
+                "events": 1189.25,
+                "max": 1046.0,
+                "raw_events": 13046.0
+            }
+        }
+    },
+    "8969": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.838000297546387,
+                "active_time": 1830.47900390625,
+                "luminosity": 72556280.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.838000297546387,
+                "active_time": 1830.47900390625,
+                "luminosity": 72556280.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09171178881407582,
+                "mass": 0.020999999716877937,
+                "max": 5475.1669921875,
+                "sum_arbcut": 24139.169921875,
+                "sum_withbkg": 28413.237268784465
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.91235862111124e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5460404248162408
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005767126567661762,
+                "background_avg": 11863.875,
+                "background_high": 11196.25,
+                "background_low": 12531.5,
+                "delay": -0.05000000074505806,
+                "events": 41844.125,
+                "max": 5213.0,
+                "raw_events": 53708.0
+            },
+            "peak2": {
+                "N_over_L": 2.632611540320795e-05,
+                "background_avg": 11863.875,
+                "background_high": 11196.25,
+                "background_low": 12531.5,
+                "delay": 2.049999952316284,
+                "events": 1910.125,
+                "max": 1142.0,
+                "raw_events": 13774.0
+            },
+            "peak3": {
+                "N_over_L": 1.9104136299574748e-05,
+                "background_avg": 11863.875,
+                "background_high": 11196.25,
+                "background_low": 12531.5,
+                "delay": -2.049999952316284,
+                "events": 1386.125,
+                "max": 1029.0,
+                "raw_events": 13250.0
+            }
+        }
+    },
+    "8971": {
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 1.93101617002e-312
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 6.95273642055986e-310
+            },
+            "peak3": {
+                "integral": 6.9527364205598e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": null,
+                "background_avg": 0.0,
+                "background_high": 0.0,
+                "background_low": 0.0,
+                "delay": -1.0,
+                "events": 0.0,
+                "max": 0.0,
+                "raw_events": 0.0
+            },
+            "peak2": {
+                "N_over_L": null,
+                "background_avg": 0.0,
+                "background_high": 0.0,
+                "background_low": 0.0,
+                "delay": 0.0,
+                "events": 0.0,
+                "max": 0.0,
+                "raw_events": 0.0
+            },
+            "peak3": {
+                "N_over_L": null,
+                "background_avg": 0.0,
+                "background_high": 0.0,
+                "background_low": 0.0,
+                "delay": 0.0,
+                "events": 0.0,
+                "max": 0.0,
+                "raw_events": 0.0
             }
         }
     }
