@@ -8588,14 +8588,69 @@
     "8945": {
         "luminosity": {
             "HMS": {
-                "B2_current_cut": 14.65999984741211,
-                "active_time": 37.1619987487793,
-                "luminosity": 1455351.625
+                "B2_current_cut": 14.666999816894531,
+                "active_time": 2113.43994140625,
+                "luminosity": 82806816.0
             },
             "SHMS": {
-                "B2_current_cut": 14.65999984741211,
-                "active_time": 37.1619987487793,
-                "luminosity": 1455351.625
+                "B2_current_cut": 14.677000045776367,
+                "active_time": 2111.429931640625,
+                "luminosity": 82784472.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.07487869565011195,
+                "mass": 0.01899999938905239,
+                "max": 4584.8330078125,
+                "sum_arbcut": 19351.83203125,
+                "sum_withbkg": 23101.469331629134
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.93800621628005e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5985772335900627
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.00040670414455235004,
+                "background_avg": 9244.125,
+                "background_high": 8654.0,
+                "background_low": 9834.25,
+                "delay": -0.05000000074505806,
+                "events": 33677.875,
+                "max": 4168.0,
+                "raw_events": 42922.0
+            },
+            "peak2": {
+                "N_over_L": 1.727967719489243e-05,
+                "background_avg": 9244.125,
+                "background_high": 8654.0,
+                "background_low": 9834.25,
+                "delay": 2.049999952316284,
+                "events": 1430.875,
+                "max": 900.0,
+                "raw_events": 10675.0
+            },
+            "peak3": {
+                "N_over_L": 1.2255935871507972e-05,
+                "background_avg": 9244.125,
+                "background_high": 8654.0,
+                "background_low": 9834.25,
+                "delay": -2.049999952316284,
+                "events": 1014.875,
+                "max": 877.0,
+                "raw_events": 10259.0
             }
         }
     },
