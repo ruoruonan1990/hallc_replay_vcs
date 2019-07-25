@@ -8723,6 +8723,75 @@
             }
         }
     },
+    "8947": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.668000221252441,
+                "active_time": 2910.125,
+                "luminosity": 114029560.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.668000221252441,
+                "active_time": 2910.125,
+                "luminosity": 114029560.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.14428891492805299,
+                "mass": 0.020999999716877937,
+                "max": 8572.0,
+                "sum_arbcut": 37981.0,
+                "sum_withbkg": 44546.07938878676
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.94703666792796e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.4566345722573609
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005781943909823895,
+                "background_avg": 18715.75,
+                "background_high": 17615.25,
+                "background_low": 19816.25,
+                "delay": -0.05000000074505806,
+                "events": 65931.25,
+                "max": 8127.0,
+                "raw_events": 84647.0
+            },
+            "peak2": {
+                "N_over_L": 2.7275822503725067e-05,
+                "background_avg": 18715.75,
+                "background_high": 17615.25,
+                "background_low": 19816.25,
+                "delay": 2.049999952316284,
+                "events": 3110.25,
+                "max": 1805.0,
+                "raw_events": 21826.0
+            },
+            "peak3": {
+                "N_over_L": 1.7953678252524696e-05,
+                "background_avg": 18715.75,
+                "background_high": 17615.25,
+                "background_low": 19816.25,
+                "delay": -2.049999952316284,
+                "events": 2047.25,
+                "max": 1660.0,
+                "raw_events": 20763.0
+            }
+        }
+    },
     "8950": {
         "luminosity": {
             "HMS": {
