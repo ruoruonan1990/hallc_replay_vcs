@@ -723,6 +723,10 @@ void ReadHallCData::Loop(vector<string> vector_name, int runID, string process, 
   }
   // gDirectory->ls("-m");
   // HallCTree->Print();
+  h_M2miss[0]->Write();
+  h_M2miss[1]->Write();
+  h_M2miss[2]->Write();
+  h_M2miss[3]->Write();
   file->Write();
   file->Close();
 
