@@ -59,7 +59,9 @@
             8965,
             8966,
             8967,
-            8968
+            8968,
+            8969,
+            8971
         ],
         "hms_angle": 37.33,
         "hms_momentum": 0.893,
@@ -69,16 +71,16 @@
             "vcs_over_pi0": 0.11
         },
         "name": "Kin-Ia",
-        "pi0_count": 2405052.7437322284,
+        "pi0_count": 2518304.221860101,
         "projections": {
-            "vcs_count": 264555.801810545,
-            "vcs_count_cut1": 923.0351925169917,
-            "vcs_count_cut2": 2902.9708132671103
+            "vcs_count": 277013.464404611,
+            "vcs_count_cut1": 966.4999773076878,
+            "vcs_count_cut2": 3039.668744911796
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 1373.035046682888
+        "total_charge": 1427.8166888591065
     },
     "Kin-1a-dummy": {
         "good_run_list": [],
