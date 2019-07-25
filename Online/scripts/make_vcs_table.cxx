@@ -49,9 +49,9 @@ void make_vcs_table() {
     fmt::print(" {:^17} ", "end time");
     fmt::print(" {:^18} ", "HMS p yield");
     fmt::print(" {:^18} ", "SHMS e yield");
-    fmt::print(" {:^8} ", "peak1");
-    fmt::print(" {:^8} ", "peak2");
-    fmt::print(" {:^8} ", "peak3");
+    fmt::print(" {:^10} ", "pi0 peak");
+    // fmt::print(" {:^8} ", "peak2");
+    // fmt::print(" {:^8} ", "peak3");
     fmt::print(" {:>7} ", "Q [mC]");
     fmt::print(" {:<} ", "comment");
     std::cout << "\n";
@@ -132,22 +132,19 @@ void make_vcs_table() {
       fmt::print(" ± {:<1.2e}", shms_unc);
     } else {
       fmt::print(" {:>1.2e}", 0.);
-      fmt::print(" ± {:<1.2e}", 0.);
+      fmt::print(" ± {:<1.2e} ", 0.);
     }
     if (vcsdb.count(it.key()) != 0) {
       try {
         double n_peak1 = vcsdb[it.key()]["missing_mass"]["peak1"]["integral"].get<double>();
-        double n_peak2 = vcsdb[it.key()]["missing_mass"]["peak2"]["integral"].get<double>();
-        double n_peak3 = vcsdb[it.key()]["missing_mass"]["peak3"]["integral"].get<double>();
+        //        double n_peak2 =
+        //        vcsdb[it.key()]["missing_mass"]["peak2"]["integral"].get<double>(); double n_peak3
+        //        = vcsdb[it.key()]["missing_mass"]["peak3"]["integral"].get<double>();
         if (charge > 0) {
-          fmt::print(" {:>1.2e} ", (n_peak1 > 1e-100) ? n_peak1 / charge : 0);
-          fmt::print(" {:>1.2e} ", (n_peak2 > 1e-100) ? n_peak2 / charge : 0);
-          fmt::print(" {:>1.2e} ", (n_peak3 > 1e-100) ? n_peak3 / charge : 0);
+          fmt::print("  {:>1.2e}  ", (n_peak1 > 1e-100) ? n_peak1 / charge : 0);
           fmt::print(" {:>1.2e} ", charge);
         } else {
-          fmt::print(" {:>9} ", "");
-          fmt::print(" {:>9} ", "");
-          fmt::print(" {:>9} ", "");
+          fmt::print(" {:>11} ", "");
           fmt::print(" {:>9} ", "");
         }
       } catch (std::domain_error) {
@@ -157,9 +154,7 @@ void make_vcs_table() {
         std::cout << "WEIRD TYPE ERROR" << std::endl;
       }
     } else {
-      fmt::print(" {:>9} ", "");
-      fmt::print(" {:>9} ", "");
-      fmt::print(" {:>9} ", "");
+      fmt::print(" {:>11} ", "");
       fmt::print(" {:>9} ", "");
     }
     std::string comment;
