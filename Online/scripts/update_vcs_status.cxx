@@ -94,7 +94,7 @@ void update_vcs_status() {
         const double n_pi0 = vcsdb[it.key()]["missing_mass"]["peak1"]["sum_withbkg"].get<double>();
         sumjs["total_charge"] = sumjs["total_charge"].get<double>() + charge;
         sumjs["pi0_count"]    = sumjs["pi0_count"].get<double>() + n_pi0 * ps_factor;
-        if (target == "LH2") {
+        if (sumjs.find("mc_estimates") != sumjs.end()) {
           const double vcs_over_pi0 = sumjs["mc_estimates"]["vcs_over_pi0"];
           const double eff_cut1     = sumjs["mc_estimates"]["eff_cut1"];
           const double eff_cut2     = sumjs["mc_estimates"]["eff_cut2"];
