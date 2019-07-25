@@ -219,11 +219,11 @@
             "vcs_over_pi0": 0.34
         },
         "name": "Kin-IIa'",
-        "pi0_count": 221557.11158443894,
+        "pi0_count": 249493.87202683615,
         "projections": {
-            "vcs_count": 75329.41793870926,
-            "vcs_count_cut1": 221.99579466537617,
-            "vcs_count_cut2": 683.2378207040929
+            "vcs_count": 84827.9164891243,
+            "vcs_count_cut1": 249.98786989344924,
+            "vcs_count_cut2": 769.3892025563574
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,

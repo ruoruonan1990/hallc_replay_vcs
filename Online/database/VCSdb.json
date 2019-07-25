@@ -2792,11 +2792,11 @@
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.01719158831722127,
+                "integral": 0.023873567122472985,
                 "mass": 0.020999999716877937,
-                "max": 1003.8333740234375,
-                "sum_arbcut": 4494.50048828125,
-                "sum_withbkg": 5264.706151625689
+                "max": 1359.1666259765625,
+                "sum_arbcut": 6173.3330078125,
+                "sum_withbkg": 7130.636955710018
             },
             "peak2": {
                 "integral": 0.0,
@@ -2806,7 +2806,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.9208625426779e-310,
+                "integral": 6.9432894368931e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -2815,34 +2815,34 @@
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.00013029629189986736,
-                "background_avg": 4431.0,
-                "background_high": 4340.25,
-                "background_low": 4521.75,
-                "delay": 0.15000000596046448,
-                "events": 9243.0,
-                "max": 1210.0,
-                "raw_events": 13674.0
+                "N_over_L": 0.00018454412929713726,
+                "background_avg": 6421.75,
+                "background_high": 6278.5,
+                "background_low": 6565.0,
+                "delay": -0.3499999940395355,
+                "events": 13091.25,
+                "max": 1731.0,
+                "raw_events": 19513.0
             },
             "peak2": {
-                "N_over_L": 6.428119377233088e-06,
-                "background_avg": 4431.0,
-                "background_high": 4340.25,
-                "background_low": 4521.75,
-                "delay": 2.25,
-                "events": 456.0,
-                "max": 402.0,
-                "raw_events": 4887.0
+                "N_over_L": 9.222801054420415e-06,
+                "background_avg": 6421.75,
+                "background_high": 6278.5,
+                "background_low": 6565.0,
+                "delay": 1.75,
+                "events": 654.25,
+                "max": 583.0,
+                "raw_events": 7076.0
             },
             "peak3": {
-                "N_over_L": 3.749736379177193e-06,
-                "background_avg": 4431.0,
-                "background_high": 4340.25,
-                "background_low": 4521.75,
-                "delay": -3.8499999046325684,
-                "events": 266.0,
-                "max": 393.0,
-                "raw_events": 4697.0
+                "N_over_L": 5.740902906836709e-06,
+                "background_avg": 6421.75,
+                "background_high": 6278.5,
+                "background_low": 6565.0,
+                "delay": -16.350000381469727,
+                "events": 407.25,
+                "max": 557.0,
+                "raw_events": 6829.0
             }
         }
     },
@@ -2861,11 +2861,11 @@
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.012524119140808343,
+                "integral": 0.017564114343893055,
                 "mass": 0.020999999716877937,
-                "max": 717.0,
-                "sum_arbcut": 3252.33349609375,
-                "sum_withbkg": 3780.637269861558
+                "max": 979.6666870117188,
+                "sum_arbcut": 4532.6669921875,
+                "sum_withbkg": 5203.1866185805375
             },
             "peak2": {
                 "integral": 0.0,
@@ -2875,7 +2875,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.90151417021816e-310,
+                "integral": 6.9245485102557e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -2884,34 +2884,34 @@
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.0001371921825921163,
-                "background_avg": 3120.0,
-                "background_high": 3034.25,
-                "background_low": 3205.75,
-                "delay": 0.15000000596046448,
-                "events": 6728.0,
-                "max": 860.0,
-                "raw_events": 9848.0
+                "N_over_L": 0.00019492738647386432,
+                "background_avg": 4478.625,
+                "background_high": 4371.75,
+                "background_low": 4585.5,
+                "delay": -0.3499999940395355,
+                "events": 9559.375,
+                "max": 1227.0,
+                "raw_events": 14038.0
             },
             "peak2": {
-                "N_over_L": 3.853941962006502e-06,
-                "background_avg": 3120.0,
-                "background_high": 3034.25,
-                "background_low": 3205.75,
-                "delay": -1.850000023841858,
-                "events": 189.0,
-                "max": 276.0,
-                "raw_events": 3309.0
+                "N_over_L": 7.266923603310715e-06,
+                "background_avg": 4478.625,
+                "background_high": 4371.75,
+                "background_low": 4585.5,
+                "delay": 1.850000023841858,
+                "events": 356.375,
+                "max": 396.0,
+                "raw_events": 4835.0
             },
             "peak3": {
-                "N_over_L": 3.833550636045402e-06,
-                "background_avg": 3120.0,
-                "background_high": 3034.25,
-                "background_low": 3205.75,
-                "delay": 2.25,
-                "events": 188.0,
-                "max": 300.0,
-                "raw_events": 3308.0
+                "N_over_L": 5.0646713134483434e-06,
+                "background_avg": 4478.625,
+                "background_high": 4371.75,
+                "background_low": 4585.5,
+                "delay": -12.25,
+                "events": 248.375,
+                "max": 399.0,
+                "raw_events": 4727.0
             }
         }
     },
@@ -2930,11 +2930,11 @@
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.017741476207088356,
+                "integral": 0.024956565251737204,
                 "mass": 0.020999999716877937,
-                "max": 1037.3333740234375,
-                "sum_arbcut": 4632.1669921875,
-                "sum_withbkg": 5340.441400864544
+                "max": 1412.5,
+                "sum_arbcut": 6462.99951171875,
+                "sum_withbkg": 7402.205702837775
             },
             "peak2": {
                 "integral": 0.0,
@@ -2944,7 +2944,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.898604418783e-310,
+                "integral": 6.91897920463155e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -2953,34 +2953,34 @@
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.00012941824388690293,
-                "background_avg": 4490.375,
-                "background_high": 4380.5,
-                "background_low": 4600.25,
-                "delay": 0.15000000596046448,
-                "events": 9405.625,
-                "max": 1215.0,
-                "raw_events": 13896.0
+                "N_over_L": 0.00018054054817184806,
+                "background_avg": 6526.0,
+                "background_high": 6388.25,
+                "background_low": 6663.75,
+                "delay": -0.3499999940395355,
+                "events": 13121.0,
+                "max": 1711.0,
+                "raw_events": 19647.0
             },
             "peak2": {
-                "N_over_L": 6.04909246249008e-06,
-                "background_avg": 4490.375,
-                "background_high": 4380.5,
-                "background_low": 4600.25,
-                "delay": 2.25,
-                "events": 439.625,
-                "max": 402.0,
-                "raw_events": 4930.0
+                "N_over_L": 7.306381576199783e-06,
+                "background_avg": 6526.0,
+                "background_high": 6388.25,
+                "background_low": 6663.75,
+                "delay": 1.850000023841858,
+                "events": 531.0,
+                "max": 559.0,
+                "raw_events": 7057.0
             },
             "peak3": {
-                "N_over_L": 4.590568096318748e-06,
-                "background_avg": 4490.375,
-                "background_high": 4380.5,
-                "background_low": 4600.25,
-                "delay": -17.950000762939453,
-                "events": 333.625,
-                "max": 387.0,
-                "raw_events": 4824.0
+                "N_over_L": 5.380028596846387e-06,
+                "background_avg": 6526.0,
+                "background_high": 6388.25,
+                "background_low": 6663.75,
+                "delay": -18.450000762939453,
+                "events": 391.0,
+                "max": 576.0,
+                "raw_events": 6917.0
             }
         }
     },
@@ -2999,11 +2999,11 @@
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.017320012155156092,
+                "integral": 0.02417267265923506,
                 "mass": 0.020999999716877937,
-                "max": 969.5000610351563,
-                "sum_arbcut": 4502.50048828125,
-                "sum_withbkg": 5260.784553079044
+                "max": 1323.333251953125,
+                "sum_arbcut": 6271.66650390625,
+                "sum_withbkg": 7258.087966021369
             },
             "peak2": {
                 "integral": 0.0,
@@ -3013,7 +3013,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.9021347564855e-310,
+                "integral": 6.92673860047907e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -3022,34 +3022,34 @@
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.00012862808944191784,
-                "background_avg": 4437.5,
-                "background_high": 4335.0,
-                "background_low": 4540.0,
-                "delay": 0.15000000596046448,
-                "events": 9122.5,
-                "max": 1237.0,
-                "raw_events": 13560.0
+                "N_over_L": 0.00018457198166288435,
+                "background_avg": 6417.875,
+                "background_high": 6258.5,
+                "background_low": 6577.25,
+                "delay": -0.3499999940395355,
+                "events": 13090.125,
+                "max": 1743.0,
+                "raw_events": 19508.0
             },
             "peak2": {
-                "N_over_L": 6.225191100384109e-06,
-                "background_avg": 4437.5,
-                "background_high": 4335.0,
-                "background_low": 4540.0,
-                "delay": 2.1500000953674316,
-                "events": 441.5,
-                "max": 378.0,
-                "raw_events": 4879.0
+                "N_over_L": 8.038815394684207e-06,
+                "background_avg": 6417.875,
+                "background_high": 6258.5,
+                "background_low": 6577.25,
+                "delay": 1.75,
+                "events": 570.125,
+                "max": 531.0,
+                "raw_events": 6988.0
             },
             "peak3": {
-                "N_over_L": 5.153583970241016e-06,
-                "background_avg": 4437.5,
-                "background_high": 4335.0,
-                "background_low": 4540.0,
-                "delay": -13.850000381469727,
-                "events": 365.5,
-                "max": 376.0,
-                "raw_events": 4803.0
+                "N_over_L": 6.783906883356394e-06,
+                "background_avg": 6417.875,
+                "background_high": 6258.5,
+                "background_low": 6577.25,
+                "delay": -2.3499999046325684,
+                "events": 481.125,
+                "max": 547.0,
+                "raw_events": 6899.0
             }
         }
     },
@@ -3068,11 +3068,11 @@
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.016090076848024076,
+                "integral": 0.023011511666377032,
                 "mass": 0.020999999716877937,
-                "max": 887.1666870117188,
-                "sum_arbcut": 4120.1669921875,
-                "sum_withbkg": 4674.5100582347195
+                "max": 1231.5,
+                "sum_arbcut": 5899.66650390625,
+                "sum_withbkg": 6639.2156713149125
             },
             "peak2": {
                 "integral": 0.0,
@@ -3082,7 +3082,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.94795139471827e-310,
+                "integral": 6.9218458773115e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -3091,34 +3091,34 @@
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.00012170815898571163,
-                "background_avg": 4241.875,
-                "background_high": 4146.25,
-                "background_low": 4337.5,
-                "delay": 0.15000000596046448,
-                "events": 8612.125,
-                "max": 1083.0,
-                "raw_events": 12854.0
+                "N_over_L": 0.00017411561566404998,
+                "background_avg": 6180.5,
+                "background_high": 6049.5,
+                "background_low": 6311.5,
+                "delay": -0.3499999940395355,
+                "events": 12320.5,
+                "max": 1685.0,
+                "raw_events": 18501.0
             },
             "peak2": {
-                "N_over_L": 3.5348132314538816e-06,
-                "background_avg": 4241.875,
-                "background_high": 4146.25,
-                "background_low": 4337.5,
-                "delay": 2.25,
-                "events": 250.125,
-                "max": 367.0,
-                "raw_events": 4492.0
+                "N_over_L": 6.6209295255248435e-06,
+                "background_avg": 6180.5,
+                "background_high": 6049.5,
+                "background_low": 6311.5,
+                "delay": 1.75,
+                "events": 468.5,
+                "max": 529.0,
+                "raw_events": 6649.0
             },
             "peak3": {
-                "N_over_L": 3.3369626635249006e-06,
-                "background_avg": 4241.875,
-                "background_high": 4146.25,
-                "background_low": 4337.5,
-                "delay": -17.950000762939453,
-                "events": 236.125,
-                "max": 374.0,
-                "raw_events": 4478.0
+                "N_over_L": 4.373911906441208e-06,
+                "background_avg": 6180.5,
+                "background_high": 6049.5,
+                "background_low": 6311.5,
+                "delay": -18.450000762939453,
+                "events": 309.5,
+                "max": 505.0,
+                "raw_events": 6490.0
             }
         }
     },
