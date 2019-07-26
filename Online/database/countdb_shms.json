@@ -2405,17 +2405,17 @@
         "time 1MHz 2u cut": 1883.802809
     },
     "9013": {
-        "charge bcm4b 2u cut": 0.5443720344854425,
-        "count_h": 375.0,
-        "count_identified_pscorr": 3072375.0,
-        "count_raw": 1920.0,
-        "count_raw_pscorr": 15730560.0,
-        "count_tracked": 579.0,
-        "count_tracked_pscorr": 4743747.0,
-        "good_time": 36.385604,
-        "good_total_charge": 0.5443720344854425,
+        "charge bcm4b 2u cut": 31.37126510290967,
+        "count_h": 20038.0,
+        "count_identified_pscorr": 164171334.0,
+        "count_raw": 110202.0,
+        "count_raw_pscorr": 902884986.0,
+        "count_tracked": 31187.0,
+        "count_tracked_pscorr": 255515091.0,
+        "good_time": 2091.323541,
+        "good_total_charge": 31.37126510290967,
         "ps_factor": 8193.0,
-        "time 1MHz 2u cut": 36.385604
+        "time 1MHz 2u cut": 2091.323541
     },
     "9014": {
         "charge bcm4b 2u cut": 28.34307247450219,

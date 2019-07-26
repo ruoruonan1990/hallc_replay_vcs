@@ -1,65 +1,74 @@
 {
   "2021": {
     "comment": "lumi scan 5uA coincidence only"
-  }, 
+  },
   "8585": {
     "comment": "Using this as main test run"
-  }, 
+  },
   "8586": {
     "comment": ""
-  }, 
+  },
   "8694": {
     "comment": "junk"
-  }, 
+  },
   "8817": {
     "comment": "first elastic run"
-  }, 
+  },
   "8827": {
     "comment": "dummy elastic I run"
-  }, 
+  },
   "8847": {
     "comment": "junk"
-  }, 
+  },
   "8848": {
     "comment": "full replay is not working on this run"
-  }, 
+  },
   "8850": {
     "comment": "junk"
-  }, 
+  },
   "8866": {
     "comment": "junk test prescale"
-  }, 
+  },
   "8897": {
     "comment": "DC tripped run ended early"
-  }, 
+  },
   "8905": {
     "comment": "junk (cosmics)"
-  }, 
+  },
   "8906": {
     "comment": "junk (cosmics)"
-  }, 
+  },
   "8913": {
     "comment": "junk"
-  }, 
+  },
   "8978": {
     "comment": "junk"
-  }, 
+  },
   "9017": {
     "comment": "lumi scan (junk)"
-  }, 
+  },
   "9018": {
     "comment": "lumi scan 5uA singles and coincidence trigger"
-  }, 
+  },
   "9019": {
     "comment": "lumi scan (junk)"
-  }, 
+  },
   "9020": {
     "comment": "lumi scan 5uA singles only"
-  }, 
+  },
   "9021": {
     "comment": "lumi scan 5uA coincidence only"
-  }, 
+  },
   "9022": {
-    "comment": "lumi scan 5uA coincidence only"
+    "comment": "lumi scan 10uA coincidence only"
+  },
+  "9023": {
+    "comment": "lumi scan 10uA singles only"
+  },
+  "9024": {
+    "comment": "lumi scan 15uA singles only"
+  },
+  "9025": {
+    "comment": "lumi scan 15uA coincidence only"
   }
 }
