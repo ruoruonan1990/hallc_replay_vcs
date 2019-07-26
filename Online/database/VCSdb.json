@@ -11251,5 +11251,74 @@
                 "raw_events": 11166.0
             }
         }
+    },
+    "8983": {
+        "luminosity": {
+            "HMS": {
+                "B2_current_cut": 14.826000213623047,
+                "active_time": 1896.6710205078125,
+                "luminosity": 75119192.0
+            },
+            "SHMS": {
+                "B2_current_cut": 14.83899974822998,
+                "active_time": 1894.572021484375,
+                "luminosity": 75101848.0
+            }
+        },
+        "missing_mass": {
+            "peak1": {
+                "integral": 0.09304007881109129,
+                "mass": 0.01899999938905239,
+                "max": 5652.00048828125,
+                "sum_arbcut": 24004.3359375,
+                "sum_withbkg": 28550.4929486443
+            },
+            "peak2": {
+                "integral": 0.0,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": 0.0
+            },
+            "peak3": {
+                "integral": 6.9401306516328e-310,
+                "mass": -1.0,
+                "max": 0.0,
+                "sum_arbcut": 0.0,
+                "sum_withbkg": -0.5330198441395159
+            }
+        },
+        "timing": {
+            "peak1": {
+                "N_over_L": 0.0005661103059537709,
+                "background_avg": 12186.25,
+                "background_high": 11411.5,
+                "background_low": 12961.0,
+                "delay": -0.05000000074505806,
+                "events": 42525.75,
+                "max": 5176.0,
+                "raw_events": 54712.0
+            },
+            "peak2": {
+                "N_over_L": 2.4025152015383355e-05,
+                "background_avg": 12186.25,
+                "background_high": 11411.5,
+                "background_low": 12961.0,
+                "delay": 2.049999952316284,
+                "events": 1804.75,
+                "max": 1140.0,
+                "raw_events": 13991.0
+            },
+            "peak3": {
+                "N_over_L": 1.617096677364316e-05,
+                "background_avg": 12186.25,
+                "background_high": 11411.5,
+                "background_low": 12961.0,
+                "delay": -2.049999952316284,
+                "events": 1214.75,
+                "max": 1042.0,
+                "raw_events": 13401.0
+            }
+        }
     }
 }

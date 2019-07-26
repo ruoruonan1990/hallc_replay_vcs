@@ -9771,7 +9771,8 @@
       "run_number": 8988,
       "run_time": 0.0001,
       "run_type": "COIN",
-      "start_time": "21:34:04 07/25/19 EDT"
+      "start_time": "21:34:04 07/25/19 EDT",
+      "stop_time": "22:01:00 07/25/19 EDT"
     },
     "spectrometers": {
       "hms_angle": 37.33,
@@ -9809,9 +9810,9 @@
       "start_time": "22:02:15 07/25/19 EDT"
     },
     "spectrometers": {
-      "hms_angle": 37.36,
+      "hms_angle": 37.33,
       "hms_momentum": 0.893,
-      "shms_angle": 7.61,
+      "shms_angle": 7.69,
       "shms_momentum": -4.034
     },
     "target": {
