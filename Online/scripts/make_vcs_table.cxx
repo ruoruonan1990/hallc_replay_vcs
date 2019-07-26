@@ -171,7 +171,7 @@ void make_vcs_table() {
           fmt::print(" {:>1.2e}  ", (n_peak1 > 1e-100) ? n_peak1 / charge : 0);
           fmt::print(" {:>5.0f} ", charge);
         } else {
-          fmt::print(" {:>11} ", "");
+          fmt::print(" {:>9} ", "");
           fmt::print(" {:>5} ", "");
         }
       } catch (std::domain_error) {
@@ -181,8 +181,8 @@ void make_vcs_table() {
         std::cout << "WEIRD TYPE ERROR" << std::endl;
       }
     } else {
-      fmt::print(" {:>11} ", "");
       fmt::print(" {:>9} ", "");
+      fmt::print(" {:>5} ", "");
     }
     std::string comment;
     if (commentdb.count(it.key()) != 0) {
