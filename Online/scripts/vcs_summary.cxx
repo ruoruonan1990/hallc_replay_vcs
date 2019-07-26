@@ -7,7 +7,7 @@
 
 void print_hline() {
   std::cout << "-----------------------------------------------------------------------------------"
-               "-------------------------------------------------";
+               "----------------------------------------------------------";
 }
 void vcs_summary() {
   using nlohmann::json;
@@ -21,7 +21,7 @@ void vcs_summary() {
   auto print_header = []() {
     // print header
     std::cout << "\n";
-    fmt::print(" {:>8} ", "Setting");
+    fmt::print(" {:>9} ", "Setting");
     fmt::print(" {:^7} ", "target");
     fmt::print(" {:>6} ", "P_hms");
     fmt::print(" {:>7} ", "th_hms");
@@ -33,6 +33,7 @@ void vcs_summary() {
     fmt::print(" {:>9} ", "est. n_VCS");
     fmt::print(" {:>7} ", "cut1");
     fmt::print(" {:>7} ", "cut2");
+    fmt::print(" {:>7} ", "cut3");
     fmt::print(" {:>7} ", "Q [mC]");
     std::cout << "\n";
   };
@@ -53,6 +54,7 @@ void vcs_summary() {
     const double      n_vcs     = setting["projections"]["vcs_count"].get<double>();
     const int         n_cut1    = setting["projections"]["vcs_count_cut1"].get<double>();
     const int         n_cut2    = setting["projections"]["vcs_count_cut2"].get<double>();
+    const int         n_cut3    = setting["projections"]["vcs_count_cut3"].get<double>();
     const double      charge    = setting["total_charge"].get<double>();
     const double      yield     = (charge > 0) ? n_pi0 / charge : 0;
     const double      yield_err = (charge > 0) ? sqrt(n_pi0) / charge : 0;
@@ -62,7 +64,7 @@ void vcs_summary() {
     }
     old_name = name;
 
-    fmt::print(" {:>8} ", name);
+    fmt::print(" {:>9} ", name);
     fmt::print(" {:^7} ", target);
     fmt::print(" {:>6.3f} ", p_hms);
     fmt::print(" {:>7.2f} ", th_hms);
@@ -75,8 +77,10 @@ void vcs_summary() {
       fmt::print("  {:>1.2e} ", n_vcs);
       fmt::print(" {:>7} ", n_cut1);
       fmt::print(" {:>7} ", n_cut2);
+      fmt::print(" {:>7} ", n_cut3);
     } else {
       fmt::print(" {:>9} ", "");
+      fmt::print(" {:>7} ", "");
       fmt::print(" {:>7} ", "");
       fmt::print(" {:>7} ", "");
     }

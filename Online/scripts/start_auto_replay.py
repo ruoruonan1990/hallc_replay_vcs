@@ -31,6 +31,7 @@ def _replay_dir():
 
 def _get_analysis_command(run):
     """Get the analysis command for this run"""
+    run = str(run)
     print('Launching full replay for run', run)
     runinfo = {}
     print('  --> Loading run info')

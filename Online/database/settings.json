@@ -8,8 +8,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.11,
-      "eff_cut1": 0.003489,
-      "eff_cut2": 0.010973
+      "eff_cut1": 0.001086,
+      "eff_cut2": 0.00422371,
+      "eff_cut3": 0.00628868
     }
   },
   "Kin-1a-dummy" : { 
@@ -29,8 +30,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.02,
-      "eff_cut1": 0.027478,
-      "eff_cut2": 0.096851
+      "eff_cut1": 0.0045544,
+      "eff_cut2": 0.0018258,
+      "eff_cut3": 0.0910939
     }
   },
   "Kin-1b-dummy" : { 
@@ -50,8 +52,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.34,
-      "eff_cut1": 0.002947,
-      "eff_cut2": 0.009070
+      "eff_cut1": 0.000694714,
+      "eff_cut2": 0.00280376,
+      "eff_cut3": 0.0298932
     }
   },
   "Kin-2a-dummy" : { 
@@ -71,8 +74,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.025,
-      "eff_cut1": 0.031065,
-      "eff_cut2": 0.112843
+      "eff_cut1": 0.00482176,
+      "eff_cut2": 0.0206694,
+      "eff_cut3": 0.125083
     }
   },
   "Kin-2b-dummy" : { 
@@ -93,8 +97,9 @@
     "mc_estimates": {
       "info": "Numbers from IIa",
       "vcs_over_pi0": 0.34,
-      "eff_cut1": 0.002947,
-      "eff_cut2": 0.009070
+      "eff_cut1": 0.000694714,
+      "eff_cut2": 0.00280376,
+      "eff_cut3": 0.0298932
     }
   },
   "Kin-2ap-dummy" : { 
@@ -115,8 +120,9 @@
     "mc_estimates": {
       "info": "Numbers from IIb",
       "vcs_over_pi0": 0.025,
-      "eff_cut1": 0.031065,
-      "eff_cut2": 0.112843
+      "eff_cut1": 0.00482176,
+      "eff_cut2": 0.0206694,
+      "eff_cut3": 0.125083
     }
   },
   "Kin-2bp-dummy" : { 
@@ -136,8 +142,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.93,
-      "eff_cut1": 0.118064,
-      "eff_cut2": 0.284797
+      "eff_cut1": 0.0351569,
+      "eff_cut2": 0.11352,
+      "eff_cut3": 0.65789
     }
   },
   "Kin-3a-dummy" : { 
@@ -157,8 +164,9 @@
     "shms_momentum": -4.034,
     "mc_estimates": {
       "vcs_over_pi0": 0.02,
-      "eff_cut1": 0.034357,
-      "eff_cut2": 0.125923
+      "eff_cut1": 0.0055652,
+      "eff_cut2": 0.0224324,
+      "eff_cut3": 0.16121
     }
   },
   "Kin-3b-dummy" : { 
@@ -166,6 +174,50 @@
     "target": "DUMMY",
     "hms_angle": 60.74,
     "hms_momentum": 0.795,
+    "shms_angle": 7.69,
+    "shms_momentum": -4.034
+  },
+  "Kin-3ap" : { 
+    "name": "Kin-IIIa'",
+    "target": "LH2",
+    "hms_angle": 30.03,
+    "hms_momentum": 0.823,
+    "shms_angle": 7.69,
+    "shms_momentum": -4.034,
+    "mc_estimates": {
+      "vcs_over_pi0": 0.93,
+      "eff_cut1": 0.0351569,
+      "eff_cut2": 0.11352,
+      "eff_cut3": 0.65789
+    }
+  },
+  "Kin-3ap-dummy" : { 
+    "name": "Kin-IIIa'",
+    "target": "DUMMY",
+    "hms_angle": 30.03,
+    "hms_momentum": 0.823,
+    "shms_angle": 7.69,
+    "shms_momentum": -4.034
+  },
+  "Kin-3bp" : { 
+    "name": "Kin-IIIb'",
+    "target": "LH2",
+    "hms_angle": 58.70,
+    "hms_momentum": 0.823,
+    "shms_angle": 7.69,
+    "shms_momentum": -4.034,
+    "mc_estimates": {
+      "vcs_over_pi0": 0.02,
+      "eff_cut1": 0.0055652,
+      "eff_cut2": 0.0224324,
+      "eff_cut3": 0.16121
+    }
+  },
+  "Kin-3bp-dummy" : { 
+    "name": "Kin-IIIb'",
+    "target": "DUMMY",
+    "hms_angle": 58.70,
+    "hms_momentum": 0.823,
     "shms_angle": 7.69,
     "shms_momentum": -4.034
   },
@@ -178,8 +230,9 @@
     "shms_momentum": -3.97,
     "mc_estimates": {
       "vcs_over_pi0": 0.143,
-      "eff_cut1": 0.002050,
-      "eff_cut2": 0.006447
+      "eff_cut1": 0.000532114,
+      "eff_cut2": 0.00230811,
+      "eff_cut3": 0.00500806
     }
   },
   "Kin-5a-dummy" : { 
@@ -199,8 +252,9 @@
     "shms_momentum": -3.97,
     "mc_estimates": {
       "vcs_over_pi0": 0.016,
-      "eff_cut1": 0.023632,
-      "eff_cut2": 0.086084
+      "eff_cut1": 0.00343207,
+      "eff_cut2": 0.0150289,
+      "eff_cut3": 0.0905683
     }
   },
   "Kin-5b-dummy" : { 

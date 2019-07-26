@@ -42,6 +42,7 @@ void update_vcs_status() {
     sumjs["projections"]["vcs_count"]      = 0;
     sumjs["projections"]["vcs_count_cut1"] = 0;
     sumjs["projections"]["vcs_count_cut2"] = 0;
+    sumjs["projections"]["vcs_count_cut3"] = 0;
     sumjs["total_charge"]                  = 0.;
     std::vector<int> run_list              = {};
     sumjs["good_run_list"]                 = run_list;
@@ -98,6 +99,7 @@ void update_vcs_status() {
           const double vcs_over_pi0 = sumjs["mc_estimates"]["vcs_over_pi0"];
           const double eff_cut1     = sumjs["mc_estimates"]["eff_cut1"];
           const double eff_cut2     = sumjs["mc_estimates"]["eff_cut2"];
+          const double eff_cut3     = sumjs["mc_estimates"]["eff_cut3"];
 
           sumjs["projections"]["vcs_count"] =
               sumjs["projections"]["vcs_count"].get<double>() + n_pi0 * vcs_over_pi0 * ps_factor;
@@ -107,6 +109,9 @@ void update_vcs_status() {
           sumjs["projections"]["vcs_count_cut2"] =
               sumjs["projections"]["vcs_count_cut2"].get<double>() +
               n_pi0 * vcs_over_pi0 * eff_cut2 * ps_factor;
+          sumjs["projections"]["vcs_count_cut3"] =
+              sumjs["projections"]["vcs_count_cut3"].get<double>() +
+              n_pi0 * vcs_over_pi0 * eff_cut3 * ps_factor;
         }
 
         auto run_list = sumjs["good_run_list"].get<std::vector<int>>();
