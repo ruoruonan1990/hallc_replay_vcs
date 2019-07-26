@@ -65,7 +65,14 @@
             8971,
             8972,
             8973,
-            8974
+            8974,
+            8975,
+            8976,
+            8977,
+            8979,
+            8980,
+            8981,
+            8982
         ],
         "hms_angle": 37.33,
         "hms_momentum": 0.893,
@@ -75,16 +82,16 @@
             "vcs_over_pi0": 0.11
         },
         "name": "Kin-Ia",
-        "pi0_count": 2778733.412821153,
+        "pi0_count": 3141568.720940983,
         "projections": {
-            "vcs_count": 305660.67541032674,
-            "vcs_count_cut1": 1066.4500965066302,
-            "vcs_count_cut2": 3354.0145912775147
+            "vcs_count": 345572.559303508,
+            "vcs_count_cut1": 1205.7026594099393,
+            "vcs_count_cut2": 3791.9676932373927
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 1539.6361281316078
+        "total_charge": 1716.3109250032423
     },
     "Kin-1a-dummy": {
         "good_run_list": [],
@@ -219,11 +226,11 @@
             "vcs_over_pi0": 0.34
         },
         "name": "Kin-IIa'",
-        "pi0_count": 249493.87202683615,
+        "pi0_count": 283734.309906118,
         "projections": {
-            "vcs_count": 84827.9164891243,
-            "vcs_count_cut1": 249.98786989344924,
-            "vcs_count_cut2": 769.3892025563574
+            "vcs_count": 96469.66536808014,
+            "vcs_count_cut1": 284.29610383973215,
+            "vcs_count_cut2": 874.9798648884869
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
@@ -271,11 +278,11 @@
             "vcs_over_pi0": 0.025
         },
         "name": "Kin-IIb",
-        "pi0_count": 811531.124339384,
+        "pi0_count": 1003441.6606229894,
         "projections": {
-            "vcs_count": 20288.278108484603,
-            "vcs_count_cut1": 630.2553594400741,
-            "vcs_count_cut2": 2289.3901665957283
+            "vcs_count": 25086.041515574736,
+            "vcs_count_cut1": 779.2978796813292,
+            "vcs_count_cut2": 2830.7841827419998
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
@@ -327,11 +334,11 @@
             "vcs_over_pi0": 0.025
         },
         "name": "Kin-IIb'",
-        "pi0_count": 827989.4584880155,
+        "pi0_count": 1168936.2621980554,
         "projections": {
-            "vcs_count": 20699.736462200388,
-            "vcs_count_cut1": 643.037313198255,
-            "vcs_count_cut2": 2335.8203616040782
+            "vcs_count": 29223.406554951387,
+            "vcs_count_cut1": 907.8251246295647,
+            "vcs_count_cut2": 3297.6568658803794
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
@@ -346,7 +353,7 @@
         "hms_angle": 55.22,
         "hms_momentum": 0.863,
         "name": "Kin-IIb'",
-        "pi0_count": 339956.79500804225,
+        "pi0_count": 490701.62362491374,
         "projections": {
             "vcs_count": 0,
             "vcs_count_cut1": 0,
