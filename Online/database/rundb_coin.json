@@ -9807,7 +9807,79 @@
       "run_number": 8989,
       "run_time": 0.0001,
       "run_type": "COIN",
-      "start_time": "22:02:15 07/25/19 EDT"
+      "start_time": "22:02:15 07/25/19 EDT",
+      "stop_time": "22:26:10 07/25/19 EDT"
+    },
+    "spectrometers": {
+      "hms_angle": 37.33,
+      "hms_momentum": 0.893,
+      "shms_angle": 7.69,
+      "shms_momentum": -4.034
+    },
+    "target": {
+      "target_id": 2,
+      "target_label": "LH2",
+      "target_mass_amu": 1.00794,
+      "target_name": 0
+    }
+  },
+  "8990": {
+    "daq": {
+      "ps1": 14,
+      "ps2": -1,
+      "ps3": -1,
+      "ps4": 12,
+      "ps5": -1,
+      "ps6": 1
+    },
+    "radiator": {
+      "radiator_id": 0.0,
+      "radiator_status": "OUT"
+    },
+    "run_info": {
+      "accumulated_charge": 0.0,
+      "beam_current": 15.089786392495267,
+      "beam_energy": 4.55,
+      "run_number": 8990,
+      "run_time": 0.0001,
+      "run_type": "COIN",
+      "start_time": "22:27:32 07/25/19 EDT",
+      "stop_time": "22:55:12 07/25/19 EDT"
+    },
+    "spectrometers": {
+      "hms_angle": 37.33,
+      "hms_momentum": 0.893,
+      "shms_angle": 7.69,
+      "shms_momentum": -4.034
+    },
+    "target": {
+      "target_id": 2,
+      "target_label": "LH2",
+      "target_mass_amu": 1.00794,
+      "target_name": 0
+    }
+  },
+  "8991": {
+    "daq": {
+      "ps1": 14,
+      "ps2": -1,
+      "ps3": -1,
+      "ps4": 12,
+      "ps5": -1,
+      "ps6": 1
+    },
+    "radiator": {
+      "radiator_id": 0.0,
+      "radiator_status": "OUT"
+    },
+    "run_info": {
+      "accumulated_charge": 0.0,
+      "beam_current": 15.20349265483587,
+      "beam_energy": 4.55,
+      "run_number": 8991,
+      "run_time": 0.0001,
+      "run_type": "COIN",
+      "start_time": "22:57:04 07/25/19 EDT"
     },
     "spectrometers": {
       "hms_angle": 37.33,
