@@ -20,6 +20,8 @@ set type=$3
 set target=$4
 set dir=`pwd`
 
+${dir}/Online/bin/monitor_singles -r ${run} -n ${ev}
+
 source setup.csh
 ${dir}/Ana/HallCana "${type}" "ana" "${target}" "${run}" -f "${dir}/ROOTfiles/coin_replay_production_${run}_${ev}.root"
 
