@@ -19,7 +19,7 @@ import json
 TMUX_SOCKET = 'vcs_online'
 TMUX_SESSION = 'replay'
 REPLAY_CMD = './run_full_replay.csh {} {} {}'
-DBDIR='../database'
+DBDIR='Online/database'
 
 def _replay_dir():
     """Get the current replay directory.
