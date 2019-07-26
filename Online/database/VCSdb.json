@@ -1300,7 +1300,7 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.94582276566677e-310,
+                "integral": 6.89818129192053e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
@@ -5942,23 +5942,23 @@
     "8898": {
         "luminosity": {
             "HMS": {
-                "B2_current_cut": 23.01799964904785,
-                "active_time": 40.529998779296875,
-                "luminosity": 2492178.0
+                "B2_current_cut": 22.993999481201172,
+                "active_time": 1428.1070556640625,
+                "luminosity": 87722336.0
             },
             "SHMS": {
-                "B2_current_cut": 23.01799964904785,
-                "active_time": 40.529998779296875,
-                "luminosity": 2492178.0
+                "B2_current_cut": 22.9950008392334,
+                "active_time": 1428.0069580078125,
+                "luminosity": 87720008.0
             }
         },
         "missing_mass": {
             "peak1": {
-                "integral": 0.006524493905935351,
+                "integral": 0.3205548733395901,
                 "mass": 0.01899999938905239,
-                "max": 479.8333435058594,
-                "sum_arbcut": 1744.5,
-                "sum_withbkg": 2100.4902110380285
+                "max": 22054.833984375,
+                "sum_arbcut": 84075.5,
+                "sum_withbkg": 101200.98158892462
             },
             "peak2": {
                 "integral": 0.0,
@@ -5968,43 +5968,43 @@
                 "sum_withbkg": 0.0
             },
             "peak3": {
-                "integral": 6.9056342893325e-310,
+                "integral": 6.91089908665027e-310,
                 "mass": -1.0,
                 "max": 0.0,
                 "sum_arbcut": 0.0,
-                "sum_withbkg": -0.661864178924672
+                "sum_withbkg": -0.44449615655914476
             }
         },
         "timing": {
             "peak1": {
-                "N_over_L": 0.0009415960521437228,
-                "background_avg": 90.375,
-                "background_high": 85.5,
-                "background_low": 95.25,
-                "delay": 0.05000000074505806,
-                "events": 2346.625,
-                "max": 265.0,
-                "raw_events": 2437.0
+                "N_over_L": 0.0014248680090531707,
+                "background_avg": 5175.25,
+                "background_high": 4992.75,
+                "background_low": 5357.75,
+                "delay": -0.44999998807907104,
+                "events": 124992.75,
+                "max": 12761.0,
+                "raw_events": 130168.0
             },
             "peak2": {
-                "N_over_L": 3.059572691199719e-06,
-                "background_avg": 90.375,
-                "background_high": 85.5,
-                "background_low": 95.25,
-                "delay": -11.649999618530273,
-                "events": 7.625,
-                "max": 15.0,
-                "raw_events": 98.0
+                "N_over_L": -5.8995807194150984e-05,
+                "background_avg": 5175.25,
+                "background_high": 4992.75,
+                "background_low": 5357.75,
+                "delay": 0.0,
+                "events": -5175.25,
+                "max": 0.0,
+                "raw_events": 0.0
             },
             "peak3": {
-                "N_over_L": 6.52040114346164e-07,
-                "background_avg": 90.375,
-                "background_high": 85.5,
-                "background_low": 95.25,
-                "delay": -7.949999809265137,
-                "events": 1.625,
-                "max": 15.0,
-                "raw_events": 92.0
+                "N_over_L": -5.8995807194150984e-05,
+                "background_avg": 5175.25,
+                "background_high": 4992.75,
+                "background_low": 5357.75,
+                "delay": 0.0,
+                "events": -5175.25,
+                "max": 0.0,
+                "raw_events": 0.0
             }
         }
     },
