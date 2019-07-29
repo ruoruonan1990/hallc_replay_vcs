@@ -288,7 +288,8 @@
             9159,
             9160,
             9161,
-            9162
+            9162,
+            9163
         ],
         "hms_angle": 51.4,
         "hms_momentum": 0.893,
@@ -299,26 +300,27 @@
             "vcs_over_pi0": 0.02
         },
         "name": "Kin-Ib",
-        "pi0_count": 19139684.320494723,
+        "pi0_count": 20179437.375842836,
         "projections": {
-            "vcs_count": 382793.6864098942,
-            "vcs_count_cut1": 1743.3955653852213,
-            "vcs_count_cut2": 698.9047126471849,
-            "vcs_count_cut3": 34870.16979045426
+            "vcs_count": 403588.7475168566,
+            "vcs_count_cut1": 1838.1045916907708,
+            "vcs_count_cut2": 736.8723352162766,
+            "vcs_count_cut3": 36764.473007425775
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 4167.216418368713
+        "total_charge": 4251.726313522392
     },
     "Kin-1b-dummy": {
         "good_run_list": [
-            9164
+            9164,
+            9165
         ],
         "hms_angle": 51.4,
         "hms_momentum": 0.893,
         "name": "Kin-Ib",
-        "pi0_count": 10138.234878988826,
+        "pi0_count": 469446.4570886948,
         "projections": {
             "vcs_count": 0,
             "vcs_count_cut1": 0,
@@ -328,7 +330,7 @@
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "DUMMY",
-        "total_charge": 2.7778174083484783
+        "total_charge": 123.012450367028
     },
     "Kin-2a": {
         "good_run_list": [],
@@ -505,7 +507,8 @@
             8893,
             8894,
             8897,
-            8898
+            8898,
+            9166
         ],
         "hms_angle": 55.22,
         "hms_momentum": 0.863,
@@ -517,17 +520,17 @@
             "vcs_over_pi0": 0.025
         },
         "name": "Kin-IIb'",
-        "pi0_count": 1268036.753575942,
+        "pi0_count": 1278857.3418112362,
         "projections": {
-            "vcs_count": 31700.918839398553,
-            "vcs_count_cut1": 152.85422242305833,
-            "vcs_count_cut2": 655.2389718590643,
-            "vcs_count_cut3": 3965.2460311884884
+            "vcs_count": 31971.433545280906,
+            "vcs_count_cut1": 154.15857941129363,
+            "vcs_count_cut2": 660.830348520829,
+            "vcs_count_cut3": 3999.0828221443708
         },
         "shms_angle": 7.69,
         "shms_momentum": -4.034,
         "target": "LH2",
-        "total_charge": 589.4383496868284
+        "total_charge": 591.3783728526381
     },
     "Kin-2bp-dummy": {
         "good_run_list": [

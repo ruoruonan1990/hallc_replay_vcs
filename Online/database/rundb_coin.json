@@ -16101,13 +16101,14 @@
       "radiator_status": "OUT"
     },
     "run_info": {
-      "accumulated_charge": 0.0,
-      "beam_current": 39.24046070907788,
+      "accumulated_charge": 63962.92212307523,
+      "beam_current": 34.31487054269752,
       "beam_energy": 4.55,
       "run_number": 9165,
-      "run_time": 0.0001,
+      "run_time": 1864.0001,
       "run_type": "COIN",
-      "start_time": "12:22:51 07/29/19 EDT"
+      "start_time": "12:22:51 07/29/19 EDT",
+      "stop_time": "12:53:54 07/29/19 EDT"
     },
     "spectrometers": {
       "hms_angle": 51.400000000000006,
@@ -16119,6 +16120,77 @@
       "target_id": 5,
       "target_label": "DUMMY",
       "target_mass_amu": 26.92,
+      "target_name": 0
+    }
+  },
+  "9166": {
+    "daq": {
+      "ps1": 15,
+      "ps2": -1,
+      "ps3": -1,
+      "ps4": 9,
+      "ps5": -1,
+      "ps6": 0
+    },
+    "radiator": {
+      "radiator_id": 0.0,
+      "radiator_status": "OUT"
+    },
+    "run_info": {
+      "accumulated_charge": 40563.30063263279,
+      "beam_current": 22.312045325318074,
+      "beam_energy": 4.55,
+      "run_number": 9166,
+      "run_time": 1818.0001,
+      "run_type": "COIN",
+      "start_time": "16:17:27 07/29/19 EDT",
+      "stop_time": "16:48:02 07/29/19 EDT"
+    },
+    "spectrometers": {
+      "hms_angle": 55.220000000000006,
+      "hms_momentum": 0.863,
+      "shms_angle": 7.69,
+      "shms_momentum": -4.034
+    },
+    "target": {
+      "target_id": 2,
+      "target_label": "LH2",
+      "target_mass_amu": 1.00794,
+      "target_name": 0
+    }
+  },
+  "9168": {
+    "daq": {
+      "ps1": 15,
+      "ps2": -1,
+      "ps3": -1,
+      "ps4": 9,
+      "ps5": -1,
+      "ps6": 0
+    },
+    "radiator": {
+      "radiator_id": 0.0,
+      "radiator_status": "OUT"
+    },
+    "run_info": {
+      "accumulated_charge": 0.0,
+      "beam_current": 22.312045325318074,
+      "beam_energy": 4.55,
+      "run_number": 9168,
+      "run_time": 0.0001,
+      "run_type": "COIN",
+      "start_time": "16:56:47 07/29/19 EDT"
+    },
+    "spectrometers": {
+      "hms_angle": 55.220000000000006,
+      "hms_momentum": 0.863,
+      "shms_angle": 7.69,
+      "shms_momentum": -4.034
+    },
+    "target": {
+      "target_id": 2,
+      "target_label": "LH2",
+      "target_mass_amu": 1.00794,
       "target_name": 0
     }
   }
