@@ -26,8 +26,14 @@
   "8850": {
     "comment": "junk"
   }, 
+  "8865": {
+    "comment": "wrong hms angle -.5 deg (all serie up to 8880)"
+  }, 
   "8866": {
     "comment": "junk test prescale"
+  }, 
+  "8880": {
+    "comment": "after rotating to correct angle"
   }, 
   "8897": {
     "comment": "DC tripped run ended early"
