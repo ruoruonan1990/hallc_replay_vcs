@@ -1658,7 +1658,7 @@ int ReadHallCData::DrawHist(string process, int run) {
   h_PTmiss[3]->SetLineColor(8);
   h_PTmiss[3]->Draw("HISTsame");
   c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/exclusivity_%d.pdf", run));
-  c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/exclusivity_%d.root", run));
+  //c1->SaveAs(Form(VCS_REPLAY_PATH "/Ana/Results/exclusivity_%d.root", run));
   c1->Clear();
   c1->Divide(2, 2);
   c1->cd(1);
