@@ -1779,12 +1779,12 @@ int ReadHallCData::DrawHist(string process, int run) {
     }
   }
 
-  TF1* fgaus  = new TF1("fgaus", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[0] - 0.1,
-                       pos_mem[0] + 0.1);
-  TF1* fgaus2 = new TF1("fgaus2", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[1] - 0.1,
-                        pos_mem[1] + 0.1);
-  TF1* fgaus3 = new TF1("fgaus3", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[2] - 0.1,
-                        pos_mem[2] + 0.1);
+  TF1* fgaus  = new TF1("fgaus", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[0] - 0.02,
+                       pos_mem[0] + 0.02);
+  TF1* fgaus2 = new TF1("fgaus2", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[1] - 0.02,
+                        pos_mem[1] + 0.02);
+  TF1* fgaus3 = new TF1("fgaus3", "[0] * exp(-(x-[1])*(x-[1])/2./[2]/[2])", pos_mem[2] - 0.02,
+                        pos_mem[2] + 0.02);
   fgaus->SetParameter(0, max_mem[0]);
   fgaus->SetParameter(1, pos_mem[0]);
   fgaus->SetParameter(2, 0.005);
