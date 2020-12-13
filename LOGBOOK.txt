@@ -1,0 +1,39 @@
+06/08/2020
+1. set pthetacentral_offset in .../PARAM/SHMS/GEN/shmsflags.param to 0.002
+
+06/10/2020
+1. changed pthetacentral_offset back to 0.000
+2. ../DEF-files/COIN/PRODUCTION/coin_production_pElec_hProt.def
+  cancel blok CTime*, P.tr.PruneSelect, H.tr.n*, H.cal.*, H.cer.*, P.cal.*, H.cal.epttracknorm, H.cal.eprtrack, H.hod.fpHitsTime, P.hod.fpHitsTime, P.cal.* 
+  
+block P.cal.eprtrack
+block P.cal.eprtracknorm
+block P.cal.etot
+block P.ngcer.npeSum
+block P.cal.pr.eplane
+block H.kin.*
+block P.aero.npeSum
+block H.extcor.xsieve
+block H.extcor.ysieve
+block P.extcor.xsieve
+block P.extcor.ysieve
+block H.rb.raster.fr_xbpm_tar
+block H.rb.raster.fr_ybpm_tar
+block H.cal.etot
+block H.cal.etottracknorm
+block H.cal.etrack
+
+06/16/2020
+1. set pstart_time_center from 32 to 78
+2. set ptof_tolerance from 2.0 to 4.0
+
+
+11/16/2020
+xptar and momentum offset set to 0 -- set to initial values
+
+11/17/2020
+Add P.cer and P.hg/ngcer block
+
+12/01/2020
+1. change p_oopcentral_offset value to -0.0005 in shmsflags.param
+2. set pdc_using_sigma_per_wire to 0 in PARRAM/SHMS/DC/pdc_sigma_per_wire.param

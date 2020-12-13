@@ -1,0 +1,10 @@
+PROJECT:csr
+TRACK: analysis
+JOBNAME: vcs_alphaE_8882
+DISK_SPACE: 54 GB
+MEMORY: 2500 MB
+OS: centos7
+CPU: 1
+INPUT_FILES: /mss/hallc/alphaE/raw/coin_all_08882.dat
+COMMAND:cd /u/group/alphaE/analysis_apps/hallc_replay_vcs;cp coin_all_08882.dat raw/;cp coin_all_08882.dat cache/;./run_full_replay.csh 8882 vcs LH2
+MAIL: atac@jlab.org
