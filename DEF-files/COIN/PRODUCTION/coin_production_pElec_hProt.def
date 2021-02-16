@@ -63,9 +63,9 @@ block P.cal.etotnorm
 block P.cal.etottracknorm
 block P.gtr.*
 block P.rb.*
-block P.dc.*
+block P.dc.chisq
 block P.kin.*
-#block P.cal.*
+block P.cal.etot*
 block P.dc.x_fp
 block P.dc.xp_fp
 block P.dc.y_fp
