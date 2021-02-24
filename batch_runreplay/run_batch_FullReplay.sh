@@ -15,8 +15,7 @@ batch="${USER}_Job.txt"
 #inputFile="/group/c-kaonlt/USERS/${USER}/hallc_replay_lt/UTIL_BATCH/InputRunLists/ProductionLH2_ALL"
 inputFile="/w/hallc-scifs17exp/alphaE/ruonanli/analyzer/hallc_replay_vcs/batch_runreplay/replay.runlist"
 ## Tape stub                                                                                                                                                                                                      
-#MSSstub='/mss/hallc/alphaE/raw/coin_all_%05d.dat'
-MSSstub='/mss/hallc/spring17/raw/coin_all_%05d.dat'
+MSSstub='/mss/hallc/alphaE/raw/coin_all_%05d.dat'
 raw='coin_all_%05d.dat'
 auger="augerID.tmp"
 

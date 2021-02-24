@@ -6,5 +6,5 @@ MEMORY: 2500 MB
 OS: centos77
 CPU: 1
 INPUT_FILES: /mss/hallc/spring17/raw/coin_all_08786.dat
-COMMAND:cd /w/hallc-scifs17exp/alphaE/ruonanli/analyzer/hallc_replay_vcs;cp coin_all_08786.dat raw/;./run_full_replay.csh 8786 vcs LH2
+COMMAND:cd /w/hallc-scifs17exp/alphaE/ruonanli/analyzer/hallc_replay_vcs;cp coin_all_08786.dat raw/;./run_full_replay.csh 8786 pi+LT LH2
 MAIL: ruonanli@jlab.org

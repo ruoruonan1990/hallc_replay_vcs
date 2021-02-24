@@ -13,7 +13,6 @@ block H.rb.raster.fr_xbpm_tar
 block H.rb.raster.fr_ybpm_tar
 block H.gtr.*
 block H.kin.*
-#block H.cal.*
 block H.dc.x_fp
 block H.dc.xp_fp
 block H.dc.y_fp
@@ -38,6 +37,7 @@ block H.hod.1y.NegTdcRefDiffTime
 block H.hod.1y.NegAdcRefTime
 block H.hod.1y.NegAdcRefDiffTime
 block H.hod.betanotrack
+#block H.cal.*
 #block H.tr.PruneSelect
 #block H.tr.*
 #block H.tr.n*
@@ -88,7 +88,7 @@ block P.hod.1y.NegTdcRefDiffTime
 block P.hod.1y.NegAdcRefTime
 block P.hod.1y.NegAdcRefDiffTime
 block P.hod.betanotrack
-block P.ngcer.*
+#block P.ngcer.*
 #block P.aero.npeSum
 #block P.cal.pr.eplane
 #block P.cal.eprtrack
