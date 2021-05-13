@@ -2,6 +2,10 @@
 ; pmax_pr_hits is the maximum number of decoded hits allowed in a chamber for
 ;              pattern recognition to proceed. This protexts against unusual
 ;              kami kaze events which hang the analyzer to a long time.
+pUseNewLinkStubs=1
+;pUseNewTrackFit=1
+pmin_drifttime=-5.
+pmax_drifttime=120.
 
 ; Tracking parameters
   pmax_pr_hits = 35, 35
@@ -24,10 +28,14 @@ pntracks_max_fp = 10
 ; The following four criteria are applied to the stub fit results at the
 ; focal plane position to link stubs to tracks
   pntracks_max_fp = 10
-  pxt_track_criterion = 100.0
-  pyt_track_criterion = 20.0
-  pxpt_track_criterion = 1.0
+;  pxt_track_criterion = 100.0
+;  pyt_track_criterion = 20.0
+;  pxpt_track_criterion = 1.0
   pypt_track_criterion = 1.0
+;
+  pxt_track_criterion =10.0
+  pyt_track_criterion = 6.0
+  pxpt_track_criterion = .4
 
 ; Make a track of all single stubs normally 0
   psingle_stub = 0

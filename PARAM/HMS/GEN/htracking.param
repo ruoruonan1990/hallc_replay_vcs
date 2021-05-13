@@ -1,3 +1,7 @@
+hUseNewLinkStubs=1
+;hUseNewTrackFit=1
+hmin_drifttime=-5.
+hmax_drifttime=120.
 ; Maximum number of hits allowed in chambers for pattern recognition to proceed (one for each chamber)
 hmax_pr_hits = 35, 35
 
@@ -29,10 +33,13 @@ hstub_max_xpdiff = .1
 ; hypt_track_criterion
 ; recommended value for hspace_point_criterion ( based on meeting
 ; Feb 2003) 
-       hxt_track_criterion  = 100.
-       hyt_track_criterion  = 20.     ;for cosmics
-       hxpt_track_criterion = 1.0
+;       hxt_track_criterion  = 100.
+;       hyt_track_criterion  = 20.     ;for cosmics
+;       hxpt_track_criterion = 1.0
        hypt_track_criterion = 1.0
+  hxt_track_criterion =6.0
+  hyt_track_criterion = 4.0
+  hxpt_track_criterion = .4
 ;
 ; hsingle_stub            If .ne. 0 make a track of each single stub
   hsingle_stub = 0
