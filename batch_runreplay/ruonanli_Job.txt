@@ -1,10 +1,10 @@
 PROJECT:c-alphaE
 TRACK: analysis
-JOBNAME: ruonan_vcs_9366
+JOBNAME: ruonan_vcs_9041
 DISK_SPACE: 60 GB
 MEMORY: 2500 MB
 OS: centos77
 CPU: 1
-INPUT_FILES: /mss/hallc/alphaE/raw/coin_all_09366.dat
-COMMAND:cd /w/hallc-scifs17exp/alphaE/ruonanli/analyzer/hallc_replay_vcs;cp coin_all_09366.dat raw/;./run_full_replay.csh 9366 vcs LH2
+INPUT_FILES: /mss/hallc/alphaE/raw/coin_all_09041.dat
+COMMAND:cd /w/hallc-scifs17exp/alphaE/ruonanli/analyzer/hallc_replay_vcs;cp coin_all_09041.dat raw/;./run_full_replay.csh 9041 vcs LH2
 MAIL: ruonanli@jlab.org
