@@ -1,7 +1,9 @@
+hUseNewFindSpacePoints=1
 hUseNewLinkStubs=1
 ;hUseNewTrackFit=1
 hmin_drifttime=-5.
 hmax_drifttime=120.
+hTrackLargeResidCut = 0.075
 ; Maximum number of hits allowed in chambers for pattern recognition to proceed (one for each chamber)
 hmax_pr_hits = 35, 35
 
@@ -19,7 +21,8 @@ hmin_hit = 5, 5
 hmin_combos = 4, 4 
 
 ; Minimum separation of distinct space points
-hspace_point_criterion = 1.0, 1.0
+;hspace_point_criterion = 1.0, 1.0
+hspace_point_criterion = .5, .5
 
 ; Maximum difference between xp returned by stub and expected xp
 hstub_max_xpdiff = .1
@@ -81,7 +84,7 @@ hprune_delta = 15
 ; beta track = beta mom diff 
 hprune_beta = .5
 ; min number of deg of freedom in track 
-hprune_df = 1
+hprune_df = 8
 ; Number PMT hits    min = 6.0
 hprune_npmt=6
 ; chi of beta   min = 2.0

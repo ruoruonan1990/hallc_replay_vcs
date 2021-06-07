@@ -1,13 +1,15 @@
 ; shms pattern recognition and tracking code parameters
-; pmax_pr_hits is the maximum number of decoded hits allowed in a chamber for
-;              pattern recognition to proceed. This protexts against unusual
-;              kami kaze events which hang the analyzer to a long time.
+pUseNewFindSpacePoints=1
 pUseNewLinkStubs=1
 ;pUseNewTrackFit=1
 pmin_drifttime=-5.
 pmax_drifttime=120.
+pTrackLargeResidCut = 0.075
 
 ; Tracking parameters
+; pmax_pr_hits is the maximum number of decoded hits allowed in a chamber for
+;              pattern recognition to proceed. This protexts against unusual
+;              kami kaze events which hang the analyzer to a long time.
   pmax_pr_hits = 35, 35
 
 ; pminhit(i)   minimum number of hits in each space point (one for each chamber)
@@ -18,7 +20,8 @@ pmin_combos = 4,4
 ; hspace_point_criterion(i) minimum separation of distinct space points
 ; recommended value for hspace_point_criterion ( based on meeting
 ; Feb 2003)
-  pspace_point_criterion = 1.2,1.2
+;  pspace_point_criterion = 1.2,1.2
+  pspace_point_criterion = .5,.5
 
 ; The following four criteria are applied to the stub fit results at the
 ; focal plane position to link stubs to tracks
@@ -66,7 +69,7 @@ pprune_delta = 30
 ; beta track = beta mom diff 
 pprune_beta = .5
 ; min number of deg of freedom in track 
-pprune_df = 1
+pprune_df = 8
 ; Number PMT hits    min = 6.0
 pprune_npmt=6
 ; chi of beta   min = 2.0
