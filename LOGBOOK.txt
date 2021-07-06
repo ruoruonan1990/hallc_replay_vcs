@@ -37,3 +37,7 @@ Add P.cer and P.hg/ngcer block
 12/01/2020
 1. change p_oopcentral_offset value to -0.0005 in shmsflags.param
 2. set pdc_using_sigma_per_wire to 0 in PARRAM/SHMS/DC/pdc_sigma_per_wire.param
+
+07/04/2021
+htof_tolerance changed from  10 to 4 in PARAM/HMS/HODO/hhodo_cuts_runperiods2.param
+

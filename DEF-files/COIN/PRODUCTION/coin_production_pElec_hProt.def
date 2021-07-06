@@ -34,12 +34,14 @@ block H.react.z
 block H.hod.starttime
 block H.dc.chisq
 block H.hod.goodscinhit
+block H.hod.beta
 block H.dc.ntrack
 block H.hod.betanotrack
 block H.cal.etotnorm
 block H.cer.npeSum
 block H.hod.goodstarttime
 block H.cal.etottracknorm
+#block H.hod.*
 
 block P.gtr.*
 block P.kin.*
@@ -60,12 +62,13 @@ block P.hod.starttime
 block P.dc.chisq
 block P.dc.tnhit
 block P.hod.goodscinhit
+block P.hod.beta
 block P.hod.goodstarttime
 block P.dc.ntrack
 block P.cal.etotnorm
 block P.hod.betanotrack
 block P.hgcer.npeSum
-
+#block P.hod.*
 
 
 #block H.cal.*
